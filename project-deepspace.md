@@ -12,3 +12,10 @@ hide: true
 * Process
 * Literature review and Roadmap
 * IAC Paper
+
+
+<br>
+<hr>
+<div style="text-align: center;">
+    <a href="/#projects" class="button">Return to Projects</a>
+</div>
