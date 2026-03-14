@@ -14,7 +14,7 @@ hide: true
 * **Audits & Financials:** Oversaw 10+ audits, documented 50+ lessons learned, and managed close-out, handover, and on-time invoicing and collection.
 
 
-![Project Management Expertise](assets/images/project-ManagementCert.png)
+![Project Management Expertise](assets/images/project-ManagementCert_2.png)
 
 <br>
 <hr>
