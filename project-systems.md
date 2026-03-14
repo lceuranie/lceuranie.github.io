@@ -15,3 +15,9 @@ hide: true
 * PCB design using Kicad
 * MBSE Hybrid swarm building
 * Robotic competition for planetary sample collection and return
+
+<br>
+<hr>
+<div style="text-align: center;">
+    <a href="/#projects" class="button">Return to Projects</a>
+</div>
