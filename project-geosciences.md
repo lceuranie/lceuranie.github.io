@@ -29,3 +29,11 @@ hide: true
 * Onboarded & coached 10+ resources and organized 20+ internal & external publications.
 * Acted as an instructor in 10+ training sessions for diverse internal populations up to technical sales and clients.
 * Designed unique automated solutions and new workflows to address unique challenges during 100+ highly publicized and heavy workload projects.
+
+![Geosciences Expertise](assets/images/project-geosciences.png)
+
+<br>
+<hr>
+<div style="text-align: center;">
+    <a href="/#projects" class="button">Return to Projects</a>
+</div>
