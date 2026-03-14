@@ -44,7 +44,7 @@ icon: fa-rocket
 
   <div class="4u 12u$(mobile)">
     <article class="item">
-      <a href="project-astronomical.html" class="image fit"><img src="assets/images/thumbnail-astronomical.jpg" alt="Astronomical Data Mining" /></a>
+      <a href="project-astronomical.html" class="image fit"><img src="assets/images/thumbnail-astronomical.png" alt="Astronomical Data Mining" /></a>
       <header>
         <h3>Astronomical Data Mining</h3>
       </header>
