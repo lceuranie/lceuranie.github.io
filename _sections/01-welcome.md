@@ -1,5 +1,5 @@
 ---
-title: @lceuranie
+title: "@lceuranie"
 order: 1
 icon: fa-home
 ---
