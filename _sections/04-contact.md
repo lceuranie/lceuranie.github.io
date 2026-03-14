@@ -17,9 +17,9 @@ Feel free to reach out to discuss System Engineering, Earth Observation, Geoscie
     </a>
   </div>
 
-  <div class="4u 12u$(mobile)">
+<div class="4u 12u$(mobile)">
     <a href="https://www.linkedin.com/in/lceuranie" target="_blank" style="border-bottom: none;">
-      <span class="icon fa-linkedin" style="font-size: 3em; color: #888;"></span>
+      <i class="icon brands fa-linkedin" style="font-size: 3em; font-weight: 400; color: #888;"></i>
       <br><br>
       <h4>LinkedIn</h4>
     </a>
