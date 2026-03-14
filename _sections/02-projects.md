@@ -25,6 +25,14 @@ icon: fa-rocket
     </article>
   </div>
 
+  <div class="4u 12u$(mobile)">
+    <article class="item">
+      <a href="project-geosciences.html" class="image fit"><img src="assets/images/thumbnail-geosciences-169.png" alt="Geosciences" style="aspect-ratio: 16/9; object-fit: cover;" /></a>
+      <header>
+        <h3>Geosciences</h3>
+      </header>
+    </article>
+  </div>
 
   <div class="4u 12u$(mobile)">
     <article class="item">
@@ -35,21 +43,20 @@ icon: fa-rocket
     </article>
   </div>
 
-
   <div class="4u 12u$(mobile)">
     <article class="item">
-      <a href="project-orbital.html" class="image fit"><img src="assets/images/thumbnail-orbital-169.jpg" alt="Orbital Mission Design" style="aspect-ratio: 16/9; object-fit: cover;" /></a>
+      <a href="project-management.html" class="image fit"><img src="assets/images/thumbnail-management-169.png" alt="Project Management" style="aspect-ratio: 16/9; object-fit: cover;" /></a>
       <header>
-        <h3>Orbital Mission Design</h3>
+        <h3>Project Management</h3>
       </header>
     </article>
   </div>
 
   <div class="4u 12u$(mobile)">
     <article class="item">
-      <a href="project-deepspace.html" class="image fit"><img src="assets/images/thumbnail-deepspace-169.jpg" alt="Deep Space Communication" style="aspect-ratio: 16/9; object-fit: cover;" /></a>
+      <a href="project-orbital.html" class="image fit"><img src="assets/images/thumbnail-orbital-169.jpg" alt="Orbital Mission Design" style="aspect-ratio: 16/9; object-fit: cover;" /></a>
       <header>
-        <h3>Deep Space Communication</h3>
+        <h3>Orbital Mission Design</h3>
       </header>
     </article>
   </div>
@@ -65,6 +72,15 @@ icon: fa-rocket
 
   <div class="4u 12u$(mobile)">
     <article class="item">
+      <a href="project-deepspace.html" class="image fit"><img src="assets/images/thumbnail-deepspace-169.jpg" alt="Deep Space Communication" style="aspect-ratio: 16/9; object-fit: cover;" /></a>
+      <header>
+        <h3>Deep Space Communication</h3>
+      </header>
+    </article>
+  </div>
+
+  <div class="4u 12u$(mobile)">
+    <article class="item">
       <a href="project-sbsp.html" class="image fit"><img src="assets/images/thumbnail-sbsp-169.png" alt="Space Based Solar Power Thesis" style="aspect-ratio: 16/9; object-fit: cover;" /></a>
       <header>
         <h3>Space Based Solar Power Thesis</h3>
@@ -72,22 +88,5 @@ icon: fa-rocket
     </article>
   </div>
 
-  <div class="4u 12u$(mobile)">
-    <article class="item">
-      <a href="project-geosciences.html" class="image fit"><img src="assets/images/thumbnail-geosciences-169.png" alt="Geosciences" style="aspect-ratio: 16/9; object-fit: cover;" /></a>
-      <header>
-        <h3>Geosciences</h3>
-      </header>
-    </article>
-  </div>
-
-  <div class="4u 12u$(mobile)">
-    <article class="item">
-      <a href="project-management.html" class="image fit"><img src="assets/images/thumbnail-management-169.png" alt="Project Management" style="aspect-ratio: 16/9; object-fit: cover;" /></a>
-      <header>
-        <h3>Project Management</h3>
-      </header>
-    </article>
-  </div>
 
 </div>
