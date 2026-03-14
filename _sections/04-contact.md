@@ -6,19 +6,30 @@ icon: fa-envelope
 
 Feel free to reach out to discuss orbital mechanics, geoscience, or project management opportunities!
 
-<form method="POST" action="https://formspree.io/{{ site.email }}">
-  <div class="row">
-    <div class="6u 12u$(mobile)">
-      <input type="text" name="name" placeholder="Name" required />
-    </div>
-    <div class="6u$ 12u$(mobile)">
-      <input type="email" name="_replyto" placeholder="Email" required />
-    </div>
-    <div class="12u$">
-      <textarea name="message" placeholder="Message" rows="5" required></textarea>
-    </div>
-    <div class="12u$">
-      <input type="submit" value="Send Message" />
-    </div>
+<br><br>
+
+<div class="row" style="text-align: center;">
+  <div class="4u 12u$(mobile)">
+    <a href="mailto:lceuranie@outlook.com" style="border-bottom: none;">
+      <span class="icon solid fa-envelope" style="font-size: 3em; color: #888;"></span>
+      <br><br>
+      <h4>lceuranie@outlook.com</h4>
+    </a>
   </div>
-</form>
+
+  <div class="4u 12u$(mobile)">
+    <a href="https://www.linkedin.com/in/lceuranie" target="_blank" style="border-bottom: none;">
+      <span class="icon brands fa-linkedin" style="font-size: 3em; color: #888;"></span>
+      <br><br>
+      <h4>LinkedIn</h4>
+    </a>
+  </div>
+
+  <div class="4u 12u$(mobile)">
+    <a href="https://www.researchgate.net/profile/Ludivine-Euranie?ev=hdr_xprf" target="_blank" style="border-bottom: none;">
+      <span class="icon solid fa-graduation-cap" style="font-size: 3em; color: #888;"></span>
+      <br><br>
+      <h4>ResearchGate</h4>
+    </a>
+  </div>
+</div>
