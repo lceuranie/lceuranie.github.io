@@ -12,3 +12,11 @@ Open clusters are used to see the structure of galaxies and their current fate.
 Gaia is the current consensus for observation of Open clusters as it "provides homogeneous photometric data covering the whole sky, but also unprecedented high precision kinematics and parallax information, that are fundamental to obtain accurate membership and to identify new clusters" (Bossini et al., 2019).
 
 In this study, we are using Gaia data release 3 (GDR3) to select and analyze one open cluster the NGC 4852 Gaia DR3.
+
+![Astronomical Data Mining - NGC4852](assets/images/project-DataMiningReportCover.png)
+
+<br>
+<hr>
+<div style="text-align: center;">
+    <a href="/#projects" class="button">Return to Projects</a>
+</div>
