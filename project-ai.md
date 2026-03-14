@@ -9,7 +9,6 @@ hide: true
 
 <br>
 <hr>
-
 <div style="text-align: center;">
-    <a href="/" class="button">Return to Portfolio</a>
+    <a href="/#projects" class="button">Return to Projects</a>
 </div>
