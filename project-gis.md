@@ -11,7 +11,7 @@ Based on the obtained EVI values, Rwanda’s AI generated agricultural area of i
 GEE Link: https://isu-lceuranie.projects.earthengine.app/view/rwandacviappv2
 
 
-![Google Earth Engine EVI Map of Rwanda](assets/images/project-gisGEE.jpg)
+![Google Earth Engine EVI Map of Rwanda](assets/images/project-gisGEE-2.jpg)
 
 ## GIS Project – QGIS, ARCGIS – To come
 
