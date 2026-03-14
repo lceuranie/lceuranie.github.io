@@ -24,3 +24,9 @@ STK can model Space + Ground + Air + Land + Sea.
 * Explored J2 perturbation effects on orbital dynamics
 
 **Certifications:** STK Level 1 Certification
+
+<br>
+<hr>
+<div style="text-align: center;">
+    <a href="/#projects" class="button">Return to Projects</a>
+</div>
