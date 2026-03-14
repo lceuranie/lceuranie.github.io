@@ -25,6 +25,17 @@ icon: fa-rocket
     </article>
   </div>
 
+
+  <div class="4u 12u$(mobile)">
+    <article class="item">
+      <a href="project-systems.html" class="image fit"><img src="assets/images/thumbnail-systems-169.png" alt="System Engineering" style="aspect-ratio: 16/9; object-fit: cover;" /></a>
+      <header>
+        <h3>System Engineering</h3>
+      </header>
+    </article>
+  </div>
+
+
   <div class="4u 12u$(mobile)">
     <article class="item">
       <a href="project-orbital.html" class="image fit"><img src="assets/images/thumbnail-orbital-169.jpg" alt="Orbital Mission Design" style="aspect-ratio: 16/9; object-fit: cover;" /></a>
@@ -48,15 +59,6 @@ icon: fa-rocket
       <a href="project-astronomical.html" class="image fit"><img src="assets/images/thumbnail-astronomical-169.png" alt="Astronomical Data Mining" style="aspect-ratio: 16/9; object-fit: cover;" /></a>
       <header>
         <h3>Astronomical Data Mining</h3>
-      </header>
-    </article>
-  </div>
-
-  <div class="4u 12u$(mobile)">
-    <article class="item">
-      <a href="project-systems.html" class="image fit"><img src="assets/images/thumbnail-systems-169.png" alt="System Engineering" style="aspect-ratio: 16/9; object-fit: cover;" /></a>
-      <header>
-        <h3>System Engineering</h3>
       </header>
     </article>
   </div>
