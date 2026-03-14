@@ -6,7 +6,7 @@ icon: fa-rocket
 
 <div class="row">
 
-  <div class="col-4 col-12-mobile">
+  <div class="4u 12u$(mobile)">
     <article class="item">
       <a href="project-ai.html" class="image fit"><img src="assets/images/thumbnail-ai.png" alt="AI Proficiency" /></a>
       <header>
@@ -15,7 +15,7 @@ icon: fa-rocket
     </article>
   </div>
 
-  <div class="col-4 col-12-mobile">
+  <div class="4u 12u$(mobile)">
     <article class="item">
       <a href="project-gis.html" class="image fit"><img src="assets/images/thumbnail-gis.jpg" alt="Geographic Information System" /></a>
       <header>
@@ -24,7 +24,7 @@ icon: fa-rocket
     </article>
   </div>
 
-  <div class="col-4 col-12-mobile">
+  <div class="4u 12u$(mobile)">
     <article class="item">
       <a href="project-orbital.html" class="image fit"><img src="assets/images/thumbnail-orbital.jpg" alt="Orbital Mission Design" /></a>
       <header>
@@ -33,7 +33,7 @@ icon: fa-rocket
     </article>
   </div>
 
-  <div class="col-4 col-12-mobile">
+  <div class="4u 12u$(mobile)">
     <article class="item">
       <a href="project-deepspace.html" class="image fit"><img src="assets/images/thumbnail-deepspace.jpg" alt="Deep Space Communication" /></a>
       <header>
@@ -42,7 +42,7 @@ icon: fa-rocket
     </article>
   </div>
 
-  <div class="col-4 col-12-mobile">
+  <div class="4u 12u$(mobile)">
     <article class="item">
       <a href="project-astronomical.html" class="image fit"><img src="assets/images/thumbnail-astronomical.jpg" alt="Astronomical Data Mining" /></a>
       <header>
@@ -51,7 +51,7 @@ icon: fa-rocket
     </article>
   </div>
 
-  <div class="col-4 col-12-mobile">
+  <div class="4u 12u$(mobile)">
     <article class="item">
       <a href="project-systems.html" class="image fit"><img src="assets/images/thumbnail-systems.png" alt="System Engineering" /></a>
       <header>
@@ -60,7 +60,7 @@ icon: fa-rocket
     </article>
   </div>
 
-  <div class="col-4 col-12-mobile">
+  <div class="4u 12u$(mobile)">
     <article class="item">
       <a href="project-sbsp.html" class="image fit"><img src="assets/images/thumbnail-sbsp.png" alt="Space Based Solar Power Thesis" /></a>
       <header>
@@ -69,7 +69,7 @@ icon: fa-rocket
     </article>
   </div>
 
-  <div class="col-4 col-12-mobile">
+  <div class="4u 12u$(mobile)">
     <article class="item">
       <a href="project-geosciences.html" class="image fit"><img src="assets/images/thumbnail-geosciences.png" alt="Geosciences" /></a>
       <header>
@@ -78,7 +78,7 @@ icon: fa-rocket
     </article>
   </div>
 
-  <div class="col-4 col-12-mobile">
+  <div class="4u 12u$(mobile)">
     <article class="item">
       <a href="project-management.html" class="image fit"><img src="assets/images/thumbnail-management.png" alt="Project Management" /></a>
       <header>
