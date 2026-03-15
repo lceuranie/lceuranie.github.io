@@ -4,7 +4,6 @@ layout: page
 icon: fa-book
 order: 2
 ---
-## Technical Presentations & Conferences
 
 ### Offset VSP Optimization in Structurally Complex Settings: An Example from Onshore Romania
 > DOI: https://doi.org/10.3997/2214-4609.2019X604032  
