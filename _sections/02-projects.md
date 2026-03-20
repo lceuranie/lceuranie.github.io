@@ -71,7 +71,7 @@ icon: fa-rocket
 <div class="row" style="display: flex; flex-wrap: wrap; align-items: stretch;">
 
   <div class="4u 12u$(mobile)" style="display: flex;">
-    <div class="modern-card">
+    <div class="modern-card" data-aos="fade-up">
       <a href="project-ai.html"><img src="assets/images/thumbnail-ai-169.png" alt="AI Proficiency" class="card-img" /></a>
       <div class="card-body">
         <h3 class="card-title"><a href="project-ai.html">AI Proficiency</a></h3>
@@ -85,7 +85,7 @@ icon: fa-rocket
   </div>
 
   <div class="4u 12u$(mobile)" style="display: flex;">
-    <div class="modern-card">
+    <div class="modern-card" data-aos="fade-up">
       <a href="project-gis.html"><img src="assets/images/thumbnail-gis2-169.jpg" alt="Geographic Information System" class="card-img" /></a>
       <div class="card-body">
         <h3 class="card-title"><a href="project-gis.html">Geographic Information System</a></h3>
@@ -100,7 +100,7 @@ icon: fa-rocket
   </div>
 
   <div class="4u 12u$(mobile)" style="display: flex;">
-    <div class="modern-card">
+    <div class="modern-card" data-aos="fade-up">
       <a href="project-geosciences.html"><img src="assets/images/thumbnail-geosciences-169.png" alt="Geosciences" class="card-img" /></a>
       <div class="card-body">
         <h3 class="card-title"><a href="project-geosciences.html">Geosciences</a></h3>
@@ -115,7 +115,7 @@ icon: fa-rocket
   </div>
 
   <div class="4u 12u$(mobile)" style="display: flex;">
-    <div class="modern-card">
+    <div class="modern-card" data-aos="fade-up">
       <a href="project-systems.html"><img src="assets/images/thumbnail-systems-169.png" alt="System Engineering" class="card-img" /></a>
       <div class="card-body">
         <h3 class="card-title"><a href="project-systems.html">System Engineering</a></h3>
@@ -130,7 +130,7 @@ icon: fa-rocket
   </div>
 
   <div class="4u 12u$(mobile)" style="display: flex;">
-    <div class="modern-card">
+    <div class="modern-card" data-aos="fade-up">
       <a href="project-management.html"><img src="assets/images/thumbnail-management-169.png" alt="Project Management" class="card-img" /></a>
       <div class="card-body">
         <h3 class="card-title"><a href="project-management.html">Project Management</a></h3>
@@ -145,7 +145,7 @@ icon: fa-rocket
   </div>
 
   <div class="4u 12u$(mobile)" style="display: flex;">
-    <div class="modern-card">
+    <div class="modern-card" data-aos="fade-up">
       <a href="project-orbital.html"><img src="assets/images/thumbnail-orbital-169.jpg" alt="Orbital Mission Design" class="card-img" /></a>
       <div class="card-body">
         <h3 class="card-title"><a href="project-orbital.html">Orbital Mission Design</a></h3>
@@ -160,7 +160,7 @@ icon: fa-rocket
   </div>
 
   <div class="4u 12u$(mobile)" style="display: flex;">
-    <div class="modern-card">
+    <div class="modern-card" data-aos="fade-up">
       <a href="project-astronomical.html"><img src="assets/images/thumbnail-astronomical-169.png" alt="Astronomical Data Mining" class="card-img" /></a>
       <div class="card-body">
         <h3 class="card-title"><a href="project-astronomical.html">Astronomical Data Mining</a></h3>
@@ -175,7 +175,7 @@ icon: fa-rocket
   </div>
 
   <div class="4u 12u$(mobile)" style="display: flex;">
-    <div class="modern-card">
+    <div class="modern-card" data-aos="fade-up">
       <a href="project-deepspace.html"><img src="assets/images/thumbnail-deepspace-169.jpg" alt="Deep Space Communication" class="card-img" /></a>
       <div class="card-body">
         <h3 class="card-title"><a href="project-deepspace.html">Deep Space Communication</a></h3>
@@ -189,7 +189,7 @@ icon: fa-rocket
   </div>
 
   <div class="4u 12u$(mobile)" style="display: flex;">
-    <div class="modern-card">
+    <div class="modern-card" data-aos="fade-up">
       <a href="project-sbsp.html"><img src="assets/images/thumbnail-sbsp-169.png" alt="Space Based Solar Power Thesis" class="card-img" /></a>
       <div class="card-body">
         <h3 class="card-title"><a href="project-sbsp.html">Space Based Solar Power Thesis</a></h3>
