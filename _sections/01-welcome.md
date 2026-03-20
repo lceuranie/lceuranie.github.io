@@ -5,20 +5,23 @@ icon: fa-home
 ---
 
 <style>
-  /* 1. The "Nuclear Option" to hide that specific section header */
-  /* This covers #welcome, #top, and the likely ID generated from your title: #lceuranie */
+  /* 1. Hides the default section title */
   #welcome > .container > header, 
   #top > .container > header,
   #lceuranie > .container > header,
   section:first-of-type > .container > header {
     display: none !important;
-    visibility: hidden !important;
-    height: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
   }
 
-  /* 2. Styles the Antarctica Hero Banner */
+  /* 2. Removes the large white padding at the top of the section */
+  #welcome, #top, #lceuranie, section:first-of-type {
+    padding-top: 0 !important;
+  }
+  #welcome > .container, #top > .container, #lceuranie > .container {
+    padding-top: 2em !important; /* Adjust this to 0 if you want it even higher */
+  }
+
+  /* 3. Styles the Antarctica Hero Banner */
   .hero-banner {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/assets/images/hero-bg.jpg');
     background-size: cover;
@@ -28,11 +31,11 @@ icon: fa-home
     color: #ffffff;
     text-align: center;
     box-shadow: 0 10px 15px rgba(0,0,0,0.1);
-    /* Pulls the banner up to fill the gap left by the hidden title */
-    margin-top: -4em; 
+    /* No more negative margin! */
+    margin-top: 0; 
   }
   
-  /* 3. Forces all text inside the banner to be white */
+  /* 4. Formatting for text and links inside the banner */
   .hero-banner h2, 
   .hero-banner h3, 
   .hero-banner p, 
