@@ -17,6 +17,11 @@ icon: fa-home
     box-shadow: 0 10px 15px rgba(0,0,0,0.1);
   }
   
+  /* Hides the automatically generated section title */
+  #welcome > header {
+    display: none;
+  }
+  
   /* This forces all text inside the banner to be white */
   .hero-banner h2, .hero-banner h3, .hero-banner p, .hero-banner strong {
     color: #ffffff !important; 
