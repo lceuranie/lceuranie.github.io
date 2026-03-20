@@ -3,6 +3,24 @@ title: Astronomical Data Mining
 layout: page
 hide: true
 ---
+<style>
+  /* Centers and sizes all images on the project page */
+  img {
+    max-width: 100%;         /* Ensures it fits within the page width */
+    width: auto;             /* Maintains aspect ratio */
+    height: auto;
+    display: block;
+    margin: 2em auto;        /* Centers the image and adds space above/below */
+    border-radius: 8px;      /* Rounded corners to match your modern cards */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+  }
+
+  /* Optional: If you want certain images to be smaller (like logos) */
+  .small-img {
+    max-width: 50% !important;
+  }
+</style>
+
 ## Astronomical Data Mining
 
 > "The study of the formation and evolution of open clusters (OC) and their stellar populations represent a backbone of research in modern astrophysics. Indeed, they have a strong impact on our understanding of key open issues, from the star formation process to the assembly and evolution of the Milky Way disk and galaxies in general." - Bossini et al. (2019)
