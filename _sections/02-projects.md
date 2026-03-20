@@ -151,9 +151,8 @@ icon: fa-rocket
         <h3 class="card-title"><a href="project-orbital.html">Orbital Mission Design</a></h3>
         <p class="card-desc">Modeling satellites, ground stations, coverage, and orbits in a realistic 3D environment.</p>
         <div class="card-tags">
-          <span class="tag">STK Certified</span>
+          <span class="tag">STK</span>
           <span class="tag">Mission Analysis</span>
-          <span class="tag">3D Simulation</span>
         </div>
       </div>
     </div>
@@ -181,7 +180,7 @@ icon: fa-rocket
         <h3 class="card-title"><a href="project-deepspace.html">Deep Space Communication</a></h3>
         <p class="card-desc">A John Templeton Grant project developing a global communication roadmap to sustain exploration missions.</p>
         <div class="card-tags">
-          <span class="tag">Templeton Grant</span>
+          <span class="tag">Grant</span>
           <span class="tag">IAC Paper</span>
         </div>
       </div>
@@ -197,7 +196,6 @@ icon: fa-rocket
         <div class="card-tags">
           <span class="tag">SBSP</span>
           <span class="tag">Policy Frameworks</span>
-          <span class="tag">Energy Systems</span>
         </div>
       </div>
     </div>
