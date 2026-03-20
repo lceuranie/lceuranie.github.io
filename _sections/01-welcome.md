@@ -7,7 +7,7 @@ icon: fa-home
 <style>
   .hero-banner {
     /* The linear-gradient acts as a 60% dark tint over your image */
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('assets/images/hero-bg.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/assets/images/hero-bg.jpg');
     background-size: cover;
     background-position: center;
     border-radius: 12px;
