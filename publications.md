@@ -5,42 +5,151 @@ icon: fa-book
 order: 2
 ---
 
-### Offset VSP Optimization in Structurally Complex Settings: An Example from Onshore Romania
-> DOI: [https://doi.org/10.3997/2214-4609.2019X604032](https://doi.org/10.3997/2214-4609.2019X604032)  
-> Conference: Fifth EAGE Workshop on Borehole Geophysics
+<style>
+  /* 1. Publication Card Styling */
+  .pub-card {
+    background: #ffffff;
+    border-radius: 8px;
+    border-left: 5px solid #5a67d8; /* Aerospace blue accent */
+    padding: 1.5em;
+    margin-bottom: 2em;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    text-align: left;
+  }
 
-### Seismic while drilling, check shot processing techniques impact on drilling trajectory decisions
-> DOI: [https://doi.org/10.1190/segam2018-2988984.1](https://doi.org/10.1190/segam2018-2988984.1)  
-> Conference: SEG Technical Program Expanded Abstracts 2018
+  .pub-card:hover {
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    transform: translateX(5px);
+  }
 
-### Increasing Drilling Efficiency and Reducing Risk by Actively Steering toward the Target with Seismic while Drilling Tech
-> DOI: [https://doi.org/10.3997/2214-4609.201800879](https://doi.org/10.3997/2214-4609.201800879)  
-> Conference: 80th EAGE Conference and Exhibition 2018
+  .pub-title {
+    font-size: 1.15em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.8em;
+    line-height: 1.4;
+  }
 
-### Geophysical imaging in real time to reduce uncertainties in well placement
-> DOI: [https://doi.org/10.1190/segj2021-008.1](https://doi.org/10.1190/segj2021-008.1)  
-> Conference: The 14th SEGJ International Symposium
+  .pub-meta {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 0.5em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
 
-### Seismic Logging While Drilling Evolution
-> DOI: [https://doi.org/10.3997/2214-4609.2021613008](https://doi.org/10.3997/2214-4609.2021613008)  
-> Source: Sixth EAGE Borehole Geophysics Workshop, Nov 2021, Volume 2021, p.1 - 5
+  .pub-meta i {
+    color: #5a67d8;
+    width: 18px;
+  }
 
-### Exploration Drilling in Mexico through Complex Salt with Seismic While Drilling Technology
-> DOI: [https://doi.org/10.3997/2214-4609.202113119](https://doi.org/10.3997/2214-4609.202113119)  
-> Source: 82nd EAGE Annual Conference & Exhibition, Oct 2021, Volume 2021, p.1 – 5
+  /* 2. DOI Button Styling */
+  .doi-link {
+    display: inline-block;
+    margin-top: 1em;
+    font-size: 0.8em;
+    font-weight: bold;
+    color: #5a67d8 !important;
+    text-transform: uppercase;
+    text-decoration: none !important;
+    border: 1px solid #5a67d8;
+    padding: 5px 12px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+  }
 
-### Safe Landing of a Deviated Well with a Rig Source VSP Using RT Lookahead Seismic Technology
-> DOI: [https://doi.org/10.4043/30811-MS](https://doi.org/10.4043/30811-MS)  
-> Conference: Offshore Technology Conference
+  .doi-link:hover {
+    background: #5a67d8;
+    color: #fff !important;
+  }
 
-### ERD Wellbore Positioning with LWD Seismic Proof of Concept
-> Conference: 28th JFES Annual Symposium 2023
+  hr { margin: 3em 0; }
+</style>
 
-### ERD wellbore Positioning with LWD Seismic
-> Conference: ISCWSA 56th General Meeting 2022
+<div data-aos="fade-down">
+  <p>A comprehensive record of technical contributions in geophysics, seismic technology, and borehole optimization presented at global engineering conferences.</p>
+</div>
 
-### EM and Seismic Look Ahead Operation on WDP - A Worlds first in the Barents Sea
-> Conference: ONS Conference and Exhibition 2018
+<br>
+
+<div class="pub-card" data-aos="fade-up">
+  <div class="pub-title">Offset VSP Optimization in Structurally Complex Settings: An Example from Onshore Romania</div>
+  <div class="pub-meta">
+    <i class="fa fa-university"></i> Fifth EAGE Workshop on Borehole Geophysics
+  </div>
+  <a href="https://doi.org/10.3997/2214-4609.2019X604032" target="_blank" class="doi-link">View DOI / Source</a>
+</div>
+
+<div class="pub-card" data-aos="fade-up">
+  <div class="pub-title">Seismic while drilling, check shot processing techniques impact on drilling trajectory decisions</div>
+  <div class="pub-meta">
+    <i class="fa fa-calendar-alt"></i> SEG Technical Program Expanded Abstracts 2018
+  </div>
+  <a href="https://doi.org/10.1190/segam2018-2988984.1" target="_blank" class="doi-link">View DOI / Source</a>
+</div>
+
+<div class="pub-card" data-aos="fade-up">
+  <div class="pub-title">Increasing Drilling Efficiency and Reducing Risk by Actively Steering toward the Target with Seismic while Drilling Tech</div>
+  <div class="pub-meta">
+    <i class="fa fa-university"></i> 80th EAGE Conference and Exhibition 2018
+  </div>
+  <a href="https://doi.org/10.3997/2214-4609.201800879" target="_blank" class="doi-link">View DOI / Source</a>
+</div>
+
+<div class="pub-card" data-aos="fade-up">
+  <div class="pub-title">Geophysical imaging in real time to reduce uncertainties in well placement</div>
+  <div class="pub-meta">
+    <i class="fa fa-globe"></i> The 14th SEGJ International Symposium
+  </div>
+  <a href="https://doi.org/10.1190/segj2021-008.1" target="_blank" class="doi-link">View DOI / Source</a>
+</div>
+
+<div class="pub-card" data-aos="fade-up">
+  <div class="pub-title">Seismic Logging While Drilling Evolution</div>
+  <div class="pub-meta">
+    <i class="fa fa-book-open"></i> Sixth EAGE Borehole Geophysics Workshop, Nov 2021
+  </div>
+  <a href="https://doi.org/10.3997/2214-4609.2021613008" target="_blank" class="doi-link">View DOI / Source</a>
+</div>
+
+<div class="pub-card" data-aos="fade-up">
+  <div class="pub-title">Exploration Drilling in Mexico through Complex Salt with Seismic While Drilling Technology</div>
+  <div class="pub-meta">
+    <i class="fa fa-university"></i> 82nd EAGE Annual Conference & Exhibition, Oct 2021
+  </div>
+  <a href="https://doi.org/10.3997/2214-4609.202113119" target="_blank" class="doi-link">View DOI / Source</a>
+</div>
+
+<div class="pub-card" data-aos="fade-up">
+  <div class="pub-title">Safe Landing of a Deviated Well with a Rig Source VSP Using RT Lookahead Seismic Technology</div>
+  <div class="pub-meta">
+    <i class="fa fa-anchor"></i> Offshore Technology Conference
+  </div>
+  <a href="https://doi.org/10.4043/30811-MS" target="_blank" class="doi-link">View DOI / Source</a>
+</div>
+
+<div class="pub-card" data-aos="fade-up">
+  <div class="pub-title">ERD Wellbore Positioning with LWD Seismic Proof of Concept</div>
+  <div class="pub-meta">
+    <i class="fa fa-calendar-check"></i> 28th JFES Annual Symposium 2023
+  </div>
+</div>
+
+<div class="pub-card" data-aos="fade-up">
+  <div class="pub-title">ERD wellbore Positioning with LWD Seismic</div>
+  <div class="pub-meta">
+    <i class="fa fa-users"></i> ISCWSA 56th General Meeting 2022
+  </div>
+</div>
+
+<div class="pub-card" data-aos="fade-up">
+  <div class="pub-title">EM and Seismic Look Ahead Operation on WDP - A Worlds first in the Barents Sea</div>
+  <div class="pub-meta">
+    <i class="fa fa-ship"></i> ONS Conference and Exhibition 2018
+  </div>
+</div>
 
 <br>
 <hr>
