@@ -3,6 +3,26 @@ title: Space Based Solar Power Thesis
 layout: page
 hide: true
 ---
+
+<style>
+  /* Centers and sizes all images on the project page */
+  img {
+    max-width: 100%;         /* Ensures it fits within the page width */
+    width: auto;             /* Maintains aspect ratio */
+    height: auto;
+    display: block;
+    margin: 2em auto;        /* Centers the image and adds space above/below */
+    border-radius: 8px;      /* Rounded corners to match your modern cards */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+  }
+
+  /* Optional: If you want certain images to be smaller (like logos) */
+  .small-img {
+    max-width: 50% !important;
+  }
+</style>
+
+
 ## Space Based Solar Power: Global Roadmap and Divergence of Intents
 
 Since the first conceptualization of Space-Based Solar Power (SBSP) in 1968, the technology has transitioned from a concept to a technically deployable energy solution. However, despite over 50 years of intensive research, a unified international roadmap similar to the International Space Station (ISS) has failed to materialize. 
