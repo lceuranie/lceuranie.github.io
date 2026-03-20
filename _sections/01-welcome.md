@@ -18,7 +18,7 @@ icon: fa-home
   }
   
   /* Hides the automatically generated section title */
-  #welcome > header {
+  #top > header {
     display: none;
   }
   
@@ -32,7 +32,7 @@ icon: fa-home
 
 ## L. Chris Euranie
 ### Project Manager | Space Systems Engineer | EO Specialist
-
+  
 Welcome to my portfolio! I specialize in bridging earth observation & geosciences, system engineering, orbital mission design, and complex project management. Let's explore my work.
 
 </div>
