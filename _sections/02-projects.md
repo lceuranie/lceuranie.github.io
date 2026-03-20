@@ -121,4 +121,79 @@ icon: fa-rocket
     </div>
   </div>
 
-  <div class="
+  <div class="4u 12u$(mobile)">
+    <div class="modern-card">
+      <a href="project-management.html"><img src="assets/images/thumbnail-management-169.png" alt="Project Management" class="card-img" /></a>
+      <div class="card-body">
+        <h3 class="card-title"><a href="project-management.html">Project Management</a></h3>
+        <p class="card-desc">Managing multidisciplinary engineering teams through complex life cycles and directing large-scale digital transformation across Europe.</p>
+        <div class="card-tags">
+          <span class="tag">Leadership</span>
+          <span class="tag">Governance</span>
+          <span class="tag">Risk Analytics</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="4u 12u$(mobile)">
+    <div class="modern-card">
+      <a href="project-orbital.html"><img src="assets/images/thumbnail-orbital-169.jpg" alt="Orbital Mission Design" class="card-img" /></a>
+      <div class="card-body">
+        <h3 class="card-title"><a href="project-orbital.html">Orbital Mission Design</a></h3>
+        <p class="card-desc">Modeling satellites, ground stations, coverage, and orbits in a realistic 3D environment using AGI/Ansys Systems Tool Kit.</p>
+        <div class="card-tags">
+          <span class="tag">STK Certified</span>
+          <span class="tag">Mission Analysis</span>
+          <span class="tag">3D Simulation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="4u 12u$(mobile)">
+    <div class="modern-card">
+      <a href="project-astronomical.html"><img src="assets/images/thumbnail-astronomical-169.png" alt="Astronomical Data Mining" class="card-img" /></a>
+      <div class="card-body">
+        <h3 class="card-title"><a href="project-astronomical.html">Astronomical Data Mining</a></h3>
+        <p class="card-desc">Utilizing Gaia data release 3 (GDR3) to analyze open clusters and understand the assembly and evolution of stellar populations.</p>
+        <div class="card-tags">
+          <span class="tag">Astrophysics</span>
+          <span class="tag">Gaia DR3</span>
+          <span class="tag">Open Clusters</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="4u 12u$(mobile)">
+    <div class="modern-card">
+      <a href="project-deepspace.html"><img src="assets/images/thumbnail-deepspace-169.jpg" alt="Deep Space Communication" class="card-img" /></a>
+      <div class="card-body">
+        <h3 class="card-title"><a href="project-deepspace.html">Deep Space Communication</a></h3>
+        <p class="card-desc">A John Templeton Grant project developing a global communication roadmap to sustain deep space human exploration missions.</p>
+        <div class="card-tags">
+          <span class="tag">Templeton Grant</span>
+          <span class="tag">Human Exploration</span>
+          <span class="tag">IAC Paper</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="4u 12u$(mobile)">
+    <div class="modern-card">
+      <a href="project-sbsp.html"><img src="assets/images/thumbnail-sbsp-169.png" alt="Space Based Solar Power Thesis" class="card-img" /></a>
+      <div class="card-body">
+        <h3 class="card-title"><a href="project-sbsp.html">Space Based Solar Power Thesis</a></h3>
+        <p class="card-desc">A thematic synthesis of architectural evolution and policy frameworks regarding the global divergence of intents in SBSP technology.</p>
+        <div class="card-tags">
+          <span class="tag">SBSP</span>
+          <span class="tag">Policy Frameworks</span>
+          <span class="tag">Energy Systems</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
