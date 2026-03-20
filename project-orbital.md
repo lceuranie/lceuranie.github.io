@@ -3,6 +3,26 @@ title: Orbital Mission Design
 layout: page
 hide: true
 ---
+
+<style>
+  /* Centers and sizes all images on the project page */
+  img {
+    max-width: 100%;         /* Ensures it fits within the page width */
+    width: auto;             /* Maintains aspect ratio */
+    height: auto;
+    display: block;
+    margin: 2em auto;        /* Centers the image and adds space above/below */
+    border-radius: 8px;      /* Rounded corners to match your modern cards */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+  }
+
+  /* Optional: If you want certain images to be smaller (like logos) */
+  .small-img {
+    max-width: 50% !important;
+  }
+</style>
+
+
 ## Orbital Mission Design & STK Workshop
 
 STK (Systems Tool Kit) is a professional aerospace simulation and visualization software developed by AGI/Ansys. It allows engineers and mission designers to model satellites, spacecraft, aircraft, sensors, ground stations, orbits, coverage, and mission performance—all in a realistic 3D environment.
