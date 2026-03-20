@@ -14,6 +14,10 @@ icon: fa-rocket
     text-align: left;
     transition: transform 0.2s ease-in-out;
     border: 1px solid #eaeaea;
+    /* Flexbox rules to make heights uniform */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
   }
   .modern-card:hover {
     transform: translateY(-5px);
@@ -27,11 +31,14 @@ icon: fa-rocket
     display: block;
   }
   .card-body {
-    padding: 1.5em;
+    padding: 1.2em; /* Reduced for a more compact, less bulky look */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Forces the body to stretch and fill the empty space */
   }
   .card-title {
     margin: 0 0 0.5em 0;
-    font-size: 1.2em;
+    font-size: 1.1em; /* Slightly smaller */
     font-weight: bold;
   }
   .card-title a {
@@ -40,7 +47,7 @@ icon: fa-rocket
     text-decoration: none;
   }
   .card-desc {
-    font-size: 0.9em;
+    font-size: 0.85em; /* Slightly smaller text */
     color: #666;
     line-height: 1.5;
     margin-bottom: 1.2em;
@@ -49,6 +56,7 @@ icon: fa-rocket
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
+    margin-top: auto; /* This magically pushes the tags to the very bottom */
   }
   .tag {
     background: #edf2f7;
@@ -60,9 +68,9 @@ icon: fa-rocket
   }
 </style>
 
-<div class="row">
+<div class="row" style="display: flex; flex-wrap: wrap; align-items: stretch;">
 
-  <div class="4u 12u$(mobile)">
+  <div class="4u 12u$(mobile)" style="display: flex;">
     <div class="modern-card">
       <a href="project-ai.html"><img src="assets/images/thumbnail-ai-169.png" alt="AI Proficiency" class="card-img" /></a>
       <div class="card-body">
@@ -76,7 +84,7 @@ icon: fa-rocket
     </div>
   </div>
 
-  <div class="4u 12u$(mobile)">
+  <div class="4u 12u$(mobile)" style="display: flex;">
     <div class="modern-card">
       <a href="project-gis.html"><img src="assets/images/thumbnail-gis2-169.jpg" alt="Geographic Information System" class="card-img" /></a>
       <div class="card-body">
@@ -91,7 +99,7 @@ icon: fa-rocket
     </div>
   </div>
 
-  <div class="4u 12u$(mobile)">
+  <div class="4u 12u$(mobile)" style="display: flex;">
     <div class="modern-card">
       <a href="project-geosciences.html"><img src="assets/images/thumbnail-geosciences-169.png" alt="Geosciences" class="card-img" /></a>
       <div class="card-body">
@@ -106,7 +114,7 @@ icon: fa-rocket
     </div>
   </div>
 
-  <div class="4u 12u$(mobile)">
+  <div class="4u 12u$(mobile)" style="display: flex;">
     <div class="modern-card">
       <a href="project-systems.html"><img src="assets/images/thumbnail-systems-169.png" alt="System Engineering" class="card-img" /></a>
       <div class="card-body">
@@ -121,7 +129,7 @@ icon: fa-rocket
     </div>
   </div>
 
-  <div class="4u 12u$(mobile)">
+  <div class="4u 12u$(mobile)" style="display: flex;">
     <div class="modern-card">
       <a href="project-management.html"><img src="assets/images/thumbnail-management-169.png" alt="Project Management" class="card-img" /></a>
       <div class="card-body">
@@ -136,7 +144,7 @@ icon: fa-rocket
     </div>
   </div>
 
-  <div class="4u 12u$(mobile)">
+  <div class="4u 12u$(mobile)" style="display: flex;">
     <div class="modern-card">
       <a href="project-orbital.html"><img src="assets/images/thumbnail-orbital-169.jpg" alt="Orbital Mission Design" class="card-img" /></a>
       <div class="card-body">
@@ -151,7 +159,7 @@ icon: fa-rocket
     </div>
   </div>
 
-  <div class="4u 12u$(mobile)">
+  <div class="4u 12u$(mobile)" style="display: flex;">
     <div class="modern-card">
       <a href="project-astronomical.html"><img src="assets/images/thumbnail-astronomical-169.png" alt="Astronomical Data Mining" class="card-img" /></a>
       <div class="card-body">
@@ -166,7 +174,7 @@ icon: fa-rocket
     </div>
   </div>
 
-  <div class="4u 12u$(mobile)">
+  <div class="4u 12u$(mobile)" style="display: flex;">
     <div class="modern-card">
       <a href="project-deepspace.html"><img src="assets/images/thumbnail-deepspace-169.jpg" alt="Deep Space Communication" class="card-img" /></a>
       <div class="card-body">
@@ -181,7 +189,7 @@ icon: fa-rocket
     </div>
   </div>
 
-  <div class="4u 12u$(mobile)">
+  <div class="4u 12u$(mobile)" style="display: flex;">
     <div class="modern-card">
       <a href="project-sbsp.html"><img src="assets/images/thumbnail-sbsp-169.png" alt="Space Based Solar Power Thesis" class="card-img" /></a>
       <div class="card-body">
