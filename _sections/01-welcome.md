@@ -18,7 +18,7 @@ icon: fa-home
   }
   
   /* Hides the automatically generated section title */
-  #top > header {
+  #welcome > header {
     display: none;
   }
   
