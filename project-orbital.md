@@ -23,8 +23,6 @@ hide: true
 </style>
 
 
-## Orbital Mission Design & STK Workshop
-
 STK (Systems Tool Kit) is a professional aerospace simulation and visualization software developed by AGI/Ansys. It allows engineers and mission designers to model satellites, spacecraft, aircraft, sensors, ground stations, orbits, coverage, and mission performance—all in a realistic 3D environment.
 
 ### Core Competencies & Applications
