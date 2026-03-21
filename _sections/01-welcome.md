@@ -5,7 +5,13 @@ icon: fa-home
 ---
 
 <style>
-  /* 1. Hides the theme's default section headers */
+  /* 1. The "Zero Gap" fix for a perfect flush top */
+  #main, #wrapper {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+
+  /* 2. Hides the theme's default section headers */
   #welcome > .container > header, 
   #top > .container > header,
   #lceuranie > .container > header,
@@ -13,16 +19,16 @@ icon: fa-home
     display: none !important;
   }
 
-  /* 2. Hides the redundant sidebar link */
+  /* 3. Hides the redundant sidebar link */
   #nav ul li a[href="#welcome"], 
   #nav ul li a[href="#top"], 
   #nav ul li a[href="#lceuranie"] {
     display: none !important;
   }
 
-  /* 3. Forces the container to fill the entire width with zero side-gaps */
+  /* 4. Forces the container to fill 100% width with zero side-gaps */
   #welcome, #top, #lceuranie, section:first-of-type {
-    padding: 0 !important; /* Removes all surrounding padding */
+    padding: 0 !important;
   }
 
   #welcome > .container, #top > .container, #lceuranie > .container {
@@ -32,20 +38,17 @@ icon: fa-home
     margin: 0 !important;
   }
 
-  /* 4. Styles the Antarctica Hero Banner (Edge-to-Edge) */
+  /* 5. Styles the Antarctica Hero Banner (Edge-to-Edge) */
   .hero-banner {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/assets/images/hero-bg.jpg');
     background-size: cover;
     background-position: center;
-    /* Removed border-radius for the "Full-Screen" look */
-    border-radius: 0; 
-    padding: 8em 2em; /* Increased vertical padding for more impact */
+    border-radius: 0; /* Squared edges for full-screen feel */
+    padding: 8em 2em; 
     color: #ffffff;
     text-align: center;
     width: 100%;
     margin: 0;
-    /* Shadow is removed or minimized as it doesn't float anymore */
-    box-shadow: none; 
   }
   
   .hero-banner h2, .hero-banner h3, .hero-banner p {
@@ -53,7 +56,7 @@ icon: fa-home
     border-bottom: none !important;
   }
 
-  /* 5. The "Download CV" Button */
+  /* 6. The "Download CV" Button */
   .cv-button {
     display: inline-block;
     margin-top: 1.5em;
@@ -85,9 +88,13 @@ icon: fa-home
 <br>
 
 Welcome to my portfolio, I specialize in bridging earth observation & geosciences, system engineering, orbital mission design, and complex project management. 
+
 <br>
-Let’s explore my work !
+
+Let’s explore my work!
+
 <br>
+
 <a href="/assets/L_Chris_Euranie_CV.pdf" target="_blank" class="cv-button">
   <i class="fa fa-download"></i> Download CV
 </a>
