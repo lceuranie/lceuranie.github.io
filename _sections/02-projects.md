@@ -192,7 +192,7 @@ icon: fa-rocket
       <a href="project-sbsp.html"><img src="assets/images/thumbnail-sbsp-169.png" alt="Space Based Solar Power Thesis" class="card-img" /></a>
       <div class="card-body">
         <h3 class="card-title"><a href="project-sbsp.html">Space Based Solar Power</a></h3>
-        <p class="card-desc">A thesis on architectural evolution and policy frameworks around SBSP technology.</p>
+        <p class="card-desc">A thesis on the architectural evolution and policy frameworks around SBSP technology.</p>
         <div class="card-tags">
           <span class="tag">SBSP</span>
           <span class="tag">Policy Frameworks</span>
