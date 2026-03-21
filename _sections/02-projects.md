@@ -178,7 +178,7 @@ icon: fa-rocket
       <a href="project-deepspace.html"><img src="assets/images/thumbnail-deepspace-169.jpg" alt="Deep Space Communication" class="card-img" /></a>
       <div class="card-body">
         <h3 class="card-title"><a href="project-deepspace.html">Deep Space Communication</a></h3>
-        <p class="card-desc">A John Templeton Grant project developing a global communication roadmap to sustain exploration missions.</p>
+        <p class="card-desc">A John Templeton Grant project developing a communication roadmap to sustain exploration missions.</p>
         <div class="card-tags">
           <span class="tag">Grant</span>
           <span class="tag">IAC Paper</span>
