@@ -5,7 +5,7 @@ icon: fa-home
 ---
 
 <style>
-  /* 1. Hides the default section title on the page */
+  /* 1. Hides the theme's default section headers */
   #welcome > .container > header, 
   #top > .container > header,
   #lceuranie > .container > header,
@@ -13,37 +13,39 @@ icon: fa-home
     display: none !important;
   }
 
-  /* 2. Hides the redundant "@lceuranie" link from the sidebar navigation */
+  /* 2. Hides the redundant sidebar link */
   #nav ul li a[href="#welcome"], 
   #nav ul li a[href="#top"], 
   #nav ul li a[href="#lceuranie"] {
     display: none !important;
   }
 
-  /* 3. Expands the container width and removes top padding */
+  /* 3. Forces the container to fill the entire width with zero side-gaps */
   #welcome, #top, #lceuranie, section:first-of-type {
-    padding-top: 0 !important;
+    padding: 0 !important; /* Removes all surrounding padding */
   }
 
-  /* Target the container to make it wider */
   #welcome > .container, #top > .container, #lceuranie > .container {
-    padding-top: 2em !important;
-    max-width: 100% !important; /* Removes the width restriction */
-    width: 95% !important;     /* Leaves just a tiny sliver of professional breathing room */
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
   }
 
-  /* 4. Styles the Antarctica Hero Banner */
+  /* 4. Styles the Antarctica Hero Banner (Edge-to-Edge) */
   .hero-banner {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/assets/images/hero-bg.jpg');
     background-size: cover;
     background-position: center;
-    border-radius: 12px;
-    padding: 6em 2em;
+    /* Removed border-radius for the "Full-Screen" look */
+    border-radius: 0; 
+    padding: 8em 2em; /* Increased vertical padding for more impact */
     color: #ffffff;
     text-align: center;
-    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
-    margin-top: 0; 
-    width: 100%; /* Ensures the banner fills the expanded container */
+    width: 100%;
+    margin: 0;
+    /* Shadow is removed or minimized as it doesn't float anymore */
+    box-shadow: none; 
   }
   
   .hero-banner h2, .hero-banner h3, .hero-banner p {
@@ -51,7 +53,7 @@ icon: fa-home
     border-bottom: none !important;
   }
 
-  /* 5. The "Download CV" Button Style */
+  /* 5. The "Download CV" Button */
   .cv-button {
     display: inline-block;
     margin-top: 1.5em;
@@ -75,7 +77,7 @@ icon: fa-home
   }
 </style>
 
-<div class="hero-banner" data-aos="fade-up" data-aos-duration="1000" markdown="1">
+<div class="hero-banner" data-aos="fade-in" data-aos-duration="1200" markdown="1">
 
 ## L. Chris Euranie
 ### Project Manager | Space Systems Engineer | EO Specialist
