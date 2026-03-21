@@ -92,7 +92,6 @@ icon: fa-rocket
         <p class="card-desc">Analyzing satellite data to provide communities with valuable vegetation health information.</p>
         <div class="card-tags">
           <span class="tag">GEE</span>
-          <span class="tag">Remote Sensing</span>
           <span class="tag">EO</span>
         </div>
       </div>
@@ -107,7 +106,6 @@ icon: fa-rocket
         <p class="card-desc">10 years in Oil & Gas, leading geoscientific studies for exploration, and field development.</p>
         <div class="card-tags">
           <span class="tag">Geophysics</span>
-          <span class="tag">Borehole Seismic</span>
           <span class="tag">Field Operations</span>
         </div>
       </div>
@@ -121,7 +119,6 @@ icon: fa-rocket
         <h3 class="card-title"><a href="project-systems.html">System Engineering</a></h3>
         <p class="card-desc">1U CubeSat system integration, Model-Based Systems Engineering (MBSE), and PCB design.</p>
         <div class="card-tags">
-          <span class="tag">CubeSat</span>
           <span class="tag">MBSE</span>
           <span class="tag">Concurrent Engineering</span>
         </div>
@@ -138,7 +135,6 @@ icon: fa-rocket
         <div class="card-tags">
           <span class="tag">Leadership</span>
           <span class="tag">Governance</span>
-          <span class="tag">Risk Analytics</span>
         </div>
       </div>
     </div>
@@ -167,7 +163,6 @@ icon: fa-rocket
         <div class="card-tags">
           <span class="tag">Astrophysics</span>
           <span class="tag">Gaia DR3</span>
-          <span class="tag">Open Clusters</span>
         </div>
       </div>
     </div>
