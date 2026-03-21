@@ -88,7 +88,6 @@ icon: fa-home
 <br>
 
 Welcome to my portfolio, I specialize in bridging earth observation & geosciences, system engineering, orbital mission design, and complex project management. 
-
 <br>
 
 Let’s explore my work!
