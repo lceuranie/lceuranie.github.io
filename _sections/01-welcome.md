@@ -85,9 +85,7 @@ icon: fa-home
 Welcome to my portfolio, I specialize in bridging earth observation & geosciences, system engineering, orbital mission design, and complex project management. 
 <br>
 Let’s explore my work !
-
 <br>
-
 <a href="/assets/L_Chris_Euranie_CV.pdf" target="_blank" class="cv-button">
   <i class="fa fa-download"></i> Download CV
 </a>
