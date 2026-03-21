@@ -23,8 +23,6 @@ hide: true
 </style>
 
 
-## Project Management Expertise
-
 * **Leadership & Multidisciplinary Teams:** Managed multidisciplinary engineering teams (5–10 staff) through low to medium complexity Geosciences project life cycles ($50K USD to $250K USD).
 * **Digital Transformation:** Directed multi-phase large scale information system digital transformation across Europe, improving data integrity by 50% and optimizing workflows.
 * **Cross-Functional Coordination:** Coordinated cross-functional teams - including support functions (finance, IT, engineering, commercial) - to deliver 10+ technical projects, managing scope, schedule, risks, and stakeholder communication — equivalent to ESA internal work-package coordination.
