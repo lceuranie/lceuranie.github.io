@@ -22,7 +22,6 @@ hide: true
   }
 </style>
 
-## AI Proficiency
 
 * Agent building - To come
 
