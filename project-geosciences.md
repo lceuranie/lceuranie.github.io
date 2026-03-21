@@ -22,9 +22,7 @@ hide: true
   }
 </style>
 
-## Geosciences Expertise
-
-**10 Years in Oil & Gas Geophysics**
+**10 Years in Oil & Gas industry - Geophysics**
 
 ### Exploration, Reservoir Optimization, and Field Development
 * Geoscientific studies including Vertical Seismic Profile (VSP), Wireline & LWD VSP, and Fiber Optics.
