@@ -20,6 +20,25 @@ hide: true
   .small-img {
     max-width: 50% !important;
   }
+
+
+
+  /* 1. Anchors the sidebar avatar to the top and removes the red "ghost" box */
+  #header .image.avatar {
+    margin-top: 0 !important;
+    background: none !important; /* Hides the red square background */
+    border: none !important;
+  }
+
+  #header > .top {
+    padding-top: 2em !important; /* Adjust this to match the homepage height */
+  }
+
+  /* 2. Fixes potential shift in the sidebar logo container */
+  #logo {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
 </style>
 
 
