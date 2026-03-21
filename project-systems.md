@@ -22,8 +22,6 @@ hide: true
   }
 </style>
 
-## System Engineering
-
 ### 1U Cubesat System Integration: Mission Eyesat-1
 * **Spacecraft:** 1U CubeSat
 * **Payload:** OV7670 Camera Module
