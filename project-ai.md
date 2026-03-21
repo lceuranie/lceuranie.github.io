@@ -21,24 +21,37 @@ hide: true
     max-width: 50% !important;
   }
 
-
-
-  /* 1. Anchors the sidebar avatar to the top and removes the red "ghost" box */
-  #header .image.avatar {
-    margin-top: 0 !important;
-    background: none !important; /* Hides the red square background */
+/* 1. Kills the red square background entirely */
+  #header .image.avatar, 
+  #header .image.avatar a,
+  #header .image.avatar:before {
+    background: transparent !important;
+    background-color: transparent !important;
     border: none !important;
+    box-shadow: none !important;
   }
 
+  /* 2. Forces the sidebar content back to the top */
   #header > .top {
-    padding-top: 2em !important; /* Adjust this to match the homepage height */
+    padding-top: 1.5em !important; /* Forces vertical alignment */
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
   }
 
-  /* 2. Fixes potential shift in the sidebar logo container */
-  #logo {
-    padding: 0 !important;
-    margin: 0 !important;
+  /* 3. Ensures the avatar doesn't 'float' or shift */
+  #header .image.avatar {
+    margin: 0 auto 1.5em auto !important;
+    position: relative !important;
+    top: 0 !important;
+    display: block !important;
   }
+
+  /* 4. Keeps the name/title from pushing the image down */
+  #logo {
+    margin-bottom: 1em !important;
+  }
+  
 </style>
 
 
