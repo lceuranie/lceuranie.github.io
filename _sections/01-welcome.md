@@ -20,12 +20,16 @@ icon: fa-home
     display: none !important;
   }
 
-  /* 3. Removes large white padding at the top of the section */
+  /* 3. Expands the container width and removes top padding */
   #welcome, #top, #lceuranie, section:first-of-type {
     padding-top: 0 !important;
   }
+
+  /* Target the container to make it wider */
   #welcome > .container, #top > .container, #lceuranie > .container {
     padding-top: 2em !important;
+    max-width: 100% !important; /* Removes the width restriction */
+    width: 95% !important;     /* Leaves just a tiny sliver of professional breathing room */
   }
 
   /* 4. Styles the Antarctica Hero Banner */
@@ -39,6 +43,7 @@ icon: fa-home
     text-align: center;
     box-shadow: 0 10px 15px rgba(0,0,0,0.1);
     margin-top: 0; 
+    width: 100%; /* Ensures the banner fills the expanded container */
   }
   
   .hero-banner h2, .hero-banner h3, .hero-banner p {
@@ -80,6 +85,7 @@ icon: fa-home
 Welcome to my portfolio, I specialize in bridging earth observation & geosciences, system engineering, orbital mission design, and complex project management. 
 <br>
 Let’s explore my work !
+
 <br>
 
 <a href="/assets/L_Chris_Euranie_CV.pdf" target="_blank" class="cv-button">
