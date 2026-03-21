@@ -21,8 +21,6 @@ hide: true
   }
 </style>
 
-## Deep Space Communication
-
 **A John Templeton Grant Project**
 
 ### Project Elements
