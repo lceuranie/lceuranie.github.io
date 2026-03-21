@@ -4,17 +4,21 @@ layout: page
 hide: true
 ---
 
-<style>
-  /* 1. Standardizes all images on the page */
-  img {
-    max-width: 100%;          /* Fits perfectly within the text container */
-    height: auto;             /* Keeps the image proportions correct */
+  <style>
+  /* Centers and sizes ONLY the images inside the main project area */
+  #main img {
+    max-width: 100%;         
+    width: auto;             
+    height: auto;
     display: block;
-    margin: 2.5em auto;       /* Centers the image with professional spacing */
-    border-radius: 12px;      /* Rounded corners to match your homepage cards */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Soft shadow for a "lifted" look */
-    border: 1px solid #eee;   /* Subtle border to define the image edges */
+    margin: 2.5em auto;      /* Adds breathing room, but won't affect your headshot! */
+    border-radius: 8px;      
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
   }
+
+  /* Optional: If you want certain images to be smaller (like logos) */
+  #main .small-img {
+    max-width: 50% !important;
 
   /* 2. Styling for the GEE App Link to make it look like a CTA */
   .app-link {
