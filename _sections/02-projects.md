@@ -88,10 +88,10 @@ icon: fa-rocket
     <div class="modern-card" data-aos="fade-up">
       <a href="project-gis.html"><img src="assets/images/thumbnail-gis2-169.jpg" alt="Geographic Information System" class="card-img" /></a>
       <div class="card-body">
-        <h3 class="card-title"><a href="project-gis.html">Geographic Information System</a></h3>
-        <p class="card-desc">Analyzing satellite data to provide farming communities with valuable information on vegetation health.</p>
+        <h3 class="card-title"><a href="project-gis.html">GIS</a></h3>
+        <p class="card-desc">Analyzing satellite data to provide communities with valuable vegetation health information.</p>
         <div class="card-tags">
-          <span class="tag">Google Earth Engine</span>
+          <span class="tag">GEE</span>
           <span class="tag">Remote Sensing</span>
           <span class="tag">EO</span>
         </div>
@@ -123,7 +123,7 @@ icon: fa-rocket
         <div class="card-tags">
           <span class="tag">CubeSat</span>
           <span class="tag">MBSE</span>
-          <span class="tag">PCB</span>
+          <span class="tag">Concurrent Engineering</span>
         </div>
       </div>
     </div>
@@ -134,7 +134,7 @@ icon: fa-rocket
       <a href="project-management.html"><img src="assets/images/thumbnail-management-169.png" alt="Project Management" class="card-img" /></a>
       <div class="card-body">
         <h3 class="card-title"><a href="project-management.html">Project Management</a></h3>
-        <p class="card-desc">Managing multidisciplinary engineering teams through complex life cycles and directing digital transformation across Europe.</p>
+        <p class="card-desc">Managing multidisciplinary engineering teams through complex projects' life cycles.</p>
         <div class="card-tags">
           <span class="tag">Leadership</span>
           <span class="tag">Governance</span>
@@ -192,7 +192,7 @@ icon: fa-rocket
       <a href="project-sbsp.html"><img src="assets/images/thumbnail-sbsp-169.png" alt="Space Based Solar Power Thesis" class="card-img" /></a>
       <div class="card-body">
         <h3 class="card-title"><a href="project-sbsp.html">Space Based Solar Power Thesis</a></h3>
-        <p class="card-desc">A thematic synthesis of architectural evolution and policy frameworks regarding the divergence of intents in SBSP technology.</p>
+        <p class="card-desc">A thematic synthesis of architectural evolution and policy frameworks of SBSP technology.</p>
         <div class="card-tags">
           <span class="tag">SBSP</span>
           <span class="tag">Policy Frameworks</span>
