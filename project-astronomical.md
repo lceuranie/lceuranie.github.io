@@ -21,7 +21,6 @@ hide: true
   }
 </style>
 
-## Astronomical Data Mining
 
 > "The study of the formation and evolution of open clusters (OC) and their stellar populations represent a backbone of research in modern astrophysics. Indeed, they have a strong impact on our understanding of key open issues, from the star formation process to the assembly and evolution of the Milky Way disk and galaxies in general." - Bossini et al. (2019)
 
