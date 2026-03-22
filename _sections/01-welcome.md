@@ -124,8 +124,8 @@ icon: fa-home
 
   <div class="hero-text-column" data-aos="fade-right" data-aos-delay="200">
     
-  <h3>L. Chris Euranie</h3>
-  <h4>Project Manager | Space Systems Engineer | EO Specialist</h4>
+  <h2>L. Chris Euranie</h2>
+  <h3>Project Manager | Space Systems Engineer | EO Specialist</h3>
   
   <p>Welcome to my portfolio. I specialize in bridging earth observation & geosciences, system engineering, orbital mission design, and complex project management.</p>
   <p>Let’s explore my work!</p>
