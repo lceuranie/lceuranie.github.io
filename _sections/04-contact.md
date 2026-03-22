@@ -12,65 +12,62 @@ icon: fa-envelope
     line-height: 1.6;
   }
 
-  /* Creates the interactive white card */
-  .contact-card {
+  /* The clean, borderless container */
+  .contact-item {
     display: block;
-    background: #ffffff;
-    padding: 3em 1em;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    transition: all 0.3s ease;
+    text-align: center;
     text-decoration: none !important;
     border-bottom: none !important;
-    height: 100%;
+    padding: 1em;
+    transition: transform 0.3s ease;
   }
 
-  /* Card floats up and shadow deepens on hover */
-  .contact-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+  /* Entire block floats gently on hover */
+  .contact-item:hover {
+    transform: translateY(-5px); 
   }
 
-  /* Default grey state for native font icons */
-  .contact-card .icon {
-    font-size: 3.5em;
-    color: #a0a0a0;
-    transition: all 0.3s ease;
-    margin-bottom: 0.3em;
+  /* Font icon default state: grey and semi-transparent */
+  .contact-item .icon {
+    font-size: 4em; /* Matched to the Engagements icon size */
+    color: #a0a0a0; 
+    opacity: 0.6;
+    transition: all 0.4s ease;
+    margin-bottom: 0.2em;
     display: block;
   }
 
-  /* Default grey state for your custom PNG image */
-  .contact-card .custom-img-icon {
-    height: 3.5em; /* Matches the 3.5em font-size of the regular icons */
+  /* PNG icon default state: grayscale and semi-transparent */
+  .contact-item .custom-img-icon {
+    height: 4em; /* Matched to the Font icon size */
     width: auto;
     filter: grayscale(100%);
-    opacity: 0.55; /* Blends it to look like the #a0a0a0 grey */
-    transition: all 0.3s ease;
-    margin-bottom: 0.3em;
+    opacity: 0.6;
+    transition: all 0.4s ease;
+    margin-bottom: 0.2em;
     display: inline-block;
   }
 
-  /* Hover state: Font icons turn Aerospace Blue */
-  .contact-card:hover .icon {
+  /* Font icon hover state: jumps to full opacity Aerospace Blue */
+  .contact-item:hover .icon {
     color: #5a67d8; 
-    transform: scale(1.1);
+    opacity: 1;
   }
 
-  /* Hover state: PNG Image loses grayscale and scales up */
-  .contact-card:hover .custom-img-icon {
+  /* PNG icon hover state: jumps to full opacity and natural color */
+  .contact-item:hover .custom-img-icon {
     filter: grayscale(0%);
     opacity: 1;
-    transform: scale(1.1);
   }
 
-  .contact-card h4 {
-    margin: 0;
+  /* Label styling perfectly matched to Engagements text */
+  .contact-item h4 {
+    margin-top: 1.2em;
+    font-size: 0.9em;
     font-weight: bold;
-    color: #333;
+    color: #555;
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-size: 1em;
   }
 </style>
 
@@ -80,24 +77,24 @@ icon: fa-envelope
     Feel free to reach out to discuss System Engineering, Earth Observation, Geoscience, or Project management opportunities!
   </p>
 
-  <div class="row" style="text-align: center;">
+  <div class="row" style="text-align: center; margin-top: 2em;">
     
   <div class="4u 12u$(mobile)">
-    <a href="mailto:lceuranie@outlook.com" class="contact-card">
+    <a href="mailto:lceuranie@outlook.com" class="contact-item">
       <span class="icon solid fa-envelope"></span>
       <h4>Mail</h4>
     </a>
   </div>
 
   <div class="4u 12u$(mobile)">
-    <a href="https://www.linkedin.com/in/lceuranie" target="_blank" class="contact-card">
+    <a href="https://www.linkedin.com/in/lceuranie" target="_blank" class="contact-item">
       <img src="assets/images/logo-linkedin.png" alt="LinkedIn" class="custom-img-icon" />
       <h4>LinkedIn</h4>
     </a>
   </div>
 
   <div class="4u 12u$(mobile)">
-    <a href="https://www.researchgate.net/profile/Ludivine-Euranie?ev=hdr_xprf" target="_blank" class="contact-card">
+    <a href="https://www.researchgate.net/profile/Ludivine-Euranie?ev=hdr_xprf" target="_blank" class="contact-item">
       <span class="icon solid fa-graduation-cap"></span>
       <h4>ResearchGate</h4>
     </a>
