@@ -5,97 +5,96 @@ icon: fa-home
 ---
 
 <style>
-  /* 1. The "Zero Gap" fix for a perfect flush top */
-  #main, #wrapper {
-    padding-top: 0 !important;
-    margin-top: 0 !important;
-  }
+  /* 1. Global Page/Sidebar Clean-up */
+  #main, #wrapper { padding-top: 0 !important; margin-top: 0 !important; }
+  #welcome > .container > header, #top > .container > header { display: none !important; }
+  #nav ul li a[href="#welcome"], #nav ul li a[href="#top"] { display: none !important; }
 
-  /* 2. Hides the theme's default section headers */
-  #welcome > .container > header, 
-  #top > .container > header,
-  #lceuranie > .container > header,
-  section:first-of-type > .container > header {
+  /* 2. HIDE THE SIDEBAR THUMBNAIL COMPLETELY */
+  #header .image.avatar {
     display: none !important;
   }
 
-  /* 3. Hides the redundant sidebar link */
-  #nav ul li a[href="#welcome"], 
-  #nav ul li a[href="#top"], 
-  #nav ul li a[href="#lceuranie"] {
-    display: none !important;
-  }
-
-  /* 4. Forces the container to fill 100% width with zero side-gaps */
-  #welcome, #top, #lceuranie, section:first-of-type {
-    padding: 0 !important;
-  }
-
-  #welcome > .container, #top > .container, #lceuranie > .container {
-    max-width: 100% !important;
-    width: 100% !important;
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-
-  /* 5. Styles the Antarctica Hero Banner (Edge-to-Edge) */
+  /* 3. Hero Banner Layout */
   .hero-banner {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/assets/images/hero-bg.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('/assets/images/hero-bg.jpg');
     background-size: cover;
     background-position: center;
-    border-radius: 0; /* Squared edges for full-screen feel */
-    padding: 8em 2em; 
+    padding: 6em 5%;
     color: #ffffff;
-    text-align: center;
-    width: 100%;
-    margin: 0;
+    display: flex;
+    flex-wrap: wrap; /* Allows stacking on mobile */
+    align-items: center;
+    justify-content: center;
+    gap: 4em;
+    text-align: left; /* Text aligns left on desktop */
   }
-  
+
+  .hero-text {
+    flex: 1;
+    min-width: 300px;
+    max-width: 650px;
+  }
+
+  .hero-image-container {
+    flex: 0 1 350px;
+    text-align: center;
+  }
+
+  /* 4. The Profile Image Styling */
+  .profile-img {
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 50%; /* Round frame like Anuj's example */
+    border: 6px solid rgba(255, 255, 255, 0.2); /* Subtle glass border */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  }
+
   .hero-banner h2, .hero-banner h3, .hero-banner p {
     color: #ffffff !important; 
     border-bottom: none !important;
   }
 
-  /* 6. The "Download CV" Button */
+  /* 5. Button & Spacing */
   .cv-button {
     display: inline-block;
     margin-top: 1.5em;
-    padding: 0.75em 2em;
-    background: transparent;
-    color: #ffffff !important;
+    padding: 0.8em 2em;
     border: 2px solid #ffffff;
     border-radius: 50px;
-    font-weight: bold;
+    color: #ffffff !important;
     text-decoration: none !important;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 0.9em;
+    font-weight: bold;
+    transition: all 0.3s;
   }
+  .cv-button:hover { background: #ffffff; color: #333 !important; }
 
-  .cv-button:hover {
-    background: #ffffff;
-    color: #333333 !important;
-    transform: scale(1.05);
+  /* Mobile adjustment */
+  @media screen and (max-width: 980px) {
+    .hero-banner { text-align: center; padding: 4em 2em; }
+    .hero-image-container { order: -1; } /* Image moves to top on mobile */
+    .profile-img { width: 200px; height: 200px; }
   }
 </style>
 
-<div class="hero-banner" data-aos="fade-in" data-aos-duration="1200" markdown="1">
+<div class="hero-banner" data-aos="fade-in" data-aos-duration="1200">
 
+  <div class="hero-text" markdown="1">
 ## L. Chris Euranie
 ### Project Manager | Space Systems Engineer | EO Specialist
 
-<br>
-
-Welcome to my portfolio, I specialize in bridging earth observation & geosciences, system engineering, orbital mission design, and complex project management. 
-<br>
+Welcome to my portfolio! I specialize in bridging earth observation & geosciences, system engineering, orbital mission design, and complex project management. 
 
 Let’s explore my work!
-
-<br>
 
 <a href="/assets/L_Chris_Euranie_CV.pdf" target="_blank" class="cv-button">
   <i class="fa fa-download"></i> Download CV
 </a>
+  </div>
+
+  <div class="hero-image-container">
+    <img src="/assets/images/profile-headshot.jpg" alt="L. Chris Euranie" class="profile-img">
+  </div>
 
 </div>
