@@ -181,7 +181,7 @@ order: 2
 
 <div style="text-align: center;">
     <a href="javascript:history.back()" class="pro-back-button">
-      <i class="fa fa-arrow-left"></i> Return to Home
+      <i class="fa fa-arrow-left"></i> Return to Homepage
     </a>
 </div>
 
