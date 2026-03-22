@@ -29,13 +29,18 @@
 
 /* Ensures the text itself stays bright white */
 #header nav ul li a:hover,
-#header nav ul li a:hover span {
+#header nav ul li a:hover span,
+#header nav ul li a.active,
+#header nav ul li a.active span {
   color: #ffffff !important; 
 }
 
-/* Adds the subtle highlight box and keeps text white */
-#header nav ul li a.active,
+/* Applies the highlight box ONLY to the main container, not the text wrapper */
+#header nav ul li a.active {
+  background: rgba(122, 138, 243, 0.15) !important; 
+}
+
+/* Forces the inner text wrapper to remain transparent, killing the double-box */
 #header nav ul li a.active span {
-  color: #ffffff !important;
-  background: rgba(122, 138, 243, 0.1) !important; 
+  background: transparent !important;
 }
