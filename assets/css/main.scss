@@ -15,3 +15,18 @@
 #header #logo {
   margin-top: 1.5em !important; 
 }
+
+/* Overrides the default salmon pink in the sidebar navigation */
+#header nav ul li a:hover i,
+#header nav ul li a.active i {
+  color: #7a8af3 !important; /* A crisp, pale Aerospace Blue */
+}
+
+#header nav ul li a:hover {
+  color: #ffffff !important; 
+}
+
+#header nav ul li a.active {
+  color: #ffffff !important;
+  background: rgba(122, 138, 243, 0.1) !important; /* Adds a very subtle highlight box */
+}
