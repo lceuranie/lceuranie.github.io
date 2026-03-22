@@ -32,6 +32,34 @@ In this study, we are using Gaia data release 3 (GDR3) to select and analyze one
 
 <br>
 <hr>
+
+<style>
+  /* Upgrades the default button to Aerospace Blue */
+  .pro-back-button {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: #5a67d8; 
+    color: #ffffff !important;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+  }
+
+  .pro-back-button:hover {
+    background-color: #434ce8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(90, 103, 216, 0.4);
+  }
+</style>
+
+<br>
+<hr>
+
 <div style="text-align: center;">
-    <a href="/#projects" class="button">Return to Projects</a>
+    <a href="javascript:history.back()" class="pro-back-button">
+      <i class="fa fa-arrow-left"></i> Return to Projects
+    </a>
 </div>
