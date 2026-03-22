@@ -3,7 +3,15 @@
 ---
 @import "jekyll-theme-prologue";
 
-/* Permanently hides the hardcoded sidebar avatar globally */
-#header .image.avatar {
+/* 1. Permanently hides the hardcoded sidebar avatar globally */
+#header #logo .image,
+#header #logo .avatar48,
+#header #logo img {
   display: none !important;
+  background: transparent !important;
+}
+
+/* 2. Adds a little breathing room above your name since the photo is gone */
+#header #logo {
+  margin-top: 1.5em !important; 
 }
