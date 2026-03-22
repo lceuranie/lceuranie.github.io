@@ -17,16 +17,25 @@
 }
 
 /* Overrides the default salmon pink in the sidebar navigation */
+/* Prologue uses spans and ::before pseudo-elements for its icons */
+#header nav ul li a:hover span::before,
+#header nav ul li a.active span::before,
+#header nav ul li a:hover i::before,
+#header nav ul li a.active i::before,
 #header nav ul li a:hover i,
 #header nav ul li a.active i {
   color: #7a8af3 !important; /* A crisp, pale Aerospace Blue */
 }
 
-#header nav ul li a:hover {
+/* Ensures the text itself stays bright white */
+#header nav ul li a:hover,
+#header nav ul li a:hover span {
   color: #ffffff !important; 
 }
 
-#header nav ul li a.active {
+/* Adds the subtle highlight box and keeps text white */
+#header nav ul li a.active,
+#header nav ul li a.active span {
   color: #ffffff !important;
-  background: rgba(122, 138, 243, 0.1) !important; /* Adds a very subtle highlight box */
+  background: rgba(122, 138, 243, 0.1) !important; 
 }
