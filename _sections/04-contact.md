@@ -27,37 +27,47 @@ icon: fa-envelope
     transform: translateY(-5px); 
   }
 
-  /* Font icon default state: grey and semi-transparent */
+  /* ---------------------------------------------------- */
+  /* STATE 1: Default (Grey) - Shared Across Icons & PNG */
+  /* ---------------------------------------------------- */
+
+  /* Font icon: set to correct grey (#a0a0a0) and semi-transparent */
   .contact-item .icon {
-    font-size: 4em; /* Matched to the Engagements icon size */
-    color: #a0a0a0; 
+    font-size: 4em; 
+    color: #a0a0a0 !important; 
     opacity: 0.6;
     transition: all 0.4s ease;
     margin-bottom: 0.2em;
     display: block;
   }
 
-  /* PNG icon default state: grayscale and semi-transparent */
+  /* PNG Image: USES A COMPLEX FILTER to precisely match the grey and opacity above */
   .contact-item .custom-img-icon {
-    height: 4em; /* Matched to the Font icon size */
+    height: 4em; 
     width: auto;
-    filter: grayscale(100%);
-    opacity: 0.6;
+    /* This filter sequence flattens the PNG's natural color and matches the #a0a0a0 grey */
+    filter: brightness(0) saturate(100%) invert(71%) sepia(5%) saturate(0%) hue-rotate(224deg) brightness(87%) contrast(82%);
+    opacity: 0.6; /* Perfect match for the native icon transparency */
     transition: all 0.4s ease;
     margin-bottom: 0.2em;
     display: inline-block;
   }
 
-  /* Font icon hover state: jumps to full opacity Aerospace Blue */
+  /* -------------------------------------------------- */
+  /* STATE 2: Hover (Blue) - Shared Across Icons & PNG */
+  /* -------------------------------------------------- */
+
+  /* Font icon: turns full opacity Aerospace Blue (#5a67d8) */
   .contact-item:hover .icon {
-    color: #5a67d8; 
+    color: #5a67d8 !important; 
     opacity: 1;
   }
 
-  /* PNG icon hover state: jumps to full opacity and natural color */
+  /* PNG Image: USES A COMPLEX FILTER to precisely target the #5a67d8 blue and full opacity */
   .contact-item:hover .custom-img-icon {
-    filter: grayscale(0%);
-    opacity: 1;
+    /* This complex filter eradicates the natural color and injects our exact Aerospace Blue (#5a67d8) */
+    filter: brightness(0) saturate(100%) invert(43%) sepia(87%) saturate(2222%) hue-rotate(213deg) brightness(91%) contrast(87%);
+    opacity: 1; /* Perfect match for the native icon full opacity */
   }
 
   /* Label styling perfectly matched to Engagements text */
@@ -68,6 +78,7 @@ icon: fa-envelope
     color: #555;
     text-transform: uppercase;
     letter-spacing: 1px;
+    border-bottom: none !important;
   }
 </style>
 
