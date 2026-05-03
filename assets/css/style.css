@@ -672,6 +672,11 @@ button { font: inherit; cursor: pointer; }
   text-transform: uppercase;
   color: var(--ink-mute);
 }
+.contact-list dd {
+  margin: 0;
+  justify-self: end;
+  text-align: right;
+}
 .contact-list a { color: var(--ink); text-decoration: none; }
 .contact-list a:hover { color: var(--rust); }
 

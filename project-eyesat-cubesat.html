@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eyesat-1 — 1U CubeSat for Hurricane Cloud Monitoring · L. Chris Euranie</title>
+  <title>Eyesat-1 &mdash; 1U CubeSat for Hurricane Cloud Monitoring &middot; L. Chris Euranie</title>
   <meta name="description" content="A 1U CubeSat prototype demonstrating end-to-end integration for low-resolution hurricane cloud-morphology imaging.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,16 +31,16 @@
 
 <section class="page-head">
   <div class="wrap">
-    <p class="kicker">Project · Hardware · CubeSat</p>
-    <h1>Eyesat-1 — A 1U CubeSat prototype.</h1>
+    <p class="kicker">Project &middot; Hardware &middot; CubeSat</p>
+    <h1>Eyesat-1 &mdash; A 1U CubeSat prototype.</h1>
     <p class="lead">Demonstrating that low-resolution imaging from LEO can support hurricane cloud-morphology tracking for regions underserved by dedicated weather assets.</p>
 
     <dl class="proj-meta">
       <dt>Date</dt><dd>2026</dd>
-      <dt>Team</dt><dd>ISU MSS 2026 — Team 1 (six members)</dd>
-      <dt>My role</dt><dd>Subsystem integration · requirements drafting · V&amp;V testing</dd>
-      <dt>Form factor</dt><dd>1U CubeSat (10 × 10 × 10 cm)</dd>
-      <dt>Bus</dt><dd>Arduino Uno R3 (OBC) · OV7670 (payload) · XBee (COMMS) · MPU-6050 (ADCS) · 18650 + MPPT (EPS)</dd>
+      <dt>Team</dt><dd>ISU MSS 2026 &mdash; Team 1 (six members)</dd>
+      <dt>My role</dt><dd>Subsystem integration &middot; requirements drafting &middot; V&amp;V testing</dd>
+      <dt>Form factor</dt><dd>1U CubeSat (10 &times; 10 &times; 10 cm)</dd>
+      <dt>Bus</dt><dd>Arduino Uno R3 (OBC) &middot; OV7670 (payload) &middot; XBee (COMMS) &middot; MPU-6050 (ADCS) &middot; 18650 + MPPT (EPS)</dd>
       <dt>Standard</dt><dd>ECSS-inspired V&amp;V flow</dd>
     </dl>
   </div>
@@ -49,32 +49,26 @@
 <article class="article wrap">
 
   <h2><span class="num">01</span>Mission rationale</h2>
-  <p>Tropical-cyclone monitoring is dominated by large geostationary and polar-orbiting weather assets — superb at the global scale, but with revisit and tasking constraints that don't always match the needs of regional disaster-response agencies in the Caribbean and sub-Saharan Africa. Eyesat-1 is a proof-of-concept that argues for the complementary role of low-cost, low-resolution CubeSats: not to replace those assets, but to add density and responsiveness to regional cloud-morphology tracking.</p>
+  <p>Tropical-cyclone monitoring is dominated by large geostationary and polar-orbiting weather assets &mdash; superb at the global scale, but with revisit and tasking constraints that don't always match the needs of regional disaster-response agencies in the Caribbean and sub-Saharan Africa. Eyesat-1 is a proof-of-concept that argues for the complementary role of low-cost, low-resolution CubeSats: not to replace those assets, but to add density and responsiveness to regional cloud-morphology tracking.</p>
 
   <p>The conceptual end-users are NOAA, WMO, UN-SPIDER, Copernicus EMS, and CDEMA. The mission objective is to image hurricane cloud structures with enough fidelity to track morphology evolution over the lifecycle of a single storm.</p>
 
   <figure>
-    <div class="figure-placeholder">
-      <span class="ph-tag">Placeholder</span>
-      <span class="ph-label">Photograph — assembled Eyesat-1 prototype, 1U form factor with 3D-printed PLA frame, payload aperture visible</span>
-    </div>
-    <figcaption>Fig. 1 — Eyesat-1 assembled prototype. 1U PLA frame, OV7670 payload through the +Z face.</figcaption>
+    <img src="assets/images/projects/eyesat-cubesat/eyesat-cubesat_fig1.jpg" alt="Assembled Eyesat-1 prototype in 1U form factor, with its 3D-printed PLA frame and payload aperture visible.">
+    <figcaption>Fig. 1 &mdash; Eyesat-1 assembled prototype. 1U PLA frame, OV7670 payload through the +Z face.</figcaption>
   </figure>
 
   <h2><span class="num">02</span>What I led</h2>
-  <p>I led subsystem integration and the requirements-and-verification thread. That meant translating the team's mission objectives into 22 design requirements across spacecraft, OBC, payload, COMMS, ADCS, power, and environmental categories — each paired with a verification method (test, analysis, inspection, demonstration) and a measurable success criterion.</p>
+  <p>I led subsystem integration and the requirements-and-verification thread. That meant translating the team's mission objectives into 22 design requirements across spacecraft, OBC, payload, COMMS, ADCS, power, and environmental categories &mdash; each paired with a verification method (test, analysis, inspection, demonstration) and a measurable success criterion.</p>
 
   <p>On the integration side, I drove the bench-test campaign that proved the end-to-end dataflow from payload through OBC to COMMS to ground station, and I authored the V&amp;V matrix that closed against all 22 requirements.</p>
 
   <h2><span class="num">03</span>Architecture</h2>
-  <p>The bus is deliberately low-cost and educational: an Arduino Uno R3 handles command and data, an OV7670 camera serves as the imaging payload, an XBee module provides RF communications to the ground station, an MPU-6050 IMU supports basic attitude knowledge, and an 18650 lithium-ion pack with an MPPT charge controller handles power. The frame is 3D-printed PLA — not flight-grade, but appropriate for a ground-demonstration prototype.</p>
+  <p>The bus is deliberately low-cost and educational: an Arduino Uno R3 handles command and data, an OV7670 camera serves as the imaging payload, an XBee module provides RF communications to the ground station, an MPU-6050 IMU supports basic attitude knowledge, and an 18650 lithium-ion pack with an MPPT charge controller handles power. The frame is 3D-printed PLA &mdash; not flight-grade, but appropriate for a ground-demonstration prototype.</p>
 
   <figure>
-    <div class="figure-placeholder">
-      <span class="ph-tag">Placeholder</span>
-      <span class="ph-label">Block diagram — Eyesat-1 subsystem architecture showing data and power flow between OBC, payload, COMMS, ADCS, and EPS</span>
-    </div>
-    <figcaption>Fig. 2 — Eyesat-1 system block diagram. Power rails in red, data buses in blue.</figcaption>
+    <img src="assets/images/projects/eyesat-cubesat/eyesat-cubesat_fig2.jpg" alt="Eyesat-1 subsystem architecture block diagram showing data and power flow between OBC, payload, communications, ADCS, and EPS.">
+    <figcaption>Fig. 2 &mdash; Eyesat-1 system block diagram. Power rails in red, data buses in blue.</figcaption>
   </figure>
 
   <h2><span class="num">04</span>Key numbers</h2>
@@ -86,26 +80,18 @@
   </div>
 
   <h2><span class="num">05</span>V&amp;V results</h2>
-  <p>All 22 design requirements were verified through bench testing. The end-to-end dataflow was validated — payload capture, OBC packaging, COMMS transmission, and ground-station reception — with no packet loss in the laboratory environment. Communication link held at RSSI better than −90 dBm at the 8-metre test range.</p>
+  <p>All 22 design requirements were verified through bench testing. The end-to-end dataflow was validated &mdash; payload capture, OBC packaging, COMMS transmission, and ground-station reception &mdash; with no packet loss in the laboratory environment. Communication link held at RSSI better than &minus;90 dBm at the 8-metre test range.</p>
 
   <p>Mass closed at 415 g measured, against the 1.33 kg standard 1U envelope, leaving substantial margin for any real-mission upgrades. Peak power consumption of 0.712 W is well within the budget a typical 1U deployable solar-panel array can sustain at LEO duty cycles.</p>
 
-  <figure>
-    <div class="figure-placeholder">
-      <span class="ph-tag">Placeholder</span>
-      <span class="ph-label">Verification matrix excerpt — first 5 rows showing requirement ID, statement, verification method, status, and notes</span>
-    </div>
-    <figcaption>Fig. 3 — Verification matrix excerpt. Each requirement carries a method, criterion, and closure status.</figcaption>
-  </figure>
-
   <h2><span class="num">06</span>What I'd improve</h2>
-  <p>The current ground station relies on the same XBee module as the spacecraft — convenient for the demonstration, unrealistic for orbit. A proper RF chain with a directional antenna and an SDR receiver would be the next step toward an orbit-realistic test bed. The OV7670 was selected for cost and Arduino compatibility; for actual cloud-morphology science a higher dynamic-range sensor (and a pointing solution better than three-axis magnetic attitude knowledge) would be needed.</p>
+  <p>The current ground station relies on the same XBee module as the spacecraft &mdash; convenient for the demonstration, unrealistic for orbit. A proper RF chain with a directional antenna and an SDR receiver would be the next step toward an orbit-realistic test bed. The OV7670 was selected for cost and Arduino compatibility; for actual cloud-morphology science a higher dynamic-range sensor (and a pointing solution better than three-axis magnetic attitude knowledge) would be needed.</p>
 
-  <p>On the systems side, a proper FMECA in the style of the Titan project would harden the design — the prototype was integrated under graduate-deliverable timescales, not under a full RAMS-driven concurrent-engineering process.</p>
+  <p>On the systems side, a proper FMECA in the style of the Titan project would harden the design &mdash; the prototype was integrated under graduate-deliverable timescales, not under a full RAMS-driven concurrent-engineering process.</p>
 
   <div class="proj-foot">
-    <a href="project-terroir.html">← Previous: Terroir Prediction</a>
-    <a href="project-deep-space-comms.html">Next: Deep Space Communication →</a>
+    <a href="project-terroir.html">&larr; Previous: Terroir Prediction</a>
+    <a href="project-deep-space-comms.html">Next: Deep Space Communication &rarr;</a>
   </div>
 
 </article>
@@ -114,8 +100,8 @@
 
 <footer class="site-foot">
   <div class="wrap foot-grid">
-    <span>© 2026 L. Chris Euranie · All rights reserved</span>
-    <span>Portfolio · rev. 2026.05</span>
+    <span>&copy; 2026 L. Chris Euranie &middot; All rights reserved</span>
+    <span>Portfolio &middot; rev. 2026.05</span>
   </div>
 </footer>
 

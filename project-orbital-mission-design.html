@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Orbital Mission Design — STK · L. Chris Euranie</title>
-  <meta name="description" content="Orbital scenarios, eclipse cycles, and access-window analyses for mission-specific geometries, modelled in STK.">
+  <title>Orbital Mission Design &mdash; STK &middot; L. Chris Euranie</title>
+  <meta name="description" content="Four mission-analysis exercises in STK: a foundational workshop on Molniya orbits and J2 perturbation, sun-synchronous orbit selection for a CubeSat, Earth-analogue access analysis for a Titan swarm, and ocean-coverage AOCS design for a concurrent-engineering altimetry mission.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,55 +31,123 @@
 
 <section class="page-head">
   <div class="wrap">
-    <p class="kicker">Project · Mission Analysis</p>
-    <h1>Orbital scenarios, modelled.</h1>
-    <p class="lead">A series of STK studies modelling orbital mechanics, eclipse cycles, and access windows for mission-specific geometries — the analytical foundation for the mission-design coursework I've completed at ISU.</p>
+    <p class="kicker">Project &middot; Mission Analysis &middot; STK</p>
+    <h1>Four mission-analysis exercises in STK.</h1>
+    <p class="lead">A foundational orbital-mechanics workshop, plus three concrete mission applications: a sun-synchronous CubeSat for hurricane imaging, an Earth-analogue access study for a Titan swarm, and an ocean-coverage AOCS analysis for a concurrent-engineering altimetry mission.</p>
 
     <dl class="proj-meta">
-      <dt>Date</dt><dd>2025 – 2026</dd>
-      <dt>Role</dt><dd>Sole analyst — scenario setup, propagation, reporting</dd>
-      <dt>Tool</dt><dd>STK (Systems Tool Kit) — Level 1 certified</dd>
-      <dt>Coverage</dt><dd>LEO Earth observation · GEO communications · interplanetary access geometries</dd>
+      <dt>Date</dt><dd>November 2025 &ndash; April 2026</dd>
+      <dt>Tool</dt><dd>STK (Systems Tool Kit) &mdash; Level 1 certified</dd>
+      <dt>Coverage</dt><dd>Foundational workshop &middot; LEO sun-synchronous design &middot; interplanetary access geometry &middot; global ocean coverage analysis</dd>
+      <dt>Format</dt><dd>One six-person workshop, three mission projects (team or individual contributions)</dd>
     </dl>
   </div>
 </section>
 
 <article class="article wrap">
 
-  <h2><span class="num">01</span>Scope</h2>
-  <p>The STK work spans three families of analysis I worked through over the course of the Master of Space Studies. Each was driven by a specific mission concept under study elsewhere in the programme — the tool is most useful when the questions are concrete.</p>
+  <h2><span class="num">01</span>How to read this page</h2>
+  <p>STK is a tool, not a deliverable. What matters is what the simulations were used to decide. The four exercises below are arranged in increasing order of mission complexity &mdash; from a teaching workshop with a Molniya orbit and a chosen target, through a real CubeSat orbit selection, to an interplanetary access study where the licence had to be worked around, and finally a concurrent-engineering session where the orbit choice fell out of a coverage requirement on a global ocean mask.</p>
 
-  <h2><span class="num">02</span>Sun-synchronous EO scenarios</h2>
-  <p>Setting up sun-synchronous orbits at the parameters typical of Sentinel-style missions (705 km altitude, ~98° inclination, descending-node local time around 10:30) and propagating to extract revisit, swath coverage, and ground-track repeat behaviour. The point is to build the intuition behind what makes EO orbits non-arbitrary — why those specific numbers, and what changes when you perturb them.</p>
+  <p>Across all four, the discipline I take from this work is the same one I took from a decade of seismic interpretation: the simulation output is not the answer; the explanation of the simulation output is the answer.</p>
+
+  <h2><span class="num">02</span>Exercise 1 &mdash; Foundational orbit workshop</h2>
+  <p>A six-person team workshop covering the basics of orbital mechanics in STK: scenario setup, classical orbital elements, ground-track behaviour, and J2 perturbation. The deliverable structured itself around three concrete questions that each forced a specific feature of the tool to be exercised.</p>
+
+  <h3>Q1 &mdash; How long can a Molniya orbit see Washington DC?</h3>
+  <p>Built a Molniya orbit (63&deg; inclination, highly elliptical, classic Russian-telecommunications profile), inserted Washington DC as a place of interest, computed access. <strong>Two passes per day: 11.233 h and 4.950 h, total 16.183 h visibility</strong>. Only the first pass is operationally useful &mdash; the second has poor line-of-sight and high path loss, more suited to downlink to Russian ground stations than target observation. The exercise made the point that "access" is necessary but not sufficient for a useful pass; sensor geometry and link budget filter out a substantial fraction of raw visibility.</p>
+
+  <h3>Q2 &mdash; How do Kepler parameters and J2 perturbation actually behave?</h3>
+  <p>Systematically varied semi-major axis, eccentricity, inclination, RAAN, argument of perigee, and true anomaly to see ground-track effects. Then enabled the J2 propagator and ran a one-year scenario at 45&deg; inclination, 20,000 km, e = 0: <strong>RAAN drifted from 0.487&deg; to 312.704&deg; over the year</strong>, lapping past 360&deg; as expected for a non-sun-synchronous inclination. Re-ran with eccentricity 0.6, inclination 10&deg;, and observed argument-of-perigee drift from 359.167&deg; to 312.118&deg; over the same year. Numbers are not the point &mdash; the intuition for <em>why</em> J2 forces sun-synchronous design choices is.</p>
+
+  <h3>Q3 &mdash; When can ISS be seen from Strasbourg?</h3>
+  <p>Pulled the ISS Zarya orbit from STK's standard object database, set ISU as the observer (by address), computed access over a 21-day window. Naive answer: 131 passes. With three layered constraints (Strasbourg in umbra so the sky is dark; ISS in direct sun so it is illuminated; minimum elevation 6&deg; for terrain clearance): <strong>33 visible passes, totalling 3.124 h, longest 8.16 minutes on Dec 1st and Dec 14th</strong>. The point of this exercise was to internalise the difference between geometric access and actual observability &mdash; and to build the muscle for layering realistic constraints on top of an idealised orbital geometry.</p>
+
+  <div class="stat-row">
+    <div class="stat"><span class="num">131 &rarr; 33</span><span class="lbl">ISS passes after constraints</span></div>
+    <div class="stat"><span class="num">11.2 h</span><span class="lbl">Molniya pass over DC</span></div>
+    <div class="stat"><span class="num">312&deg;</span><span class="lbl">RAAN drift / year (J2)</span></div>
+  </div>
 
   <figure>
-    <div class="figure-placeholder">
-      <span class="ph-tag">Placeholder</span>
-      <span class="ph-label">STK 3D scenario — sun-synchronous orbit ground track over a 24-hour propagation, with terminator illumination shown</span>
-    </div>
-    <figcaption>Fig. 1 — Sun-synchronous LEO ground track. 24-hour propagation showing the descending-node local-time invariance.</figcaption>
+    <img src="assets/images/projects/orbital-mission-design/orbital-mission-design_fig1.png" alt="STK 3D scenario showing a Molniya orbit over Washington DC with the place-of-interest marker and access geometry.">
+    <figcaption>Fig. 1 &mdash; Molniya orbit, Washington DC ground access. Two passes per day, only the first operationally useful.</figcaption>
   </figure>
 
-  <h2><span class="num">03</span>Eclipse and power-cycle analysis</h2>
-  <p>For an LEO platform, the eclipse cycle is the most consequential periodic phenomenon in the power and thermal designs. I ran eclipse-duration reports across orbital regimes (LEO ISS-like, sun-sync, MEO) to build the comparison that feeds into a CubeSat-class mission's energy-balance calculation. The output of these analyses fed directly into the EPS sizing for the Eyesat-1 prototype on this site.</p>
+  <h2><span class="num">03</span>Exercise 2 &mdash; Sun-synchronous orbit selection for the Eyesat-1 CubeSat</h2>
+  <p>For the <a href="project-eyesat-cubesat.html">Eyesat-1 CubeSat project</a>, I led the orbit selection. The mission objective is daytime visible imaging of hurricane cloud structures with an OV7670 camera, which constrains lighting and revisit considerations directly. Three-day STK simulations were run to extract operationally relevant parameters.</p>
 
-  <h2><span class="num">04</span>Access windows and ground-station coverage</h2>
-  <p>Computing access windows from a notional spacecraft to specific ground stations (Kiruna, Svalbard, Kourou, Hartebeesthoek) for both LEO and GEO geometries. The deliverable is a per-day visibility schedule that scopes the achievable downlink budget — the same calculation, scaled up, fed into the deep-space DTE windows for the Titan swarm work.</p>
+  <p>The selected orbit is a <strong>sun-synchronous LEO at 520 km altitude, 97&deg; retrograde inclination, near-circular (e ≈ 0)</strong>. Three reasons drive each parameter:</p>
+
+  <ul>
+    <li><strong>SSO orbit</strong> &mdash; because the camera is daytime-visible only, the orbit must precess around Earth at the same rate the Sun appears to move, giving consistent lighting and the same local solar time at each pass over a given hurricane basin.</li>
+    <li><strong>97&deg; retrograde inclination</strong> &mdash; near-polar to ensure global coverage over the mission lifetime, retrograde to match the SSO precession requirement against J2.</li>
+    <li><strong>520 km altitude</strong> &mdash; orbital period ≈ 94&ndash;96 min, ~15 orbits per day, swath revisit over a given target area on the order of three days. Crucially, at 520 km a 1U CubeSat (~1.0&ndash;1.2 kg, cross-section ~0.01 m&sup2;, C<sub>D</sub> ≈ 2.2) decays naturally within ~5 years through atmospheric drag, well inside the 25-year debris-mitigation guideline. No propulsion required.</li>
+  </ul>
+
+  <p>The choice of altitude was the substantive engineering decision. Higher would have improved swath but pushed deorbit beyond 25 years and added propulsion mass; lower would have shortened mission lifetime below the one-year minimum. 520 km is the sweet spot where the altitude argument simultaneously satisfies the imaging requirement, the deorbit regulation, and the no-propulsion constraint.</p>
 
   <figure>
-    <div class="figure-placeholder">
-      <span class="ph-tag">Placeholder</span>
-      <span class="ph-label">STK access plot — LEO spacecraft to multi-station ground network, 7-day window with stations colour-coded</span>
-    </div>
-    <figcaption>Fig. 2 — Access windows from a LEO spacecraft to a four-station European ground network, propagated over 7 days.</figcaption>
+    <img src="assets/images/projects/orbital-mission-design/orbital-mission-design_fig2.png" alt="STK 3D and 2D views of the simulated Eyesat-1 sun-synchronous orbit at 520 km, including Strasbourg ground-station pass prediction.">
+    <figcaption>Fig. 2 &mdash; Eyesat-1 simulated SSO orbit and Strasbourg ground-station pass prediction.</figcaption>
   </figure>
 
-  <h2><span class="num">05</span>Deliverables</h2>
-  <p>Each scenario closes with the same deliverable set: a 3D scenario file, a propagated trajectory, an access/coverage report, and a written interpretation. The interpretation is the part that matters — STK output without context is just a list of numbers. The discipline I take from this work is the same one I take from a decade of seismic interpretation: the number is not the answer; the explanation of the number is the answer.</p>
+  <h2><span class="num">04</span>Exercise 3 &mdash; Earth-analogue access analysis for the Titan swarm</h2>
+  <p>For the <a href="project-titan.html">Titan hybrid swarm project</a>, the mission concept needed an STK access study between the relay orbiter and the surface swarm. STK's licence at ISU does not include the planetary-bodies extension that would let us simulate a Titan-centric orbit directly. The workaround was to <strong>run the simulation in an Earth-analogue orbit with matched geometric parameters, then scale the results to Titan analytically</strong>.</p>
+
+  <h3>Earth analogue</h3>
+  <p>An Earth-analogue orbit at 2,474 km altitude was constructed to match the Titan orbiter's geometric parameters. STK simulation produced <strong>11 passes in 3 days, durations 6.6 to 23.7 minutes (average 18.6 min, total 204.5 min)</strong>.</p>
+
+  <h3>Scaling to Titan</h3>
+  <p>The Titan orbital period is 3.94 hours (T = 2π·√(a³/μ) with Titan's gravitational parameter). Pass durations scale by the period ratio: 236.3 / 138 = <strong>1.71×</strong>, giving an average Titan pass of <strong>31.8 minutes</strong>. The ground-track shift per orbit is 3.7&deg; (Titan rotates at 0.94&deg;/hr), so the 62&deg; visibility window from a swarm node accommodates <strong>17 consecutive passes per burst</strong>. Two burst windows occur per 16-day Titan rotation (ascending and descending nodes), separated by ~5-day gaps.</p>
+
+  <h3>Why this matters for the design</h3>
+  <p>The bursty access pattern was not just an analytical curiosity &mdash; it forced a real design change. The on-board computer's data buffer requirement was originally sized for a 48-hour gap between communication opportunities. The STK analysis revealed the actual pattern is 5-day gaps between burst windows, and the OBC buffer requirement <strong>was resized from 48 hours to 8 days</strong>. Data margin then increased to +187%. This is the kind of feedback loop between simulation and requirements that the systems engineering thread of the project depends on.</p>
+
+  <div class="stat-row">
+    <div class="stat"><span class="num">2,474 km</span><span class="lbl">Earth-analogue altitude</span></div>
+    <div class="stat"><span class="num">1.71×</span><span class="lbl">Period scaling factor</span></div>
+    <div class="stat"><span class="num">17</span><span class="lbl">Passes per Titan burst</span></div>
+    <div class="stat"><span class="num">48 h &rarr; 8 d</span><span class="lbl">OBC buffer requirement</span></div>
+  </div>
+
+  <figure>
+    <img src="assets/images/projects/orbital-mission-design/orbital-mission-design_fig3.png" alt="STK access plot for the 2,474 km Earth-analogue scenario used to approximate Titan orbiter access over three days.">
+    <figcaption>Fig. 3 &mdash; Earth-analogue STK access used as a stand-in for Titan-orbiter access. Geometric parameters matched, results scaled analytically.</figcaption>
+  </figure>
+
+  <h2><span class="num">05</span>Exercise 4 &mdash; Ocean-coverage AOCS analysis for a concurrent-engineering altimetry mission</h2>
+  <p>The concurrent-engineering workshop in April 2026 was a one-week multi-discipline design study for a satellite altimetry mission requiring ocean-surface coverage. I owned the AOCS thread, and within that, the orbit-selection question reduced to: <strong>what is the lowest sun-synchronous altitude that achieves 100% global ocean coverage with the chosen swath and revisit?</strong></p>
+
+  <h3>Method</h3>
+  <p>Built a global ocean mask, then ran STK coverage simulations at four candidate altitudes against a sun-synchronous orbit at 97&ndash;98&deg; inclination. The deliverable was a coverage-versus-altitude curve, with the curve reading directly off the ocean-mask intersection rather than a generic geographic coverage metric.</p>
+
+  <h3>Results</h3>
+  <ul>
+    <li>600 km altitude &mdash; <strong>96.30% ocean coverage</strong></li>
+    <li>628 km altitude &mdash; 97.51% ocean coverage</li>
+    <li>700 km altitude &mdash; 99.25% ocean coverage</li>
+    <li>800 km altitude &mdash; <strong>100% ocean coverage</strong></li>
+  </ul>
+
+  <p>The recommended <strong>science orbit assumption was 750 ± 50 km, sun-synchronous, 97&ndash;98&deg; inclination</strong> &mdash; sitting just below the altitude that closes the coverage requirement, with the band reflecting downstream subsystem trades (propulsion delta-v budget, payload swath, debris-mitigation deorbit time). The 800 km point hits 100% coverage but at a propulsion cost the propulsion subsystem flagged as marginal; 700 km falls 0.75% short of 100% but is comfortably within the propulsion envelope. The chosen altitude band is exactly the kind of compromise that concurrent engineering exists to surface.</p>
+
+  <h3>Why this matters</h3>
+  <p>The exercise sits in the lineage of real European altimetry missions (Sentinel-3, SWOT, the Sentinel-6 family). Treating the ocean as the coverage target rather than the land surface forces a deliberate choice of inclination and altitude, and the 100% threshold is harder to reach than a generic global-coverage metric implies. The sub-1% shortfall at 700 km would, in a real mission, drive negotiation between AOCS, propulsion, and the science team &mdash; exactly the conversation concurrent engineering is structured to have.</p>
+
+  <figure>
+    <img src="assets/images/projects/orbital-mission-design/orbital-mission-design_fig4.png" alt="Coverage-versus-altitude chart showing STK ocean-coverage results at 600, 628, 700, and 800 km with the 100 percent threshold highlighted.">
+    <figcaption>Fig. 4 &mdash; Ocean coverage versus SSO altitude. 100% coverage achieved at 800 km; 750 ± 50 km selected as the science-orbit band.</figcaption>
+  </figure>
+
+  <h2><span class="num">06</span>Across the four exercises</h2>
+  <p>Each of the four sits in a different layer of the mission-analysis stack. The workshop is foundational tool fluency; Eyesat-1 is single-spacecraft orbit selection driven by payload constraints; the Titan analogue is a worked example of using a tool past its licence boundary; the concurrent-engineering ocean coverage is a multi-subsystem trade where the orbit falls out of a coverage requirement.</p>
+
+  <p>Together they cover the range I would expect to be useful for any EO or programme-management role at agency or prime: I can set up scenarios, derive operationally relevant parameters, layer realistic constraints on top of idealised geometry, work around tool limits, and feed simulation results back into requirements documentation. STK is the tool; the mission decisions are the work.</p>
 
   <div class="proj-foot">
-    <a href="project-space-defense.html">← Previous: ESDA Strategy</a>
-    <a href="project-astronomical.html">Next: NGC 4852 →</a>
+    <a href="project-space-defense.html">&larr; Previous: ESDA Strategy</a>
+    <a href="project-astronomical.html">Next: NGC 4852 &rarr;</a>
   </div>
 
 </article>
@@ -88,8 +156,8 @@
 
 <footer class="site-foot">
   <div class="wrap foot-grid">
-    <span>© 2026 L. Chris Euranie · All rights reserved</span>
-    <span>Portfolio · rev. 2026.05</span>
+    <span>&copy; 2026 L. Chris Euranie &middot; All rights reserved</span>
+    <span>Portfolio &middot; rev. 2026.05</span>
   </div>
 </footer>
 

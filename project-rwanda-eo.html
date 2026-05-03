@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rwanda Vegetation Health — AI in Space Poster · L. Chris Euranie</title>
+  <title>Rwanda Vegetation Health &mdash; AI in Space Poster &middot; L. Chris Euranie</title>
   <meta name="description" content="A team digital poster developed for ISU's AI in Space Poster Session: a Sentinel-2 + Google Earth Engine vegetation-health prototype for Rwanda, aligned with UN SDGs.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,18 +31,18 @@
 
 <section class="page-head">
   <div class="wrap">
-    <p class="kicker">Project · Earth Observation · AI · Poster</p>
-    <h1>Vegetation health for Rwanda — a digital poster.</h1>
-    <p class="lead">A team poster for ISU's AI in Space Poster Session: a Sentinel-2 + Google Earth Engine prototype that classifies Rwandan vegetation health into four categories, with a 2025–2035 GeoAI roadmap for African food security.</p>
+    <p class="kicker">Project &middot; Earth Observation &middot; AI &middot; Poster</p>
+    <h1>Vegetation health for Rwanda &mdash; a digital poster.</h1>
+    <p class="lead">A team poster for ISU's AI in Space Poster Session: a Sentinel-2 + Google Earth Engine prototype that classifies Rwandan vegetation health into four categories, with a 2025&ndash;2035 GeoAI roadmap for African food security.</p>
 
     <dl class="proj-meta">
-      <dt>Date</dt><dd>2025 – 2026</dd>
-      <dt>Format</dt><dd>Digital poster — ISU MSS AI in Space Poster Session</dd>
-      <dt>Mentors</dt><dd>Dr. Moulay Anwar Sounny-Slitine · Antoine Dreher</dd>
-      <dt>Sensor</dt><dd>Copernicus Sentinel-2 L2A · Bands B2 (490 nm) · B4 (665 nm) · B8 (842 nm)</dd>
-      <dt>Stack</dt><dd>Google Earth Engine · split-panel web app · AI for AOI generation</dd>
-      <dt>Time series</dt><dd>2020 – 2024 · Q1–Q4 (Rwanda's bimodal agricultural calendar)</dd>
-      <dt>Status</dt><dd>App deployed · poster session presented</dd>
+      <dt>Date</dt><dd>2025 &ndash; 2026</dd>
+      <dt>Format</dt><dd>Digital poster &mdash; ISU MSS AI in Space Poster Session</dd>
+      <dt>Mentors</dt><dd>Dr. Moulay Anwar Sounny-Slitine &middot; Antoine Dreher</dd>
+      <dt>Sensor</dt><dd>Copernicus Sentinel-2 L2A &middot; Bands B2 (490 nm) &middot; B4 (665 nm) &middot; B8 (842 nm)</dd>
+      <dt>Stack</dt><dd>Google Earth Engine &middot; split-panel web app &middot; AI for AOI generation</dd>
+      <dt>Time series</dt><dd>2020 &ndash; 2024 &middot; Q1&ndash;Q4 (Rwanda's bimodal agricultural calendar)</dd>
+      <dt>Status</dt><dd>App deployed &middot; poster session presented</dd>
     </dl>
   </div>
 </section>
@@ -52,32 +52,29 @@
   <h2><span class="num">01</span>The brief</h2>
   <p>The poster session was a course assignment within ISU's AI in Space programme. The brief: build a working artefact that demonstrates the integration of artificial intelligence with Earth-observation data, present it on a digital poster, and defend it in front of a jury panel. Our team chose food security as the application domain, and Rwanda as the study area, for reasons specific to both the science and the politics of this kind of work.</p>
 
-  <p>Agriculture accounts for over 60% of Rwanda's employment and roughly one-third of its GDP, but the country remains vulnerable to climate variability, soil erosion, and periodic food insecurity. Its diverse topography and well-managed agricultural zones make it a useful natural laboratory for vegetation-health monitoring. The Rwanda Space Agency, established in 2020, anchors the country's commitment to using space technology for sustainable development. And the work aligns with three UN Sustainable Development Goals — SDG 2 (Zero Hunger), SDG 13 (Climate Action), SDG 15 (Life on Land) — plus African Union Agenda 2063 Goal 5 (Modern Agriculture for Increased Productivity).</p>
+  <p>Agriculture accounts for over 60% of Rwanda's employment and roughly one-third of its GDP, but the country remains vulnerable to climate variability, soil erosion, and periodic food insecurity. Its diverse topography and well-managed agricultural zones make it a useful natural laboratory for vegetation-health monitoring. The Rwanda Space Agency, established in 2020, anchors the country's commitment to using space technology for sustainable development. And the work aligns with three UN Sustainable Development Goals &mdash; SDG 2 (Zero Hunger), SDG 13 (Climate Action), SDG 15 (Life on Land) &mdash; plus African Union Agenda 2063 Goal 5 (Modern Agriculture for Increased Productivity).</p>
 
   <figure>
-    <div class="figure-placeholder">
-      <span class="ph-tag">Placeholder</span>
-      <span class="ph-label">Screenshot — split-panel GEE web app with EVI map for Rwanda showing the four-category classification (healthy, moderate, stressed, bare)</span>
-    </div>
-    <figcaption>Fig. 1 — Split-panel GEE web app. Left panel: true-colour Sentinel-2 base; right panel: EVI classification.</figcaption>
+    <img src="assets/images/projects/rwanda-eo/rwanda-eo_fig1.jpg" alt="Split-panel GEE web app for Rwanda showing a true-colour Sentinel-2 view and a four-category EVI vegetation-health classification.">
+    <figcaption>Fig. 1 &mdash; Split-panel GEE web app. Left panel: true-colour Sentinel-2 base; right panel: EVI classification.</figcaption>
   </figure>
 
   <h2><span class="num">02</span>Method</h2>
 
   <h3>Region of interest from AI</h3>
-  <p>The agricultural area-of-interest (AOI) over Rwanda was generated using AI-assisted segmentation rather than handcrafted boundaries. This is the AI-in-Space pivot of the assignment: instead of using AI as a downstream classifier, we used it upstream to define the analysis zone — a pattern that scales much better for continental-scale rollout.</p>
+  <p>The agricultural area-of-interest (AOI) over Rwanda was generated using AI-assisted segmentation rather than handcrafted boundaries. This is the AI-in-Space pivot of the assignment: instead of using AI as a downstream classifier, we used it upstream to define the analysis zone &mdash; a pattern that scales much better for continental-scale rollout.</p>
 
   <h3>Cloud masking and atmospheric correction</h3>
-  <p>Sentinel-2 L2A imagery was cloud-masked and atmospherically corrected within Google Earth Engine, ensuring data quality and reliability over the multi-year time series. Standard practice, but worth doing properly — cloud cover is the single largest source of false-positive vegetation stress signals if you skip it.</p>
+  <p>Sentinel-2 L2A imagery was cloud-masked and atmospherically corrected within Google Earth Engine, ensuring data quality and reliability over the multi-year time series. Standard practice, but worth doing properly &mdash; cloud cover is the single largest source of false-positive vegetation stress signals if you skip it.</p>
 
   <h3>Enhanced Vegetation Index (EVI)</h3>
   <p>EVI was computed from Sentinel-2 bands B2 (Blue, 490 nm), B4 (Red, 665 nm), and B8 (NIR, 842 nm). EVI rather than NDVI because EVI is less saturated in densely vegetated areas (relevant in Rwandan agricultural zones) and incorporates the blue band to correct atmospheric aerosol effects. Healthy vegetation tracks toward EVI ≈ 1; stressed vegetation toward 0.</p>
 
   <h3>Four-category classification and split-panel app</h3>
-  <p>EVI values were thresholded into four health categories: healthy, moderate, stressed, bare. The output is served as an interactive split-panel web app: users see the true-colour Sentinel-2 image on one side and the classification overlay on the other, at any date in the 2020–2024 archive. The split-panel format is deliberate — it lets a non-specialist see the classification's relationship to the underlying imagery without having to trust the model blindly.</p>
+  <p>EVI values were thresholded into four health categories: healthy, moderate, stressed, bare. The output is served as an interactive split-panel web app: users see the true-colour Sentinel-2 image on one side and the classification overlay on the other, at any date in the 2020&ndash;2024 archive. The split-panel format is deliberate &mdash; it lets a non-specialist see the classification's relationship to the underlying imagery without having to trust the model blindly.</p>
 
   <h3>Temporal coverage</h3>
-  <p>The analysis covers 2020 to 2024 across Q1 (Jan–Mar), Q2 (Apr–Jun), Q3 (Jul–Sep), and Q4 (Oct–Dec), aligning with Rwanda's bimodal agricultural calendar (two rainy seasons, two harvests). Quarterly cadence smooths out cloud-driven gaps in the time series while preserving the seasonal signal that matters for crop monitoring.</p>
+  <p>The analysis covers 2020 to 2024 across Q1 (Jan&ndash;Mar), Q2 (Apr&ndash;Jun), Q3 (Jul&ndash;Sep), and Q4 (Oct&ndash;Dec), aligning with Rwanda's bimodal agricultural calendar (two rainy seasons, two harvests). Quarterly cadence smooths out cloud-driven gaps in the time series while preserving the seasonal signal that matters for crop monitoring.</p>
 
   <div class="stat-row">
     <div class="stat"><span class="num">5 yrs</span><span class="lbl">Time series</span></div>
@@ -86,16 +83,16 @@
     <div class="stat"><span class="num">Free</span><span class="lbl">Open access</span></div>
   </div>
 
-  <h2><span class="num">03</span>Future roadmap — GeoAI for African food security (2025–2035)</h2>
+  <h2><span class="num">03</span>Future roadmap &mdash; GeoAI for African food security (2025&ndash;2035)</h2>
   <p>The poster's "future" section sketches a three-phase, ten-year roadmap for scaling this prototype into a Pan-African GeoAI ecosystem. The roadmap aligns with SDG 2 / 13 / 15 and African Union Agenda 2063 Goal 5.</p>
 
-  <h3>Phase I — Upstream (2025–2027): Data &amp; Information</h3>
+  <h3>Phase I &mdash; Upstream (2025&ndash;2027): Data &amp; Information</h3>
   <p>Build the EO-AI foundation: integrate Sentinel-1, 2, 3, and 5P into unified African data cubes (ESA / Copernicus / AfSA). Deploy cloud-native GEE environments hosted in Africa (GMES &amp; Africa / RCMRD). Produce annual 10 m cropland and crop-type masks (AfriCultuReS / FAO). Establish open GeoAI training repositories (ISU / OpenEO).</p>
 
-  <h3>Phase II — Midstream (2027–2031): Innovation &amp; Deployment</h3>
+  <h3>Phase II &mdash; Midstream (2027&ndash;2031): Innovation &amp; Deployment</h3>
   <p>Operationalise temporal CNN / Transformer models for crop stress and yield prediction. Fuse Sentinel + CHIRPS + SoilGrids + ET₀ for evapotranspiration and moisture mapping. Develop interactive policy dashboards for vegetation and rainfall anomalies. Build agricultural digital-twin scenarios (ESA Φ-Lab / Destination Earth).</p>
 
-  <h3>Phase III — Downstream (2031–2035): Application &amp; Impact</h3>
+  <h3>Phase III &mdash; Downstream (2031&ndash;2035): Application &amp; Impact</h3>
   <p>Deliver AI-driven advisories to farmers via SMS and WhatsApp on planting, irrigation, and stress alerts. Integrate vegetation indices into climate-risk finance (micro-insurance, credit). Standardise EO indicators for SDG 2.4 (sustainable agriculture). Establish a continental GeoAI Observatory with open APIs for AgTech start-ups (AfSA / UNOOSA / ISU).</p>
 
   <p>Targets by 2035: 90% of African nations using GeoAI dashboards, 40% reduction in crop-loss uncertainty, 100 million hectares under annual EO-based monitoring, 50+ new GeoAI-based AgTech start-ups, 10 million smallholder farmers reached.</p>
@@ -103,18 +100,18 @@
   <h2><span class="num">04</span>Try it</h2>
   <p>The interactive web dashboard is live and free to use:</p>
   <p>
-    <a class="btn" href="https://isu-lceuranie.projects.earthengine.app/view/rwandaevi2020-2024cvi" target="_blank" rel="noopener">Launch the GEE app →</a>
+    <a class="btn" href="https://isu-lceuranie.projects.earthengine.app/view/rwandaevi2020-2024cvi" target="_blank" rel="noopener">Launch the GEE app &rarr;</a>
   </p>
 
   <h2><span class="num">05</span>Acknowledgements</h2>
-  <p>This project was completed as part of the AI in Space Poster Session of the Master of Space Studies at the International Space University. Thanks to <strong>Dr. Moulay Anwar Sounny-Slitine</strong> and <strong>Antoine Dreher</strong> for their mentorship, and to the jury panel for valuable feedback. Appreciation is extended to UNOOSA for promoting the peaceful use of space, and to the Rwanda Space Agency for advancing national Earth-observation capacity in support of the UN SDGs and Agenda 2063.</p>
+  <p>This project was completed as part of the AI in Space Poster Session of the Master of Space Studies at the International Space University. Thanks to <strong>Dr. Moulay Anwar Sounny-Slitine</strong> for their mentorship, and to the jury panel for valuable feedback. Appreciation is extended to UNOOSA for promoting the peaceful use of space, and to the Rwanda Space Agency for advancing national Earth-observation capacity in support of the UN SDGs and Agenda 2063.</p>
 
   <h2><span class="num">06</span>Why this is on a space-engineering portfolio</h2>
-  <p>The poster format is small by design — a single deliverable, a single defence in front of a jury — but the work it represents is exactly the kind of downstream Earth-observation service that the European space community has been moving toward for a decade. AI-assisted AOI generation, EVI classification, deployed split-panel app, time series across a real agricultural calendar, and a roadmap that scales the prototype into a Pan-African ecosystem. The same instincts apply at agency or prime scale: take a free public dataset, do the engineering work to make it credible, and ship it in a form a non-specialist can act on.</p>
+  <p>The poster format is small by design &mdash; a single deliverable, a single defence in front of a jury &mdash; but the work it represents is exactly the kind of downstream Earth-observation service that the European space community has been moving toward for a decade. AI-assisted AOI generation, EVI classification, deployed split-panel app, time series across a real agricultural calendar, and a roadmap that scales the prototype into a Pan-African ecosystem. The same instincts apply at agency or prime scale: take a free public dataset, do the engineering work to make it credible, and ship it in a form a non-specialist can act on.</p>
 
   <div class="proj-foot">
-    <a href="project-titan.html">← Previous: Titan</a>
-    <a href="project-terroir.html">Next: Terroir Prediction →</a>
+    <a href="project-titan.html">&larr; Previous: Titan</a>
+    <a href="project-terroir.html">Next: Terroir Prediction &rarr;</a>
   </div>
 
 </article>
@@ -123,8 +120,8 @@
 
 <footer class="site-foot">
   <div class="wrap foot-grid">
-    <span>© 2026 L. Chris Euranie · All rights reserved</span>
-    <span>Portfolio · rev. 2026.05</span>
+    <span>&copy; 2026 L. Chris Euranie &middot; All rights reserved</span>
+    <span>Portfolio &middot; rev. 2026.05</span>
   </div>
 </footer>
 
