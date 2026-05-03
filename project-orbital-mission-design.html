@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orbital Mission Design — STK · L. Chris Euranie</title>
+  <meta name="description" content="Orbital scenarios, eclipse cycles, and access-window analyses for mission-specific geometries, modelled in STK.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="index.html"><span class="brand-dot"></span>L. Chris Euranie</a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+    <nav class="nav" id="primary-nav" aria-label="Primary">
+      <a href="index.html">Index</a>
+      <a href="about.html">About</a>
+      <a href="index.html#projects" aria-current="page">Projects</a>
+      <a href="publications.html">Publications</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="page-head">
+  <div class="wrap">
+    <p class="kicker">Project · Mission Analysis</p>
+    <h1>Orbital scenarios, modelled.</h1>
+    <p class="lead">A series of STK studies modelling orbital mechanics, eclipse cycles, and access windows for mission-specific geometries — the analytical foundation for the mission-design coursework I've completed at ISU.</p>
+
+    <dl class="proj-meta">
+      <dt>Date</dt><dd>2025 – 2026</dd>
+      <dt>Role</dt><dd>Sole analyst — scenario setup, propagation, reporting</dd>
+      <dt>Tool</dt><dd>STK (Systems Tool Kit) — Level 1 certified</dd>
+      <dt>Coverage</dt><dd>LEO Earth observation · GEO communications · interplanetary access geometries</dd>
+    </dl>
+  </div>
+</section>
+
+<article class="article wrap">
+
+  <h2><span class="num">01</span>Scope</h2>
+  <p>The STK work spans three families of analysis I worked through over the course of the Master of Space Studies. Each was driven by a specific mission concept under study elsewhere in the programme — the tool is most useful when the questions are concrete.</p>
+
+  <h2><span class="num">02</span>Sun-synchronous EO scenarios</h2>
+  <p>Setting up sun-synchronous orbits at the parameters typical of Sentinel-style missions (705 km altitude, ~98° inclination, descending-node local time around 10:30) and propagating to extract revisit, swath coverage, and ground-track repeat behaviour. The point is to build the intuition behind what makes EO orbits non-arbitrary — why those specific numbers, and what changes when you perturb them.</p>
+
+  <figure>
+    <div class="figure-placeholder">
+      <span class="ph-tag">Placeholder</span>
+      <span class="ph-label">STK 3D scenario — sun-synchronous orbit ground track over a 24-hour propagation, with terminator illumination shown</span>
+    </div>
+    <figcaption>Fig. 1 — Sun-synchronous LEO ground track. 24-hour propagation showing the descending-node local-time invariance.</figcaption>
+  </figure>
+
+  <h2><span class="num">03</span>Eclipse and power-cycle analysis</h2>
+  <p>For an LEO platform, the eclipse cycle is the most consequential periodic phenomenon in the power and thermal designs. I ran eclipse-duration reports across orbital regimes (LEO ISS-like, sun-sync, MEO) to build the comparison that feeds into a CubeSat-class mission's energy-balance calculation. The output of these analyses fed directly into the EPS sizing for the Eyesat-1 prototype on this site.</p>
+
+  <h2><span class="num">04</span>Access windows and ground-station coverage</h2>
+  <p>Computing access windows from a notional spacecraft to specific ground stations (Kiruna, Svalbard, Kourou, Hartebeesthoek) for both LEO and GEO geometries. The deliverable is a per-day visibility schedule that scopes the achievable downlink budget — the same calculation, scaled up, fed into the deep-space DTE windows for the Titan swarm work.</p>
+
+  <figure>
+    <div class="figure-placeholder">
+      <span class="ph-tag">Placeholder</span>
+      <span class="ph-label">STK access plot — LEO spacecraft to multi-station ground network, 7-day window with stations colour-coded</span>
+    </div>
+    <figcaption>Fig. 2 — Access windows from a LEO spacecraft to a four-station European ground network, propagated over 7 days.</figcaption>
+  </figure>
+
+  <h2><span class="num">05</span>Deliverables</h2>
+  <p>Each scenario closes with the same deliverable set: a 3D scenario file, a propagated trajectory, an access/coverage report, and a written interpretation. The interpretation is the part that matters — STK output without context is just a list of numbers. The discipline I take from this work is the same one I take from a decade of seismic interpretation: the number is not the answer; the explanation of the number is the answer.</p>
+
+  <div class="proj-foot">
+    <a href="project-space-defense.html">← Previous: ESDA Strategy</a>
+    <a href="project-astronomical.html">Next: NGC 4852 →</a>
+  </div>
+
+</article>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <span>© 2026 L. Chris Euranie · All rights reserved</span>
+    <span>Portfolio · rev. 2026.05</span>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

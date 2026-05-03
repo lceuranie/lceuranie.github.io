@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NGC 4852 — Astronomical Data Mining · L. Chris Euranie</title>
+  <meta name="description" content="Curating an open-cluster membership for NGC 4852 from Gaia DR3, with quality filtering and isochrone fitting on the colour-magnitude diagram.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="index.html"><span class="brand-dot"></span>L. Chris Euranie</a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+    <nav class="nav" id="primary-nav" aria-label="Primary">
+      <a href="index.html">Index</a>
+      <a href="about.html">About</a>
+      <a href="index.html#projects" aria-current="page">Projects</a>
+      <a href="publications.html">Publications</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="page-head">
+  <div class="wrap">
+    <p class="kicker">Project · Astrophysics · Data Mining</p>
+    <h1>Curating NGC 4852 from Gaia DR3.</h1>
+    <p class="lead">From a 10,989-source cone search to a clean 212-member sample of an open cluster — through proper-motion, parallax, and astrometric-quality filtering, with a colour-magnitude diagram and isochrone fitting at the end.</p>
+
+    <dl class="proj-meta">
+      <dt>Date</dt><dd>December 2025</dd>
+      <dt>Role</dt><dd>Sole analyst — workshop report</dd>
+      <dt>Data</dt><dd>Gaia DR3 — astrometry, photometry (G, BP, RP), parallax, proper motions, RUWE</dd>
+      <dt>Reference</dt><dd>Simbad collection of measurements for NGC 4852</dd>
+      <dt>Tools</dt><dd>TOPCAT · VizieR · CMD 3.x isochrones</dd>
+    </dl>
+  </div>
+</section>
+
+<article class="article wrap">
+
+  <h2><span class="num">01</span>Why open clusters</h2>
+  <p>Open clusters are calibration laboratories for stellar evolution. Their members share an age, a metallicity, and a distance to within tight tolerances — which means that whatever spread you see on the colour-magnitude diagram is telling you about evolution, not about contaminating heterogeneity. Gaia DR3, with its precision astrometry and homogeneous photometry, has transformed this kind of work: the membership selection that used to be the hardest part is now tractable from the catalogue alone.</p>
+
+  <p>The workshop selected NGC 4852 from a starting list of 269 known clusters, narrowed by a log(age) &lt; 7.7 cut to 54 candidates, and finally chosen for the combination of detectable turn-off, manageable member count, and a Simbad reference set with &gt;90% probability membership against which the curated result could be validated.</p>
+
+  <h2><span class="num">02</span>The filtering chain</h2>
+
+  <h3>Cone search and pre-selection</h3>
+  <p>A VizieR query on Gaia DR3 around the cluster centre returned <strong>10,989 candidate sources</strong> (cluster members plus background sky). That was the starting catalogue from which the analysis had to recover the genuine cluster.</p>
+
+  <h3>Proper motion (Task 3)</h3>
+  <p>Cluster members move together. On the proper-motion scatter (μ<sub>α</sub>* vs μ<sub>δ</sub>), the cluster appears as a tight overdensity against a dispersed field. A polygon selection around that overdensity left <strong>866 candidates</strong> — about 8% of the cone-search starting set.</p>
+
+  <figure>
+    <div class="figure-placeholder">
+      <span class="ph-tag">Placeholder</span>
+      <span class="ph-label">Proper-motion diagram for the 10,989 cone-search sources, with the polygon selection around the cluster overdensity highlighted</span>
+    </div>
+    <figcaption>Fig. 1 — Proper-motion scatter. Cluster members form a tight overdensity; the polygon selection isolates 866 candidates.</figcaption>
+  </figure>
+
+  <h3>Parallax (Task 4)</h3>
+  <p>Sorting the proper-motion subset by parallax revealed a consistent range — the cluster is at one distance, field interlopers cover a much wider parallax distribution. A parallax filter on the surviving sources left <strong>251 members</strong>.</p>
+
+  <h3>Astrometric quality — RUWE (Task 5)</h3>
+  <p>The Renormalised Unit Weight Error is Gaia's headline astrometric-quality metric: values above ~1.4 indicate the single-star astrometric solution is a poor fit, often because the source is unresolved binary. Applying RUWE &lt; 1.3 removed an additional set of suspicious sources, leaving <strong>233 members</strong>. The discarded RUWE-fail sources are recorded as a check rather than thrown away — they could be genuine binary cluster members and are flagged for follow-up.</p>
+
+  <h3>Further refinement (Task 6)</h3>
+  <p>A four-pass refinement on additional astrometric and photometric quality parameters (proper-motion uncertainties, photometric error, BP/RP excess factor) converged on <strong>212 final cluster members</strong>.</p>
+
+  <h2><span class="num">03</span>Colour-magnitude diagram and isochrone fitting</h2>
+  <p>With clean members in hand, the Gaia G versus (BP − RP) colour-magnitude diagram shows the cluster's main sequence and turn-off. Overlaying PARSEC / CMD-3.x isochrones constrains age, distance modulus, and extinction simultaneously. The best-fit isochrone (around log(age) = 35.5 in the workshop's parameterisation, with appropriate distance and reddening adjustments) reproduces the observed main sequence cleanly.</p>
+
+  <figure>
+    <div class="figure-placeholder">
+      <span class="ph-tag">Placeholder</span>
+      <span class="ph-label">Colour-magnitude diagram for the 212 curated cluster members, with the best-fit isochrone overlaid in orange</span>
+    </div>
+    <figcaption>Fig. 2 — Colour-magnitude diagram for the curated NGC 4852 sample. PARSEC isochrone overlaid.</figcaption>
+  </figure>
+
+  <h2><span class="num">04</span>Validation against the literature</h2>
+  <p>The final check: cross-match the curated 212-member sample against an existing literature reference set of 1,352 candidate sources for NGC 4852 (TOPCAT crossmatch). The overlap is <strong>167 members in common</strong> — a clean, internally consistent reproduction of the established cluster footprint, with the curated sample being more conservative on the boundary than the literature set.</p>
+
+  <figure>
+    <div class="figure-placeholder">
+      <span class="ph-tag">Placeholder</span>
+      <span class="ph-label">CMD overlay — 167 cross-matched literature sources (red circles) and the 212 curated members (blue circles)</span>
+    </div>
+    <figcaption>Fig. 3 — CMD overlay. Cross-match between the curated sample (212) and the literature set (1,352) — 167 in common.</figcaption>
+  </figure>
+
+  <div class="stat-row">
+    <div class="stat"><span class="num">10,989</span><span class="lbl">Cone-search sources</span></div>
+    <div class="stat"><span class="num">212</span><span class="lbl">Curated members</span></div>
+    <div class="stat"><span class="num">167</span><span class="lbl">Literature matches</span></div>
+    <div class="stat"><span class="num">98%</span><span class="lbl">Source-rejection rate</span></div>
+  </div>
+
+  <h2><span class="num">05</span>Why this is on a space-engineering portfolio</h2>
+  <p>Mission analysis is full of derived parameters from noisy observations: parallax, proper motion, photometric magnitudes, the cluster age inferred from a turn-off — they are the same kind of object as a seismic inversion result, an EO classifier confidence, or an orbit-determination residual. The technique is transferable; the discipline of treating uncertainty honestly is the same. This project is a small but explicit demonstration of that habit applied to astronomical data, with the audit trail (10,989 → 866 → 251 → 233 → 212) documented end-to-end.</p>
+
+  <div class="proj-foot">
+    <a href="project-orbital-mission-design.html">← Previous: Orbital Mission Design</a>
+    <a href="project-sbsp.html">Next: SBSP →</a>
+  </div>
+
+</article>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <span>© 2026 L. Chris Euranie · All rights reserved</span>
+    <span>Portfolio · rev. 2026.05</span>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

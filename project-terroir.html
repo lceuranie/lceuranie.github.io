@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terroir Prediction Engine — Climate-Analog GEE App · L. Chris Euranie</title>
+  <meta name="description" content="A Google Earth Engine app that locates the climate analogues of legendary wine vintages in 2050 projections — using PCA, k-means, and topoclimatic SVR downscaling.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="index.html"><span class="brand-dot"></span>L. Chris Euranie</a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+    <nav class="nav" id="primary-nav" aria-label="Primary">
+      <a href="index.html">Index</a>
+      <a href="about.html">About</a>
+      <a href="index.html#projects" aria-current="page">Projects</a>
+      <a href="publications.html">Publications</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="page-head">
+  <div class="wrap">
+    <p class="kicker">Project · Earth Observation · Climate Analytics</p>
+    <h1>Where will the next great vintage come from?</h1>
+    <p class="lead">A live Google Earth Engine app that finds the 2050 climate analogues of fourteen legendary wine vintages — combining bioclimatic indices, topoclimatic downscaling, and machine-learning clustering on Sentinel, MODIS, and ERA5-Land data.</p>
+
+    <dl class="proj-meta">
+      <dt>Date</dt><dd>2026</dd>
+      <dt>Role</dt><dd>Sole author — concept, workflow, deployment</dd>
+      <dt>Stack</dt><dd>Google Earth Engine · ERA5-Land · TerraClimate · MODIS LST · SRTM · Sentinel-2 · OpenLandMap</dd>
+      <dt>Methods</dt><dd>Bioclimatic indices (GST, HI, CI, DI) · SVR topoclimatic downscaling · PCA + k-means · soil-water filter</dd>
+      <dt>Status</dt><dd>Live — interactive app deployed</dd>
+    </dl>
+  </div>
+</section>
+
+<article class="article wrap">
+
+  <h2><span class="num">01</span>The question</h2>
+  <p>The narrow climatic envelopes that produce premium wine are shifting. Bordeaux and Napa are already at or near the upper bound of their growing-season temperature; published projections place the ideal 12–22 °C growing-season isotherm 150–300 km poleward and several hundred metres higher in elevation by mid-century. The investment question that follows is concrete: where, exactly, will the climate that produced a 1961 Château Latour or a 1990 Domaine de la Romanée-Conti exist in 2050?</p>
+
+  <p>The Terroir Prediction Engine is an attempt to answer that question with public satellite data, in a tool anyone can use in a browser.</p>
+
+  <figure>
+    <div class="figure-placeholder">
+      <span class="ph-tag">Placeholder</span>
+      <span class="ph-label">Screenshot — Terroir Prediction Engine app interface, showing iconic-vintage selection dropdown and the 2050 climate-analogue map output</span>
+    </div>
+    <figcaption>Fig. 1 — The Terroir Prediction Engine. User selects an iconic vintage and a future search zone; the app returns the 2050 climate analogues as a tile layer.</figcaption>
+  </figure>
+
+  <h2><span class="num">02</span>Iconic vintages as benchmarks</h2>
+  <p>The app is grounded on fourteen iconic vintages, drawn from a synthesis of critical consensus (Wine Advocate, Wine Spectator, JancisRobinson) and academic work on the climate-quality relationship (Jones, 2005; Jones, 2006). Each vintage anchors a precise climatic signature — not a 30-year average, but the specific weather of the year that produced the legendary wine. Searching for averages risks finding land where the new normal is perfect but the new extremes will cook the grapes; searching for the exact peak-vintage signature is the more rigorous formulation.</p>
+
+  <p>The set spans Bordeaux (Latour 1961, Margaux 1982, Haut-Brion 1989), Burgundy (Romanée-Conti 1990, Rousseau 2005), Tuscany (Sassicaia 1985), Piedmont (Gaja 1990), Napa (Screaming Eagle 1997, Ridge 1991), Mosel (J. J. Prüm 2001), Champagne (Krug Clos du Mesnil 1996), Ribera del Duero (Vega Sicilia Unico 1970), Mendoza (Catena Zapata 2019), and the Barossa (Penfolds Grange 1990).</p>
+
+  <h2><span class="num">03</span>The workflow</h2>
+
+  <h3>Step 1 — Bioclimatic indices from a hybrid dataset</h3>
+  <p>The Tonietto &amp; Carbonneau Multicriteria Climatic Classification (MCC) requires daily-resolution temperature data — TerraClimate is monthly and would smooth out exactly the heat spikes and cool nights that distinguish a peak vintage. The app uses a hybrid approach: ERA5-Land Daily Aggregated for the thermal indices (Growing Season Temperature, Huglin Heliothermal Index, Cool Night Index) and TerraClimate for the hydrological component (Dryness Index, climatic water deficit). The Southern Hemisphere has its own logic — a 1990 Penfolds Grange harvest started its growing season in October 1989, not 1990, and the function offsets the year accordingly.</p>
+
+  <h3>Step 2 — Topoclimatic downscaling with SVR</h3>
+  <p>Global climate models operate at 9–25 km resolution. A vineyard slope is microclimatic. To bridge the gap, the app trains a Support Vector Regression model that learns the relationship between SRTM-derived topography (elevation, slope, north-south aspect, east-west aspect) and MODIS Land Surface Temperature at 1 km, then applies the learned relationship at 30 m DEM resolution. Aspect is encoded with sine and cosine to avoid the 0°/360° discontinuity that would confuse a linear model.</p>
+
+  <p>Memory management matters here: SVR is computationally heavy, and naïve global training crashes Earth Engine. The app trains within a user-selectable region of interest and samples training data at the resolution of the dependent variable, not the predictor — a deliberate engineering decision rather than an accident.</p>
+
+  <h3>Step 3 — Future climate analogues via PCA + k-means</h3>
+  <p>NASA NEX-GDDP CMIP6 projections give the 2041–2060 search space, in two emission scenarios so the user can choose between moderate (SSP2-4.5) and worst-case (SSP5-8.5) risk profiles. Principal Component Analysis reduces the climate-variable dimensionality; k-means clustering with Euclidean distance identifies the 2050 pixels whose downscaled climate signatures match the historical peak-vintage anchor.</p>
+
+  <h3>Step 4 — Soil and current-land-cover filters</h3>
+  <p>Climate match is necessary but not sufficient. A final filter checks soil water-holding capacity (OpenLandMap / SoilGrids) — terroir is heavily governed by the soil's regulation of water and nitrogen — and Sentinel-2 (NDRE, NDVI) classifies the current land cover. A "Ghost Terroir" pixel that turns out to be a protected rainforest or an existing dense urban area is correctly excluded.</p>
+
+  <figure>
+    <div class="figure-placeholder">
+      <span class="ph-tag">Placeholder</span>
+      <span class="ph-label">Workflow diagram — eight-step pipeline from iconic vintage extraction through PCA / k-means clustering to the soil-and-cover filter</span>
+    </div>
+    <figcaption>Fig. 2 — Eight-step pipeline. Hybrid climate sources (left), SVR downscaling (centre), clustering and filtering (right).</figcaption>
+  </figure>
+
+  <h2><span class="num">04</span>Engineering decisions worth flagging</h2>
+
+  <h3>Region-of-interest, not global search</h3>
+  <p>An early version tried to run global k-means clustering on the downscaled grid; Earth Engine timed out. The fix was a UI redesign: the user picks a target zone (Southern England, Tasmania, British Columbia) before the cluster engine runs. The decision moved the app from "interesting but unrunnable" to "interactive and fast," at the cost of one user-interaction step.</p>
+
+  <h3>Scale-factor bug on water deficit</h3>
+  <p>An early run reported a 3,467 mm water deficit over a Bordeaux growing season — a Sahara-Desert number. TerraClimate's <code>def</code> band stores values with a 0.1 scale factor; multiplying by 0.1 gave the correct 346.7 mm deficit, consistent with a dry Bordeaux summer. A small bug on a single line, but a useful reminder that EO data products encode their own conventions and reading the dataset documentation matters as much as the code.</p>
+
+  <div class="stat-row">
+    <div class="stat"><span class="num">14</span><span class="lbl">Iconic vintages</span></div>
+    <div class="stat"><span class="num">8</span><span class="lbl">EO datasets</span></div>
+    <div class="stat"><span class="num">30 m</span><span class="lbl">Microclimate resolution</span></div>
+    <div class="stat"><span class="num">2050</span><span class="lbl">Projection horizon</span></div>
+  </div>
+
+  <h2><span class="num">05</span>Try it</h2>
+  <p>The app is live and free to use:</p>
+  <p>
+    <a class="btn" href="https://lceuranie.users.earthengine.app/view/terroirspredictionengine" target="_blank" rel="noopener">Launch the Terroir Prediction Engine →</a>
+  </p>
+
+  <h2><span class="num">06</span>Why this is on a space-engineering portfolio</h2>
+  <p>The work sits at the boundary the European space community has been deliberately moving toward for a decade — downstream EO services, climate-adaptation tools, and applications that turn satellite data into decisions for real industries. Wine is a useful test case: a $400 billion global market, deeply tied to specific geographies, and one of the cleanest natural experiments in climate change because peak vintages are tightly recorded across centuries. The technical work is transferable to any application where a user needs to find the climate analogues of a known historical condition — agricultural transitions, ecological restoration, infrastructure siting.</p>
+
+  <h2><span class="num">07</span>Limitations &amp; next steps</h2>
+  <p>The current model treats climate as the dominant variable and applies soil and land-cover as filters; in reality, viticultural decisions also depend on legal frameworks (appellation rules), water rights, labour markets, and infrastructure. A version 2 would integrate at least a labour-cost and water-rights overlay. The CMIP6 projections come with their own ensemble spread, and the app currently exposes only the median; a useful upgrade would surface the inter-model uncertainty so the investor can see the disagreement, not just the central estimate.</p>
+
+  <div class="proj-foot">
+    <a href="project-rwanda-eo.html">← Previous: Rwanda EO/AI</a>
+    <a href="project-eyesat-cubesat.html">Next: Eyesat-1 CubeSat →</a>
+  </div>
+
+</article>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <span>© 2026 L. Chris Euranie · All rights reserved</span>
+    <span>Portfolio · rev. 2026.05</span>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

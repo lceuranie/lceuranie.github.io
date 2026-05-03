@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rwanda Vegetation Health App — EO &amp; AI · L. Chris Euranie</title>
+  <meta name="description" content="A Sentinel-2 + AI workflow for vegetation monitoring in Rwanda, deployed as an interactive Google Earth Engine app for food security and disaster response.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="index.html"><span class="brand-dot"></span>L. Chris Euranie</a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+    <nav class="nav" id="primary-nav" aria-label="Primary">
+      <a href="index.html">Index</a>
+      <a href="about.html">About</a>
+      <a href="index.html#projects" aria-current="page">Projects</a>
+      <a href="publications.html">Publications</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="page-head">
+  <div class="wrap">
+    <p class="kicker">Project · Earth Observation · AI</p>
+    <h1>Vegetation health for Rwanda, in the browser.</h1>
+    <p class="lead">A multi-temporal Sentinel-2 workflow with CNN-based classification, deployed as an interactive Google Earth Engine app for vegetation monitoring and change detection over a five-year window.</p>
+
+    <dl class="proj-meta">
+      <dt>Date</dt><dd>2026</dd>
+      <dt>Role</dt><dd>Sole author — workflow, model, deployment</dd>
+      <dt>Sensor</dt><dd>Sentinel-2 L2A (multispectral, 10 m)</dd>
+      <dt>Stack</dt><dd>Google Earth Engine · JavaScript API · CNN classifier</dd>
+      <dt>Region</dt><dd>Republic of Rwanda · 5-year archive</dd>
+      <dt>Status</dt><dd>Live — interactive app deployed</dd>
+    </dl>
+  </div>
+</section>
+
+<article class="article wrap">
+
+  <h2><span class="num">01</span>Why Rwanda</h2>
+  <p>Smallholder agriculture in East Africa is among the populations most exposed to climate-driven shocks, and among the least served by dedicated remote-sensing infrastructure. Rwanda is a useful study area: its terraced topography produces complex vegetation patterns at the scale Sentinel-2 resolves well, and the country's open data culture (RNRA, MINAGRI) gives ground-truth context for validation.</p>
+
+  <p>The goal of this work was modest but operational: produce a free, browser-accessible tool that lets a non-specialist visualise vegetation health and change over the last five years, anywhere in Rwanda, at any zoom level — without writing code, downloading imagery, or running their own classifier.</p>
+
+  <figure>
+    <div class="figure-placeholder">
+      <span class="ph-tag">Placeholder</span>
+      <span class="ph-label">Screenshot — GEE app interface showing the EVI time-series map for a Rwandan district with the vegetation classification layer overlaid</span>
+    </div>
+    <figcaption>Fig. 1 — Interactive GEE app. EVI map with classification overlay; user-selectable date range and AOI.</figcaption>
+  </figure>
+
+  <h2><span class="num">02</span>Workflow</h2>
+
+  <h3>Data preparation</h3>
+  <p>Sentinel-2 L2A surface reflectance, filtered for cloud cover under 20% per scene, mosaicked at quarterly cadence over the 2021–2026 window. Cloud-shadow masking via the SCL band, with additional pixel-level masking using the QA60 cirrus flags. Spectral indices computed: NDVI, EVI, NDWI, NBR.</p>
+
+  <h3>Classification</h3>
+  <p>A small CNN classifier trained on patch-level samples drawn from the Copernicus Global Land Cover product, fine-tuned on Rwanda-specific reference points. Five output classes: dense forest, agricultural mosaic, grassland, built-up, water. Class boundaries deliberately coarse — the goal is robust signal, not fine taxonomy.</p>
+
+  <h3>Change detection</h3>
+  <p>EVI delta computed between season-matched composites (e.g. dry-season 2021 vs dry-season 2026) to suppress phenology-driven false positives. Output is a per-pixel signed change product, served as a tile layer.</p>
+
+  <h3>Deployment</h3>
+  <p>The full workflow runs server-side in Google Earth Engine; the user-facing app is a GEE-hosted UI that exposes AOI, date range, and product-layer controls. No backend, no install, no GIS expertise required.</p>
+
+  <div class="stat-row">
+    <div class="stat"><span class="num">5 yrs</span><span class="lbl">Time series</span></div>
+    <div class="stat"><span class="num">10 m</span><span class="lbl">Resolution</span></div>
+    <div class="stat"><span class="num">5</span><span class="lbl">Land-cover classes</span></div>
+    <div class="stat"><span class="num">~26 k km²</span><span class="lbl">National coverage</span></div>
+  </div>
+
+  <h2><span class="num">03</span>Stakeholder framing</h2>
+  <p>The conceptual stakeholder map for this work spans national agencies (MINAGRI, RNRA), international organisations (UN-SPIDER, FAO, WFP), and downstream operators in food security and disaster response. The deliberate design choice — public, browser-based, no licence — reflects what this user community actually needs: low-friction access far more than peak accuracy.</p>
+
+  <p>The work aligns with UN Sustainable Development Goals 2 (Zero Hunger) and 13 (Climate Action), and it sits in the lineage of broader Copernicus Africa initiatives that are increasingly important to EU space-policy positioning.</p>
+
+  <h2><span class="num">04</span>Results</h2>
+
+  <figure>
+    <div class="figure-placeholder">
+      <span class="ph-tag">Placeholder</span>
+      <span class="ph-label">Five-year change detection map — green pixels show vegetation gain, red show loss, against the Rwanda boundary</span>
+    </div>
+    <figcaption>Fig. 2 — Five-year EVI change. Net vegetation gain in reforested districts; localised losses near urban expansion zones.</figcaption>
+  </figure>
+
+  <p>Validation against the ESA WorldCover 2021 reference at randomly sampled points yielded an overall classification accuracy of 84%, with the largest confusions falling along agricultural-mosaic / grassland boundaries — expected, given the coarseness of the class definition. The change product successfully recovered known reforestation projects (Gishwati-Mukura) and known clearance events along the eastern lowlands.</p>
+
+  <h2><span class="num">05</span>Try it</h2>
+  <p>The app is live and free to use:</p>
+  <p>
+    <a class="btn" href="https://lceuranie.users.earthengine.app/view/rwanda-vegetation" target="_blank" rel="noopener">Launch the GEE app →</a>
+  </p>
+
+  <h2><span class="num">06</span>Limitations &amp; next steps</h2>
+  <p>The model is deliberately simple — it favours recall over precision for vegetation gain, and it does not separate crop type. Two natural extensions: integrating Sentinel-1 SAR for cloud-resilient monitoring during the rainy season, and extending the workflow to the broader East African Community for regional reporting. A small set of fine-tuned class definitions (banana, tea, coffee — the three crops that dominate Rwanda's export economy) would also be a logical next step.</p>
+
+  <div class="proj-foot">
+    <a href="project-titan.html">← Previous: Titan</a>
+    <a href="project-terroir.html">Next: Terroir Prediction →</a>
+  </div>
+
+</article>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <span>© 2026 L. Chris Euranie · All rights reserved</span>
+    <span>Portfolio · rev. 2026.05</span>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
