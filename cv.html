@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curriculum Vitae · L. Chris Euranie</title>
+  <meta name="description" content="Earth observation analyst and project management professional transitioning into the space sector through the ISU Master of Space Studies. 10+ years of experience delivering complex technical projects.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+    /* CV-specific styles — minimal additions, building on existing tokens */
+    .cv-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2.5rem;
+      align-items: start;
+    }
+    .cv-head-photo {
+      width: 170px;
+      height: 210px;
+      border-radius: 18px;
+      object-fit: cover;
+      background: var(--paper-deep, #F2EEE5);
+      border: 1px solid var(--rule, #E0D9CA);
+    }
+    .cv-head-photo-fallback {
+      width: 170px;
+      height: 210px;
+      border-radius: 18px;
+      background: var(--paper-deep, #F2EEE5);
+      border: 1px solid var(--rule, #E0D9CA);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.10em;
+      color: var(--ink-mute, #9A9285);
+      text-align: center;
+      padding: 8px;
+    }
+    .cv-section {
+      margin-top: clamp(2rem, 4vw, 3rem);
+    }
+    .cv-entry {
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--rule, #E0D9CA);
+    }
+    .cv-entry:last-child {
+      border-bottom: none;
+    }
+    .cv-entry-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: baseline;
+      margin-bottom: 0.4rem;
+    }
+    .cv-entry-title {
+      font-family: 'Newsreader', Georgia, serif;
+      font-weight: 500;
+      font-size: 1.15rem;
+      color: var(--ink, #1C1A14);
+    }
+    .cv-entry-org {
+      font-style: italic;
+      color: var(--ink, #1C1A14);
+    }
+    .cv-entry-meta {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--ink-mute, #6E665A);
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    .cv-entry-role {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.10em;
+      color: var(--rust, #B5532A);
+      font-weight: 500;
+      margin-bottom: 0.6rem;
+    }
+    .cv-entry ul {
+      margin: 0.6rem 0 0 0;
+      padding-left: 1.1rem;
+    }
+    .cv-entry ul li {
+      margin-bottom: 0.4rem;
+      line-height: 1.55;
+    }
+    .cv-cluster {
+      margin-bottom: 1.2rem;
+    }
+    .cv-cluster-title {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-mute, #6E665A);
+      margin-bottom: 0.4rem;
+    }
+    .cv-skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .cv-skill-block strong {
+      font-family: 'Newsreader', Georgia, serif;
+      font-style: italic;
+      font-weight: 500;
+    }
+    .cv-actions {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 1.25rem;
+    }
+    @media (max-width: 640px) {
+      .cv-head { grid-template-columns: 1fr; }
+      .cv-entry-head { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="index.html"><span class="brand-dot"></span>L. Chris Euranie</a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+    <nav class="nav" id="primary-nav" aria-label="Primary">
+      <a href="index.html">Index</a>
+      <a href="about.html">About</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="publications.html">Publications</a>
+      <a href="cv.html" aria-current="page">CV</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="page-head">
+  <div class="wrap">
+    <div class="cv-head">
+      <div>
+        <p class="kicker">Curriculum Vitae</p>
+        <h1>Ludivine Chris Euranie</h1>
+        <p class="lead">Earth Observation analyst and project management professional transitioning into the space sector through the Master of Space Studies at the International Space University (CNES Scholarship). 10+ years of experience delivering complex technical projects, managing multi-stakeholder environments, and producing structured documentation aligned with ESA-style governance.</p>
+        <div class="cv-actions">
+          <a class="btn" href="assets/L_Chris_Euranie_CV.pdf" download>Download PDF</a>
+          <a class="btn btn--ghost" href="index.html#contact">Get in touch</a>
+        </div>
+      </div>
+      <div>
+        <img class="cv-head-photo" src="assets/images/cv/headshot.jpg" alt="Headshot of L. Chris Euranie">
+      </div>
+    </div>
+  </div>
+</section>
+
+<article class="article wrap">
+
+  <!-- ============================================================ -->
+  <!-- 01 - PROFILE / POSITIONING                                     -->
+  <!-- ============================================================ -->
+
+  <h2 class="cv-section"><span class="num">01</span>Positioning</h2>
+  <p>Hands-on skills in remote sensing, AI-driven analytics, cloud-based EO processing, mission design, CubeSat systems engineering, and ECSS-inspired project workflows. Motivated to contribute to <strong>EO data processing, systems engineering, programme management, and dual-use space</strong> within European space missions — at agencies, primes, downstream operators, and start-ups.</p>
+
+  <p style="font-family: var(--mono); font-size: 0.85rem; color: var(--ink-mute, #6E665A);">
+    📍 Strasbourg, France &nbsp;·&nbsp;
+    📧 <a href="mailto:LCEuranie@outlook.com">LCEuranie@outlook.com</a> &nbsp;·&nbsp;
+    📞 +33 685 961 685 &nbsp;·&nbsp;
+    💼 <a href="https://www.linkedin.com/in/lceuranie" target="_blank" rel="noopener">/in/lceuranie</a>
+  </p>
+
+  <!-- ============================================================ -->
+  <!-- 02 - EDUCATION                                                 -->
+  <!-- ============================================================ -->
+
+  <h2 class="cv-section"><span class="num">02</span>Education</h2>
+
+  <div class="cv-entry">
+    <div class="cv-entry-head">
+      <div>
+        <span class="cv-entry-title">Master of Space Studies — Space Engineering &amp; Applications</span><br>
+        <span class="cv-entry-org">International Space University · CNES Scholarship</span>
+      </div>
+      <span class="cv-entry-meta">Sep 2025 – Jun 2026 · Strasbourg, FR</span>
+    </div>
+
+    <div class="cv-cluster">
+      <p class="cv-cluster-title">Earth Observation &amp; AI Analytics</p>
+      <ul>
+        <li><strong>AI for Earth Observation</strong> — full GEE workflow for multi-temporal Sentinel-2 vegetation monitoring; CNN-based classification; produced GEE change-detection map app for 5-year Rwanda dataset. <a href="project-rwanda-eo.html">Project →</a></li>
+        <li><strong>Climate-Analog Engine</strong> — live GEE app finding the 2050 climate analogues of fourteen iconic wine vintages; PCA + k-means clustering, SVR topoclimatic downscaling. <a href="project-terroir.html">Project →</a></li>
+        <li><strong>Astronomical Data Mining</strong> — open-cluster NGC 4852 from Gaia DR3, colour-magnitude diagram, isochrone fitting. <a href="project-astronomical.html">Project →</a></li>
+        <li><strong>GIS Specialist</strong> — spatial analysis using ArcGIS, QGIS.</li>
+      </ul>
+    </div>
+
+    <div class="cv-cluster">
+      <p class="cv-cluster-title">Space Systems Engineering &amp; Mission Design</p>
+      <ul>
+        <li><strong>Orbital Mission Design (STK)</strong> — modelled orbital scenarios, eclipse cycles, access windows for mission-specific geometries; STK Level 1 certified. <a href="project-orbital-mission-design.html">Project →</a></li>
+        <li><strong>1U CubeSat Eyesat-1</strong> — led subsystem integration, requirements drafting, V&amp;V testing protocols; sun-synchronous orbit at 520 km, 97° retrograde. <a href="project-eyesat-cubesat.html">Project →</a></li>
+        <li><strong>TitanMBSE Custom Tool + Titan Hybrid Swarm</strong> — built proprietary browser-based, ECSS-aligned MBSE tool (~7,700 lines); led systems engineering, science case, payload definition, operations concept, risk, project management for the Titan swarm mission concept. <a href="project-titan.html">Project →</a></li>
+        <li><strong>Concurrent Engineering Workshop</strong> — owned AOCS thread for an altimetry mission; designed 750 ± 50 km SSO orbit closing 100% global ocean coverage.</li>
+        <li><strong>Mars Drone &amp; Robotic Competition</strong> — applied Cameo Systems Modeler for Mars drone design with rover sample collection and return; mass/power/comms budgets and V&amp;V requirements.</li>
+        <li><strong>Prototyping</strong> — hybrid planetary observation swarm using CAD modeling and KiCad PCB design.</li>
+      </ul>
+    </div>
+
+    <div class="cv-cluster">
+      <p class="cv-cluster-title">Space Policy &amp; Strategic Management</p>
+      <ul>
+        <li><strong>European Space Defense Administration</strong> — designed federal governance framework and a 5-year, €15B annual roadmap consolidating fragmented national security assets; one of two presenters to the faculty panel. <a href="project-space-defense.html">Project →</a></li>
+        <li><strong>Strategic Communications — Deep Space</strong> — Report Head on a 20-person John Templeton Foundation–sponsored team producing a 15-year, 3-phase, 91-strategy communication roadmap; <strong>accepted for IAC 2026</strong>. <a href="project-deep-space-comms.html">Project →</a></li>
+        <li><strong>Space-Based Solar Power individual report</strong> — phylogenetic analysis and global roadmap analysis arguing that incompatible national success metrics (LCOE / VALCOE / strategic-throne) — not technology readiness — are the true bottleneck. <a href="project-sbsp.html">Project →</a></li>
+        <li>Trained in Space Project Management &amp; Policy, including SSA &amp; SDA awareness and ESA governance.</li>
+        <li>Life Sciences in Space — study of CV, CNS, and musculoskeletal organ system effects.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="cv-entry">
+    <div class="cv-entry-head">
+      <div>
+        <span class="cv-entry-title">MSc Geophysics</span><br>
+        <span class="cv-entry-org">Institut de Physique du Globe de Paris (IPGP)</span>
+      </div>
+      <span class="cv-entry-meta">Sep 2011 – Jun 2013 · Paris, FR</span>
+    </div>
+    <p>Applied Geophysics, Electrical &amp; Electromagnetic methods, Geology &amp; Geochemistry, Logging.</p>
+  </div>
+
+  <div class="cv-entry">
+    <div class="cv-entry-head">
+      <div>
+        <span class="cv-entry-title">BSc Geosciences</span><br>
+        <span class="cv-entry-org">Paris-Sud University</span>
+      </div>
+      <span class="cv-entry-meta">Sep 2008 – Jun 2011 · Paris, FR</span>
+    </div>
+    <p>Sedimentology, Geophysics, Geochemistry, Structural Analysis, Thermodynamics.</p>
+  </div>
+
+  <div class="cv-entry">
+    <div class="cv-entry-head">
+      <div>
+        <span class="cv-entry-title">Project Management Certifications</span><br>
+        <span class="cv-entry-org">Independent professional development</span>
+      </div>
+      <span class="cv-entry-meta">2023 – 2024 · London, UK</span>
+    </div>
+    <ul>
+      <li><strong>CAPM</strong> — Certified Associate in Project Management (Waterfall, Agile, Business Analysis)</li>
+      <li><strong>SMC</strong> — Scrum Master Certified (Project Management, Agile)</li>
+      <li><strong>ITIL4</strong> — IT Service Management (4-Dimension Model, Service Value System)</li>
+    </ul>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- 03 - WORK EXPERIENCE                                           -->
+  <!-- ============================================================ -->
+
+  <h2 class="cv-section"><span class="num">03</span>Work experience</h2>
+  <p style="font-family: var(--mono); font-size: 0.85rem; color: var(--ink-mute, #6E665A); margin-bottom: 1.5rem;">Industry: Energy · Digital Transformation</p>
+
+  <div class="cv-entry">
+    <div class="cv-entry-head">
+      <div>
+        <span class="cv-entry-title">Digital Project Manager</span><br>
+        <span class="cv-entry-org">SLB — Digital and Integration</span>
+      </div>
+      <span class="cv-entry-meta">Mar 2020 – Jul 2024 · Crawley, UK</span>
+    </div>
+    <p class="cv-entry-role">Multi-stakeholder programme delivery · ESA-equivalent governance</p>
+    <ul>
+      <li>Led <strong>multidisciplinary engineering teams (5–10 staff)</strong> through low-to-medium complexity geosciences project life cycles (<strong>$50K–$250K</strong>).</li>
+      <li>Directed <strong>multi-phase large-scale information system digital transformation across Europe</strong>, improving data integrity by <strong>50%</strong> and optimising workflows.</li>
+      <li>Coordinated cross-functional teams — finance, IT, engineering, commercial — to deliver <strong>10+ technical projects</strong>, managing scope, schedule, risks, and stakeholder communication, equivalent to ESA internal work-package coordination.</li>
+      <li>Prepared structured documentation (process maps, risk logs, variance reports, dashboards) supporting decision-making, mirroring ESA programme review expectations.</li>
+      <li>Developed and maintained schedule and KPI dashboards (MS Project, Power BI), ensuring efficient coordination and <strong>100% on-time release of project deliverables</strong>.</li>
+      <li>Monitored governance, variances, and progress tracking; executed change-request workflows; maintained alignment with contractual and compliance requirements.</li>
+      <li>Developed a <strong>risk analytics dashboard across 50+ operations</strong>, enhancing team accountability and awareness.</li>
+      <li>Oversaw <strong>10+ audits</strong>, documented <strong>50+ lessons learned</strong>, close-out, handover, on-time invoice and collection.</li>
+      <li><a href="project-management.html">Read more on the Project Management page →</a></li>
+    </ul>
+  </div>
+
+  <div class="cv-entry">
+    <div class="cv-entry-head">
+      <div>
+        <span class="cv-entry-title">Senior Geophysicist</span><br>
+        <span class="cv-entry-org">SLB — Analysis &amp; Interpretation</span>
+      </div>
+      <span class="cv-entry-meta">Mar 2013 – Jun 2023 · Pau, FR &amp; Bucharest, RO</span>
+    </div>
+    <p class="cv-entry-role">Vertical Seismic Profiling · Reservoir characterisation · Field operations</p>
+    <ul>
+      <li>Delivered <strong>300+ geophysical studies</strong> for exploration, reservoir optimisation, and field development, generating revenue from <strong>$15K to $1M</strong> — Vertical Seismic Profile (VSP). Strong experience with pre-processing, calibration, filtering, inversion modelling, and uncertainty analysis.</li>
+      <li>Led <strong>100+ projects</strong> with revenue ranging from $5K to $50K — 1D / 2D / 2.5D / 3D modelling, seismic survey feasibility, and reservoir characterisation studies.</li>
+      <li>Led data acquisition (field and remote) and processing on <strong>5+ projects</strong> of Hydraulic Fracture Monitoring (HFM) and Underground Gas Storage monitoring.</li>
+      <li>Supported <strong>50+ commercial proposals</strong> by translating client objectives into technical requirements.</li>
+      <li>Mentored junior staff and produced <strong>20+ publications</strong> and technical training sessions. <a href="publications.html">View publications →</a></li>
+      <li><a href="project-geosciences.html">Read more on the Geosciences page →</a></li>
+    </ul>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- 04 - SKILLS                                                    -->
+  <!-- ============================================================ -->
+
+  <h2 class="cv-section"><span class="num">04</span>Skills</h2>
+
+  <div class="cv-skills-grid">
+
+    <div class="cv-skill-block">
+      <p class="cv-cluster-title">Technical &amp; Systems Engineering</p>
+      <p><strong>Systems Engineering:</strong> MBSE (Cameo Systems Modeler), ECSS Standards, Requirements Management &amp; V&amp;V.</p>
+      <p><strong>Mission Analysis:</strong> Orbital Mechanics, Mission Design (STK Level 1), Mass / Power / Link Budgets.</p>
+      <p><strong>Design &amp; Prototyping:</strong> CAD Modeling, PCB Design (KiCad), Robotics, CubeSat &amp; drone subsystem architecture.</p>
+    </div>
+
+    <div class="cv-skill-block">
+      <p class="cv-cluster-title">Data Science &amp; Digital Tools</p>
+      <p><strong>Earth Observation:</strong> satellite imagery processing (Sentinel, Landsat), Google Earth Engine (GEE), ArcGIS / QGIS.</p>
+      <p><strong>AI &amp; Analytics:</strong> CNN-based image classification, machine learning for EO, Python (basics), MATLAB, Power BI.</p>
+      <p><strong>Digital Transformation:</strong> information system migration, cloud-based EO processing, Dataiku, TIBCO Spotfire.</p>
+    </div>
+
+    <div class="cv-skill-block">
+      <p class="cv-cluster-title">Programme &amp; Project Management</p>
+      <p><strong>Methodologies:</strong> PMI (CAPM), Agile (Scrum Master), Waterfall, ITIL4.</p>
+      <p><strong>Controls &amp; Governance:</strong> work-package coordination, risk register analysis &amp; mitigation, schedule / cost tracking (MS Project).</p>
+      <p><strong>Stakeholder Management:</strong> multi-stakeholder governance, change-request, resource optimisation.</p>
+    </div>
+
+    <div class="cv-skill-block">
+      <p class="cv-cluster-title">Interpersonal &amp; Languages</p>
+      <p><strong>Interpersonal:</strong> leadership and followership balance, active listening, conflict resolution, adaptability in intercultural and interdisciplinary contexts.</p>
+      <p><strong>Languages:</strong> French (native) · English (fluent) · Spanish (beginner A1).</p>
+    </div>
+
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- 05 - SELECTED OUTPUTS                                          -->
+  <!-- ============================================================ -->
+
+  <h2 class="cv-section"><span class="num">05</span>Selected outputs</h2>
+  <ul>
+    <li><strong>IAC 2026 (accepted)</strong> — A Global Communication Roadmap to Sustain Deep Space Human Exploration Missions, ISU MSS 2026 Roadmap team, 20 authors, Report Head. <a href="project-deep-space-comms.html">Project →</a></li>
+    <li><strong>10 conference papers</strong> in borehole geophysics and seismic-while-drilling (EAGE, SEG, OTC, SEGJ, JFES, ISCWSA, ONS) — 2018–2023. <a href="publications.html">Full list →</a></li>
+    <li><strong>TitanMBSE</strong> — proprietary browser-based MBSE tool (~7,700 lines, single HTML file, ECSS-aligned). Demonstrations available on request. <a href="project-titan.html">Project →</a></li>
+    <li><strong>Live Earth-Engine apps</strong> — Rwanda vegetation health (<a href="project-rwanda-eo.html">project</a>) and Terroir prediction engine (<a href="project-terroir.html">project</a>).</li>
+  </ul>
+
+  <!-- ============================================================ -->
+  <!-- 06 - LOOKING FORWARD                                           -->
+  <!-- ============================================================ -->
+
+  <h2 class="cv-section"><span class="num">06</span>Looking forward</h2>
+  <p>An ESA internship is confirmed for <strong>August 2026 – January 2027</strong>. After that, I am open to roles in EO data processing, systems engineering, programme management, and dual-use / military space — at European agencies, primes, downstream operators, and start-ups working on Earth observation, planetary science, in-orbit services, or security and defense applications. Based in Strasbourg; willing to relocate within Europe.</p>
+
+  <div class="cv-actions">
+    <a class="btn" href="assets/L_Chris_Euranie_CV.pdf" download>Download PDF version</a>
+    <a class="btn btn--ghost" href="index.html#contact">Get in touch</a>
+  </div>
+
+</article>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <span>© 2026 L. Chris Euranie · All rights reserved</span>
+    <span>Portfolio · rev. 2026.05</span>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
