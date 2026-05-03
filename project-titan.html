@@ -37,8 +37,8 @@
 
     <dl class="proj-meta">
       <dt>Date</dt><dd>April 2026</dd>
-      <dt>Solo work</dt><dd>TitanMBSE tool · systems engineering thread · governance &amp; reviews</dd>
-      <dt>Team work</dt><dd>Titan swarm mission concept (six-member team, ISU MSS 2026)</dd>
+      <dt>Solo work</dt><dd>TitanMBSE tool · systems engineering · science case &amp; payload · operations concept · risk · project management</dd>
+      <dt>Team work</dt><dd>Titan swarm mission concept (three-member team, ISU MSS 2026)</dd>
       <dt>Standards</dt><dd>ECSS-Q-ST-30-02C (FMEA / FMECA) · ECSS-Q-ST-40-12C (FTA)</dd>
       <dt>Stack</dt><dd>HTML / CSS / vanilla JavaScript · zero dependencies</dd>
       <dt>Status</dt><dd>Tool live &amp; open-source · mission concept submitted</dd>
@@ -53,7 +53,7 @@
 
   <p><strong>What I built (solo).</strong> TitanMBSE — a custom MBSE tool, ~7,700 lines of code in a single HTML file. ECSS-aligned, browser-native, zero install. It is the principal solo deliverable on this site. I designed it, wrote every line of it, documented it, and open-sourced it.</p>
 
-  <p><strong>What we built (team of six).</strong> The Titan hybrid swarm — a cooperative nine-agent fly-and-roll mission concept for prebiotic chemistry exploration of Titan's Xanadu Highlands. My contribution within the team was the systems engineering thread: requirements derivation, mass / power / link budgets, FMECA / FTA, and verification matrix. Other team members led the CAD trade study, the prototype build, the Unreal Engine simulation, and the science case. Their work is excellent, but it is not mine to claim — it is theirs. The mission below contextualises the tool; the credits at the bottom of the page identify who did what.</p>
+  <p><strong>What we built (team of three).</strong> The Titan hybrid swarm — a cooperative nine-agent fly-and-roll mission concept for prebiotic chemistry exploration of Titan's Xanadu Highlands. The team was three: David Guevara, Nina Velimirovic, and me. <strong>David</strong> led the prototype hardware build and the communication demonstration. <strong>Nina</strong> led the CAD detailed design and the Unreal Engine simulation. <strong>I</strong> led everything else — the TitanMBSE tool, the science case and payload definition, the operations concept, the systems engineering thread (requirements, V&amp;V, FMECA, FTA), mass / power / link budgets, the risk register, and the project-management overhead. The mission below contextualises the tool; the credits at the bottom of the page identify who did what.</p>
 
   <h2><span class="num">02</span>Why I built TitanMBSE</h2>
   <p>Doing MBSE properly with Cameo Systems Modeler is excellent for graduate teaching, but the licence cost, install footprint, and learning curve make it a poor fit for the kind of fast-cycle iteration a team does in the first weeks of a mission concept study. We needed something between a whiteboard and a full SysML tool: a place where mission objectives, requirements, components, mass / power / data / link budgets, risk analyses, and verification status could live together — and where editing one column updated everything downstream automatically.</p>
@@ -119,17 +119,17 @@
   <figure>
     <div class="figure-placeholder">
       <span class="ph-tag">Placeholder</span>
-      <span class="ph-label">CAD trade study — typology comparison of the three candidate swarm architectures (figure produced by team CAD lead)</span>
+      <span class="ph-label">CAD trade study — typology comparison of the three candidate swarm architectures (figure by Nina Velimirovic)</span>
     </div>
-    <figcaption>Fig. 4 — CAD typology trade study (team CAD lead). Three architectures evaluated; hybrid selected for terrain coverage and energy efficiency.</figcaption>
+    <figcaption>Fig. 4 — CAD typology trade study (Nina Velimirovic). Three architectures evaluated; hybrid selected for terrain coverage and energy efficiency.</figcaption>
   </figure>
 
   <figure>
     <div class="figure-placeholder">
       <span class="ph-tag">Placeholder</span>
-      <span class="ph-label">Unreal Engine 5 simulation still — produced by team simulation lead</span>
+      <span class="ph-label">Unreal Engine 5 simulation still — produced by Nina Velimirovic</span>
     </div>
-    <figcaption>Fig. 5 — Unreal Engine 5 visualisation of the swarm in flight (team simulation lead).</figcaption>
+    <figcaption>Fig. 5 — Unreal Engine 5 visualisation of the swarm in flight (Nina Velimirovic).</figcaption>
   </figure>
 
   <div class="stat-row">
@@ -158,16 +158,13 @@
   </p>
 
   <h2><span class="num">09</span>Team credits</h2>
-  <p>The Titan swarm mission concept is the work of a six-person team within ISU MSS 2026 Team 4. To be clear about contributions on this page:</p>
+  <p>The Titan swarm mission concept is the work of a three-person team within ISU MSS 2026 Team 4. Contributions on this project were split as follows:</p>
   <ul>
-    <li><strong>Solo (mine):</strong> the TitanMBSE tool · systems engineering thread (requirements, V&amp;V matrix, FMECA, FTA) · mass / power / link budgets · governance and reviews.</li>
-    <li><strong>CAD trade study and detailed design:</strong> Nina [last name to confirm before publishing].</li>
-    <li><strong>Prototype hardware build:</strong> David [last name to confirm before publishing].</li>
-    <li><strong>Unreal Engine simulation:</strong> [team member name to confirm].</li>
-    <li><strong>Science case &amp; payload definition:</strong> [team member name to confirm].</li>
-    <li><strong>Operations concept:</strong> [team member name to confirm].</li>
+    <li><strong>David Guevara</strong> — prototype hardware build · communication demonstration.</li>
+    <li><strong>Nina Velimirovic</strong> — CAD detailed design · Unreal Engine simulation.</li>
+    <li><strong>L. Chris Euranie (me)</strong> — TitanMBSE tool · science case &amp; payload definition · operations concept · systems engineering thread (requirements, V&amp;V matrix, FMECA, FTA) · mass / power / link budgets · risk register · project management.</li>
   </ul>
-  <p style="font-family: var(--mono); font-size: var(--fs-meta); color: var(--rust);"><strong>Note before publishing:</strong> please replace the placeholders above with your teammates' full names and the exact role each held — they should be properly credited.</p>
+  <p>The figures attributed to David and Nina above are reproduced here with their authorship credited — the work is theirs.</p>
 
   <div class="proj-foot">
     <a href="index.html#projects">← All projects</a>

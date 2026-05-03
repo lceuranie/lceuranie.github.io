@@ -45,42 +45,38 @@ The `titan-mbse/` directory should sit at the same level as `index.html` so the 
 
 ## Content TODO — what to fill in before sending the link to anyone
 
-### 1. Team credits on the Titan page (HIGH PRIORITY)
-
-The combined Titan page (`project-titan.html`, section 09 — Team credits) contains placeholder names like "Nina [last name to confirm]" and "[team member name to confirm]" for the four roles I don't know. Replace these with the actual full names of your six teammates and the exact role each held. This is the most important content edit on the site — your portfolio's credibility depends on getting this right before publication.
-
-### 2. Images (highest impact after credits)
+### 1. Images (highest priority)
 
 Every project page currently has placeholder figure boxes. They are clearly marked and they look intentional, but real images will transform the site. Drop PNGs into `assets/images/` and replace the `<div class="figure-placeholder">…</div>` blocks with `<img src="assets/images/your-file.png" alt="…">`.
 
 Suggested priority order:
 
-- **Titan combined** — three TitanMBSE screenshots (Overview, Traceability, Power Budget mode grid), the team CAD trade study figure, the Unreal Engine simulation still.
-- **Rwanda EO** — GEE app screenshot, five-year change-detection map.
+- **Titan combined** — three TitanMBSE screenshots (Overview, Traceability, Power Budget mode grid). Then Nina's CAD trade study figure and Unreal Engine still (with her credit retained in the captions).
+- **Deep Space Comms** — the 3-phase 91-strategy roadmap diagram (Figure 14 from the report) and the Roadmap Project Tool Kenya use-case screenshot.
+- **Rwanda EO** — split-panel GEE app screenshot.
 - **Terroir** — GEE app screenshot, eight-step pipeline diagram.
 - **Eyesat-1** — prototype photo, block diagram, V&V matrix excerpt.
 - **Space Defense** — three-pillar architecture diagram, organisational chart.
 - **NGC 4852** — proper-motion diagram, CMD with isochrone, literature cross-match overlay.
-- **Deep space comms** — three-phase roadmap diagram.
 - **Orbital design** — STK 3D scenario, access plot.
 - **SBSP** — phylogeny tree.
 
-### 3. Publications page metadata
+### 2. Publications page metadata
 
-`publications.html` has placeholder entries marked `[Placeholder]` for the industry papers. Copy the exact title / venue / DOI / author list from your existing publications listing into those slots. The IAC 2026 entry currently says "A Three-Phase Roadmap for Sustainable Deep Space Communication" — confirm or correct against the accepted paper title.
+`publications.html` has placeholder entries marked `[Placeholder]` for the industry papers. Copy the exact title / venue / DOI / author list from your existing publications listing into those slots.
 
-### 4. CV download
+### 3. CV download
 
 Save your latest CV as `assets/L_Chris_Euranie_CV.pdf`. The Download CV button on the homepage already points to it.
 
-### 5. Optional content tweaks
+### 4. Optional content tweaks
 
 - Hero headline, lead paragraph, about-page text — read through and tweak to your voice. I wrote in the register of an industrial engineer's technical statement; you may want it warmer or more personal in places, particularly the about page.
 - ResearchGate URL — I guessed at `/profile/Ludivine-Euranie`. Replace with the real URL.
-- The Space Defense page describes the three pillars and Delta structure based on the team report; if there are specifics you want to highlight more prominently (e.g., your specific personal contribution beyond what I've described), add them in section 06.
 - The "dual-use" framing is woven through the homepage (hero, contact section), about page, and the Space Defense project page. If at any point you decide to deemphasise this for a specific audience, it's three places to edit.
+- Deep Space Comms page section 06 mentions your Report Head role explicitly. If there are specific anecdotes from running the editorial process across 20 authors that you'd like to add, that would strengthen this section further.
 
-### 6. Engagements section
+### 5. Engagements section
 
 I included WIA Strasbourg, IPGP Alumni, and ISU Alumni. Remove, edit, or add as appropriate.
 
