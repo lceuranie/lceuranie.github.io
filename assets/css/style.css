@@ -622,25 +622,58 @@ button { font: inherit; cursor: pointer; }
 
 /* --- Engagements bar ----------------------------------------------------- */
 .engagements {
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
   padding: 1.5rem 0;
 }
 .engagements a {
-  font-family: var(--mono);
-  font-size: var(--fs-meta);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--ink-2);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
   text-decoration: none;
   border: 1px solid var(--rule-strong);
-  padding: 0.5rem 0.9rem;
+  background: var(--paper);
+  padding: 1rem 1.1rem;
   border-radius: var(--rad);
   transition: all .2s var(--ease);
+  position: relative;
 }
-.engagements a:hover { color: var(--rust); border-color: var(--rust); }
+.engagements a::after {
+  content: "→";
+  position: absolute;
+  top: 1rem;
+  right: 1.1rem;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--ink-mute);
+  transition: transform .2s var(--ease), color .2s var(--ease);
+}
+.engagements a:hover {
+  border-color: var(--rust);
+  transform: translateY(-1px);
+}
+.engagements a:hover::after {
+  color: var(--rust);
+  transform: translateX(2px);
+}
+.engagements .eng-name {
+  font-family: var(--mono);
+  font-size: var(--fs-meta);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  font-weight: 500;
+  padding-right: 1.5rem; /* leave room for arrow */
+}
+.engagements .eng-tag {
+  font-family: 'Newsreader', Georgia, serif;
+  font-style: italic;
+  font-size: 0.92rem;
+  color: var(--ink-mute);
+  line-height: 1.3;
+}
+.engagements a:hover .eng-name { color: var(--rust); }
 
 /* --- Contact / footer ---------------------------------------------------- */
 .contact-block {
