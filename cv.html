@@ -46,13 +46,75 @@
       text-align: center;
       padding: 8px;
     }
-    .cv-section {
-      margin-top: clamp(2rem, 4vw, 3rem);
-    }
-    .cv-entry {
-      margin-bottom: 2rem;
-      padding-bottom: 1.5rem;
+    /* Meta strip directly under positioning — replaces emoji line */
+    .cv-meta-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 2rem;
+      margin: 1.5rem 0 0 0;
+      padding: 1rem 0;
+      border-top: 1px solid var(--rule, #E0D9CA);
       border-bottom: 1px solid var(--rule, #E0D9CA);
+      font-family: 'Newsreader', Georgia, serif;
+      font-size: 0.95rem;
+      color: var(--ink, #1C1A14);
+    }
+    .cv-meta-strip > span {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.6rem;
+    }
+    .cv-meta-key {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-mute, #6E665A);
+    }
+    .cv-meta-strip a {
+      color: var(--ink, #1C1A14);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule-strong, #C9C0AC);
+    }
+    .cv-meta-strip a:hover {
+      color: var(--rust, #B5532A);
+      border-bottom-color: var(--rust, #B5532A);
+    }
+
+    /* Stronger section header with thick top rule + rust kicker */
+    .cv-section {
+      margin-top: clamp(3rem, 5vw, 4rem);
+      padding-top: 1rem;
+      border-top: 2px solid var(--ink, #1C1A14);
+    }
+    .cv-section .num {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      color: var(--rust, #B5532A);
+      font-weight: 600;
+      margin-right: 0.8rem;
+      vertical-align: 0.2em;
+    }
+
+    /* Timeline rail on each entry — left dashed line + rust dot at top */
+    .cv-entry {
+      margin-bottom: 1.5rem;
+      padding: 0.5rem 0 1.25rem 1.5rem;
+      border-left: 2px solid var(--rule, #E0D9CA);
+      border-bottom: 1px dashed var(--rule, #E0D9CA);
+      position: relative;
+    }
+    .cv-entry::before {
+      content: "";
+      position: absolute;
+      left: -7px;
+      top: 0.85rem;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--rust, #B5532A);
+      border: 2px solid var(--paper, #FAF8F4);
     }
     .cv-entry:last-child {
       border-bottom: none;
@@ -100,13 +162,15 @@
     .cv-cluster {
       margin-bottom: 1.2rem;
     }
+    /* Cluster labels in rust caps (was muted grey, now matches design language) */
     .cv-cluster-title {
       font-family: var(--mono);
       font-size: 0.78rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--ink-mute, #6E665A);
+      color: var(--rust, #B5532A);
       margin-bottom: 0.4rem;
+      font-weight: 500;
     }
     .cv-skills-grid {
       display: grid;
@@ -138,7 +202,6 @@
     <a class="brand" href="index.html"><span class="brand-dot"></span>L. Chris Euranie</a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button>
     <nav class="nav" id="primary-nav" aria-label="Primary">
-      <a href="index.html">Index</a>
       <a href="about.html">About</a>
       <a href="index.html#projects">Projects</a>
       <a href="publications.html">Publications</a>
@@ -178,9 +241,9 @@
   <h2 class="cv-section"><span class="num">01</span>Positioning</h2>
   <p>Hands-on skills in remote sensing, AI-driven analytics, cloud-based EO processing, mission design, CubeSat systems engineering, and ECSS-inspired project workflows. Motivated to contribute to <strong>EO data processing, systems engineering, programme management, and dual-use space</strong> within European space missions — at agencies, primes, downstream operators, and start-ups.</p>
 
-  <p style="font-family: var(--mono); font-size: 0.85rem; color: var(--ink-mute, #6E665A);">
-    📍 Strasbourg, France &nbsp;·&nbsp;
-    💼 <a href="https://www.linkedin.com/in/lceuranie" target="_blank" rel="noopener">/in/lceuranie</a>
+  <p class="cv-meta-strip">
+    <span><span class="cv-meta-key">LOCATION</span> Strasbourg, France</span>
+    <span><span class="cv-meta-key">LINKEDIN</span> <a href="https://www.linkedin.com/in/lceuranie" target="_blank" rel="noopener">/in/lceuranie</a></span>
   </p>
 
   <!-- ============================================================ -->
@@ -192,7 +255,7 @@
   <div class="cv-entry">
     <div class="cv-entry-head">
       <div>
-        <span class="cv-entry-title">Master of Space Studies — Space Engineering &amp; Applications</span><br>
+        <span class="cv-entry-title">Master of Space Studies </span><br>
         <span class="cv-entry-org">International Space University · CNES Scholarship</span>
       </div>
       <span class="cv-entry-meta">Sep 2025 – Jun 2026 · Strasbourg, FR</span>
@@ -201,32 +264,32 @@
     <div class="cv-cluster">
       <p class="cv-cluster-title">Earth Observation &amp; AI Analytics</p>
       <ul>
-        <li><strong>AI for Earth Observation</strong> — full GEE workflow for multi-temporal Sentinel-2 vegetation monitoring; CNN-based classification; produced GEE change-detection map app for 5-year Rwanda dataset. <a href="project-rwanda-eo.html">Project →</a></li>
-        <li><strong>Climate-Analog Engine</strong> — live GEE app finding the 2050 climate analogues of fourteen iconic wine vintages; PCA + k-means clustering, SVR topoclimatic downscaling. <a href="project-terroir.html">Project →</a></li>
-        <li><strong>Astronomical Data Mining</strong> — open-cluster NGC 4852 from Gaia DR3, colour-magnitude diagram, isochrone fitting. <a href="project-astronomical.html">Project →</a></li>
-        <li><strong>GIS Specialist</strong> — spatial analysis using ArcGIS, QGIS.</li>
+        <li><strong>AI for Earth Observation</strong> — Sentinel-2 vegetation monitoring with CNN classification, deployed as a 5-year GEE app for Rwanda. <a href="project-rwanda-eo.html">Project →</a></li>
+        <li><strong>Climate-Analog Engine</strong> — live GEE app mapping 2050 climate analogues of 14 iconic wine vintages via PCA + k-means and SVR downscaling. <a href="project-terroir.html">Project →</a></li>
+        <li><strong>Astronomical Data Mining</strong> — NGC 4852 curated from Gaia DR3 (10,989 → 212 members) with CMD and isochrone fit. <a href="project-astronomical.html">Project →</a></li>
+        <li><strong>GIS</strong> — ArcGIS, QGIS spatial analysis.</li>
       </ul>
     </div>
 
     <div class="cv-cluster">
       <p class="cv-cluster-title">Space Systems Engineering &amp; Mission Design</p>
       <ul>
-        <li><strong>Orbital Mission Design (STK)</strong> — modelled orbital scenarios, eclipse cycles, access windows for mission-specific geometries; STK Level 1. <a href="project-orbital-mission-design.html">Project →</a></li>
-        <li><strong>1U CubeSat Eyesat-1</strong> — led subsystem integration, requirements drafting, V&amp;V testing protocols; sun-synchronous orbit at 520 km, 97° retrograde. <a href="project-eyesat-cubesat.html">Project →</a></li>
-        <li><strong>TitanMBSE Custom Tool for Hybrid Swarm</strong> — built proprietary browser-based, ECSS-aligned MBSE tool (~7,700 lines); led systems engineering, science case, payload definition, operations concept, risk, project management for the Titan swarm mission concept. <a href="project-titan.html">Project →</a></li>
-        <li><strong>Concurrent Engineering </strong> — owned AOCS thread for an altimetry mission; designed 750 ± 50 km SSO orbit closing 100% global ocean coverage.</li>
-        <li><strong>Mars Drone &amp; Robotic Competition</strong> — applied Cameo Systems Modeler for Mars drone design with rover sample collection and return; mass/power/comms budgets and V&amp;V requirements.</li>
+        <li><strong>Eyesat-1 1U CubeSat</strong> — led full systems lifecycle, V&amp;V, and 520 km SSO orbit design. <a href="project-eyesat-cubesat.html">Project →</a></li>
+        <li><strong>Titan Hybrid Swarm + TitanMBSE</strong> — built a proprietary browser-based ECSS-aligned MBSE tool (~7,700 lines); led SE, science case, ops concept, risk, PM. <a href="project-titan.html">Project →</a></li>
+        <li><strong>Orbital Mission Design (STK)</strong> — four mission-analysis exercises, STK Level 1 certified. <a href="project-orbital-mission-design.html">Project →</a></li>
+        <li><strong>Robotics Competition — Project Lead</strong> — only team in the cohort to deliver two autonomous returns to base.</li>
+        <li><strong>Concurrent Engineering Workshop</strong> — AOCS lead; designed 750 ± 50 km SSO closing 100% global ocean coverage.</li>
+        <li><strong>Mars Drone &amp; Rover (MBSE)</strong> — Cameo Systems Modeler, closed budgets, traced V&amp;V.</li>
       </ul>
     </div>
 
     <div class="cv-cluster">
       <p class="cv-cluster-title">Space Policy &amp; Strategic Management</p>
       <ul>
-        <li><strong>European Space Defense Administration</strong> — designed federal governance framework and a 5-year, €15B annual roadmap consolidating fragmented national security assets; one of two presenters to the faculty panel. <a href="project-space-defense.html">Project →</a></li>
-        <li><strong>Strategic Communications — Deep Space</strong> — Report Head on a 20-person John Templeton Foundation–sponsored team producing a 15-year, 3-phase, 91-strategy communication roadmap; <strong>accepted for IAC 2026</strong>. <a href="project-deep-space-comms.html">Project →</a></li>
-        <li><strong>Space-Based Solar Power individual report</strong> — phylogenetic analysis and global roadmap analysis arguing that incompatible national success metrics (LCOE / VALCOE / strategic-throne) — not technology readiness — are the true bottleneck. <a href="project-sbsp.html">Project →</a></li>
-        <li>Space Project Management &amp; Policy, including SSA &amp; SDA awareness and ESA governance.</li>
-        <li>Life Sciences in Space — study of CV, CNS, and musculoskeletal organ system effects.</li>
+        <li><strong>Project Roadmap (JTF) — Report Head</strong> — led the report workstream of a 20-person team delivering a 15-year, 91-strategy global communication roadmap. <strong>Accepted for IAC 2026.</strong> <a href="project-deep-space-comms.html">Project →</a></li>
+        <li><strong>European Space Defense Administration</strong> — federal governance framework and 5-year €15B annual roadmap; one of two presenters to the faculty panel. <a href="project-space-defense.html">Project →</a></li>
+        <li><strong>Space-Based Solar Power — individual research report</strong> — global roadmap analysis identifying incompatible national success metrics as the real bottleneck. <a href="project-sbsp.html">Project →</a></li>
+        <li>Space Project Management &amp; Policy: SSA / SDA awareness, ESA governance; Life Sciences in Space.</li>
       </ul>
     </div>
   </div>

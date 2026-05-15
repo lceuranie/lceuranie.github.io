@@ -372,6 +372,74 @@ button { font: inherit; cursor: pointer; }
 .tile--featured .tile-thumb { aspect-ratio: 16 / 10; }
 .tile--featured h3 { font-size: 1.6rem; }
 
+/* --- Compact tile variant (Mializo-style: image, kicker, title, tags, + Details) -- */
+.tile--compact {
+  transition: border-color .25s var(--ease);
+}
+.tile--compact:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: var(--ink-mute);
+}
+.tile--compact .tile-thumb {
+  aspect-ratio: 16 / 8;
+  transition: opacity .15s var(--ease);
+}
+.tile--compact .tile-thumb:hover { opacity: 0.92; }
+.tile--compact .tile-body { padding: 0.9rem 1rem 1rem; }
+.tile--compact h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.15rem;
+}
+.tile--compact h3 a {
+  color: var(--ink, #1C1A14);
+  text-decoration: none;
+  transition: color .15s var(--ease);
+}
+.tile--compact h3 a:hover { color: var(--rust); }
+.tile--compact .tile-tags { margin-top: 0; }
+
+/* Native <details> styled as +/- disclosure */
+.tile-details {
+  margin-top: 0.65rem;
+  border-top: 1px dashed var(--rule);
+  padding-top: 0.65rem;
+}
+.tile-details > summary {
+  list-style: none;
+  cursor: pointer;
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.1rem 0;
+  transition: color .15s var(--ease);
+  user-select: none;
+}
+.tile-details > summary::-webkit-details-marker { display: none; }
+.tile-details > summary::before {
+  content: "+";
+  font-size: 0.95rem;
+  line-height: 1;
+  color: var(--rust);
+  font-weight: 600;
+  display: inline-block;
+  width: 0.8rem;
+  text-align: center;
+}
+.tile-details[open] > summary::before { content: "−"; }
+.tile-details > summary:hover { color: var(--rust); }
+.tile-details > p {
+  margin: 0.6rem 0 0;
+  color: var(--ink-2);
+  font-size: 0.93rem;
+  line-height: 1.55;
+}
+
 /* --- Page header (project pages, about, publications) -------------------- */
 .page-head {
   padding: clamp(2.5rem, 6vw, 4rem) 0 clamp(1.5rem, 4vw, 2.5rem);
