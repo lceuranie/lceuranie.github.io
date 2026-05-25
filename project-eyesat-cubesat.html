@@ -38,7 +38,7 @@
     <dl class="proj-meta">
       <dt>Date</dt><dd>2026</dd>
       <dt>Team</dt><dd>ISU MSS 2026 &mdash; Team 1 (six members)</dd>
-      <dt>My role</dt><dd>Subsystem integration &middot; requirements drafting &middot; V&amp;V testing</dd>
+      <dt>My role</dt><dd> Systems engineering &middot; Mission analysis &middot; Integration of the project report </dd>
       <dt>Form factor</dt><dd>1U CubeSat (10 &times; 10 &times; 10 cm)</dd>
       <dt>Bus</dt><dd>Arduino Uno R3 (OBC) &middot; OV7670 (payload) &middot; XBee (COMMS) &middot; MPU-6050 (ADCS) &middot; 18650 + MPPT (EPS)</dd>
       <dt>Standard</dt><dd>ECSS-inspired V&amp;V flow</dd>
@@ -59,9 +59,11 @@
   </figure>
 
   <h2><span class="num">02</span>What I led</h2>
-  <p>I led subsystem integration and the requirements-and-verification thread. That meant translating the team's mission objectives into 22 design requirements across spacecraft, OBC, payload, COMMS, ADCS, power, and environmental categories &mdash; each paired with a verification method (test, analysis, inspection, demonstration) and a measurable success criterion.</p>
+  <p>I owned the systems-engineering and mission-analysis thread of EyeSat-1, and assembled the integrated project report. I translated the team's mission objectives into a structured requirements baseline — 21 design requirements across spacecraft, OBC, payload, COMMS, ADCS, power, and environmental categories — each paired with a verification method (test, analysis, inspection, demonstration) and a measurable success criterion.
+I authored the mission concept and objectives, the orbit selection and analysis (a 520 km Sun-synchronous orbit, sized in STK with a natural sub-25-year deorbit), the structural requirements and design documentation, the risk management framework (FMEA and a NASA-style risk matrix), the regulatory-compliance pathway, the launch and deployment analysis, the environmental-test plan, and the end-to-end V&V section that closed the requirements baseline.</p>
 
-  <p>On the integration side, I drove the bench-test campaign that proved the end-to-end dataflow from payload through OBC to COMMS to ground station, and I authored the V&amp;V matrix that closed against all 22 requirements.</p>
+  <p>I also acted as the team's technical liaison to our Fabeon partner for the 3D-printed structure, translating design intent into manufacturable requirements.
+Hands-on subsystem build and bench testing were carried out by teammates; my role was the systems-engineering envelope around the hardware — requirements, analysis, risk, compliance, and verification — and the integration of all of it into a single coherent report.</p>
 
   <h2><span class="num">03</span>Architecture</h2>
   <p>The bus is deliberately low-cost and educational: an Arduino Uno R3 handles command and data, an OV7670 camera serves as the imaging payload, an XBee module provides RF communications to the ground station, an MPU-6050 IMU supports basic attitude knowledge, and an 18650 lithium-ion pack with an MPPT charge controller handles power. The frame is 3D-printed PLA &mdash; not flight-grade, but appropriate for a ground-demonstration prototype.</p>
@@ -80,7 +82,7 @@
   </div>
 
   <h2><span class="num">05</span>V&amp;V results</h2>
-  <p>All 22 design requirements were verified through bench testing. The end-to-end dataflow was validated &mdash; payload capture, OBC packaging, COMMS transmission, and ground-station reception &mdash; with no packet loss in the laboratory environment. Communication link held at RSSI better than &minus;90 dBm at the 8-metre test range.</p>
+  <p>All 21 design requirements were verified through bench testing. The end-to-end dataflow was validated &mdash; payload capture, OBC packaging, COMMS transmission, and ground-station reception &mdash; with no packet loss in the laboratory environment. Communication link held at RSSI better than &minus;90 dBm at the 8-metre test range.</p>
 
   <p>Mass closed at 415 g measured, against the 1.33 kg standard 1U envelope, leaving substantial margin for any real-mission upgrades. Peak power consumption of 0.712 W is well within the budget a typical 1U deployable solar-panel array can sustain at LEO duty cycles.</p>
 
