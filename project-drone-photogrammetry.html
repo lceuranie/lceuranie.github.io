@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drone Photogrammetry Pipeline — ISU Car Park · L. Chris Euranie</title>
+  <meta name="description" content="An AI-orchestrated photogrammetric pipeline turning 47 DJI Neo aerial images into a 2 cm/pixel orthomosaic, a 4.5 M-point 3D reconstruction, and an interactive web viewer — deployed live on GitHub Pages.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="index.html"><span class="brand-dot"></span>L. Chris Euranie</a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+    <nav class="nav" id="primary-nav" aria-label="Primary">
+      <a href="about.html">About</a>
+      <a href="index.html#projects" aria-current="page">Projects</a>
+      <a href="publications.html">Publications</a>
+      <a href="cv.html">CV</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="page-head">
+  <div class="wrap">
+    <p class="kicker">Project · UAV · Earth Observation · AI-orchestrated</p>
+    <h1>From a hover-cluster of drone frames to a live 3D point cloud.</h1>
+    <p class="lead">A six-stage photogrammetric pipeline built during an ISU workshop in May 2026: 47 nadir frames from a DJI Neo consumer drone, processed end-to-end into a 2 cm/pixel orthomosaic, three RGB vegetation indices, and a 4.5 million-point colored 3D reconstruction — deployed as an interactive 2D + 3D viewer on GitHub Pages. Implementation driven through Codex against a custom <code>AGENTS.md</code> scaffold; the human role was architecture, prompt engineering, verification, and cross-stack debugging.</p>
+
+    <dl class="proj-meta">
+      <dt>Date</dt><dd>May 2026</dd>
+      <dt>Role</dt><dd>Sole architect, prompter, verifier — AI-orchestrated implementation</dd>
+      <dt>Site</dt><dd>ISU car park, Illkirch-Graffenstaden (Strasbourg, FR)</dd>
+      <dt>Hardware</dt><dd>DJI Neo · 4000 × 2256 px · 17.3 m AGL · ~1.15 cm/px GSD · no RTK GNSS</dd>
+      <dt>Dataset</dt><dd>47 nadir frames · median 1 m camera spacing</dd>
+      <dt>Stack</dt><dd>Python (pyexiftool, rasterio, pyproj, laspy) · OpenDroneMap (Docker) · COLMAP / pycolmap · Folium · three.js · loaders.gl</dd>
+      <dt>Hosting</dt><dd>GitHub Pages</dd>
+    </dl>
+
+    <div class="cta-row">
+      <a class="btn" href="https://lceuranie.github.io/DroneImageProcessing/data/visualization/viewer.html" target="_blank" rel="noopener">Open 2D viewer</a>
+      <a class="btn" href="https://lceuranie.github.io/DroneImageProcessing/data/visualization/pointcloud.html" target="_blank" rel="noopener">Open 3D point cloud</a>
+      <a class="btn btn--ghost" href="https://github.com/lceuranie/DroneImageProcessing" target="_blank" rel="noopener">Source on GitHub</a>
+    </div>
+  </div>
+</section>
+
+<article class="article wrap">
+
+  <h2><span class="num">01</span>Why this project</h2>
+  <p>The Rwanda and Terroir projects in this portfolio both run inside Google Earth Engine, on satellite data someone else acquired. This one was the inverse: a complete EO methods stack from raw sensor capture through final product, on a dataset I helped acquire myself. The point was to demonstrate the methodology end-to-end — metadata extraction, geometric reconstruction, vegetation analysis, and deployment — rather than to produce a survey-grade deliverable.</p>
+
+  <p>The second point was to put the AI-orchestrated workflow on the record honestly. Codex wrote the code; I designed the pipeline, authored the <code>AGENTS.md</code> scaffold the agent worked against, crafted the prompts per stage, and verified each deliverable. The framing matters because the labour is genuinely split that way in 2026, and pretending otherwise would misrepresent the work.</p>
+
+  <h2><span class="num">02</span>Pipeline — six escalating-fidelity stages</h2>
+
+  <p>Each stage produces a checkable deliverable; earlier stages stay usable as sanity checks after later ones land. The naive Stage-3 mosaic was deliberately retained as a teaching artifact showing why proper SfM is needed.</p>
+
+  <figure>
+    <img src="assets/images/projects/drone-photogrammetry/drone_fig1_footprints.png" alt="Folium map showing the 47 image footprints as overlapping blue rectangles stacked over the ISU building on an OpenStreetMap basemap.">
+    <figcaption>Fig. 1 — Image-footprints map. The tight-cluster geometry of the manual flight is immediately visible: 47 footprints stacked tightly over a single section of the ISU campus, with median 1 m spacing between camera positions.</figcaption>
+  </figure>
+
+  <ol>
+    <li><strong>Metadata extraction.</strong> ExifTool via <code>pyexiftool</code>, pulling DJI XMP fields (gimbal yaw/pitch/roll, relative altitude, absolute altitude) alongside standard EXIF. Output: <code>metadata.{json, csv, md}</code> with one record per frame plus dataset-level stats.</li>
+    <li><strong>Per-image georeferencing.</strong> First-order projection in EPSG:32632 (UTM 32N). GSD from sensor width, altitude, and focal length; image footprint sized to <code>GSD × image_dim</code>; gimbal-yaw applied as a rotation. Output: one GeoTIFF per frame and a single <code>footprints.geojson</code>.</li>
+    <li><strong>Naive mosaic (baseline).</strong> <code>rasterio.merge</code> with last-write-wins. Visible seams and parallax artefacts — the point being to show what proper SfM has to fix.</li>
+    <li><strong>OpenDroneMap reconstruction.</strong> Dockerised ODM (OpenSfM + OpenMVS internally). Output: 2 cm/pixel orthomosaic, DSM, and a 4.5 million-point colored point cloud as LAZ.</li>
+    <li><strong>Vegetation indices.</strong> Three RGB-only indices computed pixel-wise from the orthomosaic — VARI, GLI, NGRDI — exported as single-band Float32 GeoTIFFs in EPSG:32632, colour-mapped on <code>RdYlGn</code> over [−0.3, +0.3]. VARI &gt; 0.1 measured 4.8% vegetation coverage, matching visual inspection.</li>
+    <li><strong>Interactive web viewer.</strong> Single-file Folium/Leaflet 2D map combined with a separate three.js + loaders.gl 3D point cloud page, both deployed as static HTML on GitHub Pages.</li>
+  </ol>
+
+  <figure>
+    <img src="assets/images/projects/drone-photogrammetry/drone_fig2_orthomosaic.png" alt="A 2 cm/pixel orthomosaic of the ISU car park showing parking-space markings, lane lines, three cars including a red one, and a central strip of trees.">
+    <figcaption>Fig. 2 — Stage-4 OpenDroneMap orthomosaic. 2 cm/pixel ground resolution; parking-space markings, accessibility symbols, and tree-crown texture are all clearly resolved. All 47 frames registered successfully despite the tight-baseline acquisition.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="assets/images/projects/drone-photogrammetry/drone_fig3_vari.png" alt="VARI vegetation index map of the orthomosaic, colour-ramped from yellow (non-vegetation) to dark green (vegetation), with the central tree strip and perimeter hedges showing strongly in green and the red car appearing red.">
+    <figcaption>Fig. 3 — Stage-5 VARI vegetation index, colour-mapped on <code>RdYlGn</code> over [−0.3, +0.3]. The central planted strip and perimeter trees light up in green; the red car correctly classifies as non-vegetation. VARI &gt; 0.1 measured 4.8% vegetation coverage. VARI and NGRDI produced near-identical maps; GLI was slightly more sensitive to mixed pixels.</figcaption>
+  </figure>
+
+  <h2><span class="num">03</span>The interactive 2D viewer</h2>
+  <p>The 2D viewer (<a href="https://lceuranie.github.io/DroneImageProcessing/data/visualization/viewer.html" target="_blank" rel="noopener">live link</a>) combines OpenStreetMap and Esri World Imagery basemaps with five toggleable overlays — RGB orthomosaic, VARI, GLI, NGRDI, and image footprints — each with its own opacity slider.</p>
+
+  <p>The non-standard feature is a <strong>manual georeferencing correction tool</strong>. With the DJI Neo lacking RTK GNSS, the orthomosaic lands ~8 m off the satellite basemap (multipath from the adjacent ISU building). The viewer exposes that offset as a user-adjustable degree of freedom: drag any visible overlay against the basemap, and a live readout reports the current correction in metres in EPSG:32632. A <em>Copy offset</em> button copies the value as a JSON snippet for reproducible re-application. The bias measured here: dx ≈ −0.9 m, dy ≈ −7.8 m.</p>
+
+  <p>This isn't a substitute for proper Ground Control Points or a QGIS Georeferencer workflow — it's the interactive equivalent of an order-of-magnitude check. But it turns a limitation into a measurement, which is the right pedagogical move.</p>
+
+  <figure>
+    <img src="assets/images/projects/drone-photogrammetry/drone_fig4_viewer.png" alt="Screenshot of the 2D viewer in Adjust position mode, showing the orthomosaic and NGRDI overlay over Esri World Imagery, with the Overlay Controls panel open. The panel shows four opacity sliders (RGB, VARI, GLI, NGRDI), the live offset readout dx -0.92 m, dy -7.79 m, and three buttons: Exit edit mode, Reset, Copy offset.">
+    <figcaption>Fig. 4 — The 2D viewer with Overlay Controls panel in <em>Adjust position</em> mode. Four toggleable overlays each with their own opacity slider; the live dx/dy readout at the right reports the residual offset in metres against the satellite basemap. The measured bias here — <code>dx −0.92 m, dy −7.79 m</code> — quantifies the consumer-GPS error rather than hiding it.</figcaption>
+  </figure>
+
+  <h2><span class="num">04</span>The 3D point cloud viewer</h2>
+
+  <figure>
+    <img src="assets/images/projects/drone-photogrammetry/drone_fig5_pointcloud_wide.png" alt="Wide CloudCompare view of the dense 3D point cloud reconstruction. The ISU car park is visible as a horizontal slab, with the line of trees and the white parking-line markings clearly resolved, the rooftop of the adjacent ISU building rising above, and several cars including the red one resolved as 3D volumes.">
+    <figcaption>Fig. 5 — The 3D reconstruction in CloudCompare. The 4.5 million-point dense cloud captures the parking lot surface, the line of trees, several cars, and the ISU building edge with its planted rooftop. All from Structure-from-Motion on consumer RGB imagery — no LiDAR.</figcaption>
+  </figure>
+
+  <p>The 3D viewer (<a href="https://lceuranie.github.io/DroneImageProcessing/data/visualization/pointcloud.html" target="_blank" rel="noopener">live link</a>) renders all 4,561,726 points in the browser using three.js (<code>BufferGeometry</code> + <code>Points</code> + vertex colours, <code>OrbitControls</code> for navigation) and decodes the LAZ via <code>@loaders.gl/las</code> with the LAS/LAZ WebAssembly loader. First-load is ~5–15 s on broadband to fetch and decode the 15 MB compressed cloud; orbit and zoom run smoothly on commodity hardware afterwards.</p>
+
+  <p>Three technical details are worth surfacing because they're the kind of thing that breaks silently if not handled deliberately:</p>
+
+  <ul>
+    <li><strong>Float32 precision at UTM magnitudes.</strong> Raw UTM coordinates around Strasbourg (~3.9×10⁵ E, ~5.4×10⁶ N) exceed Float32's ~7-digit mantissa, costing ~0.5 m of precision per axis on the GPU. The cloud is recentered server-side (centroid subtracted) before publishing, so the in-browser attribute keeps sub-millimetre precision and renders cleanly instead of as a black screen of jittered points.</li>
+    <li><strong>LAS format compatibility.</strong> OpenDroneMap exports LAS 1.4, point format 7. The <code>loaders.gl</code> LAS/LAZ reader caps at LAS 1.3. <code>laspy</code> converts to LAS 1.2 / format 3 before publication.</li>
+    <li><strong>Color decoding.</strong> The LAS spec stores RGB as 16-bit fields, but ODM populates them with already-8-bit values. The decoder is matched to the actual byte range (0–255 → 0–1) rather than the spec range (0–65535 → 0–1), which would otherwise have produced a near-black cloud.</li>
+  </ul>
+
+  <figure>
+    <img src="assets/images/projects/drone-photogrammetry/drone_fig6_pointcloud_closeup.png" alt="Close-up view of the dense point cloud, with a red car and a black car parked side by side, two trees rendered as volumes of green and yellow points, and the parking-space markings preserved on the ground.">
+    <figcaption>Fig. 6 — Close-up of the reconstruction. The red car, the black car, and the trees all resolved as three-dimensional volumes from RGB photogrammetry alone. The report's "fake LiDAR" framing earns its place: visually equivalent to an active-sensor scan, achieved by inferring depth from cross-image pixel correspondences.</figcaption>
+  </figure>
+
+  <h2><span class="num">05</span>The AGENTS.md scaffold and AI orchestration</h2>
+  <p>Before any code was written, I authored an <code>AGENTS.md</code> document defining the work the agent had to deliver. Each pipeline stage was declared as a contract: input, output, tooling, acceptance criterion. The document also fixed coding conventions (Python 3.10+, type hints on public functions, <code>pathlib.Path</code> for filesystem work, idempotent stages, explicit EPSG codes), lists external system dependencies and their install commands, and sets working rules for the agent — for example, "verify DJI tag names against <code>exiftool -G -a -s</code> output rather than guessing", and "tests before features for math-heavy code".</p>
+
+  <p>Codex executed against that document. The human role across the six stages was:</p>
+
+  <ul>
+    <li><strong>Architecture.</strong> Choosing the three-tier escalation (pure-Python baseline → Dockerised ODM → optional COLMAP) and deciding which deliverables had to survive into the final repo.</li>
+    <li><strong>Prompt engineering.</strong> Decomposing each stage into prompts the agent could execute against without round-tripping for clarification.</li>
+    <li><strong>Verification.</strong> Sanity-checking GSD math against hand-computed values, cross-checking DJI XMP tag names against ExifTool output, confirming that the orthomosaic and point cloud rendered visually correct before publishing.</li>
+    <li><strong>Cross-stack debugging.</strong> The three breakage modes documented above (Float32 precision, LAS-version mismatch, RGB byte range) were all surfaced by inspection — the agent did not catch them autonomously, and the fixes had to be specified and verified by hand.</li>
+  </ul>
+
+  <p>The honest framing: this is a 2026 workflow. Recognising where the human labour actually sits — architecture, contracts, verification, debugging the gap between what an agent generates and what production needs — is the skill the project is meant to evidence, alongside the EO methodology itself.</p>
+
+  <h2><span class="num">06</span>Headline numbers</h2>
+
+  <div class="stat-row">
+    <div class="stat"><span class="num">47/47</span><span class="lbl">Images registered by ODM</span></div>
+    <div class="stat"><span class="num">2 cm/px</span><span class="lbl">Orthomosaic resolution</span></div>
+    <div class="stat"><span class="num">4.56 M</span><span class="lbl">Points in 3D reconstruction</span></div>
+    <div class="stat"><span class="num">4.8%</span><span class="lbl">VARI vegetation coverage</span></div>
+    <div class="stat"><span class="num">~8 m</span><span class="lbl">Measured GPS bias (dx −0.9, dy −7.8)</span></div>
+    <div class="stat"><span class="num">6</span><span class="lbl">Pipeline stages, all reproducible</span></div>
+  </div>
+
+  <h2><span class="num">07</span>Honest limitations</h2>
+  <p>Stating these explicitly because they bound what the deliverables can be used for:</p>
+
+  <ul>
+    <li><strong>Small dataset.</strong> 47 frames is on the low end for SfM. Survey-style flights typically carry 80–200+ images at 70–80% overlap. The reconstruction is recognisable and metric but noisier than a proper grid flight would produce.</li>
+    <li><strong>Hover-cluster flight pattern.</strong> Median 1 m spacing between camera positions limits triangulation depth resolution. The fact that all 47 frames still registered is a credit to ODM rather than the acquisition geometry.</li>
+    <li><strong>Consumer GPS, no GCPs.</strong> Absolute accuracy is bounded by the DJI Neo's consumer-grade GNSS (~1–5 m horizontal, observed ~8 m on this site). No Ground Control Points were placed; the viewer-based offset measurement is a substitute for the GCP step that a proper survey would include.</li>
+    <li><strong>RGB-only sensor.</strong> No near-infrared band means the vegetation indices are visible-spectrum proxies (VARI, GLI, NGRDI), not the biophysical NDVI available from Sentinel-2. Framed throughout as a methodological exercise complementary to the satellite-scale Sentinel-2 work elsewhere in this portfolio.</li>
+    <li><strong>AI-implemented code.</strong> Codex wrote the implementation; the architecture, orchestration scaffold, per-stage prompts, and verification were mine. Worth stating explicitly — modern engineering practice with honest framing.</li>
+  </ul>
+
+  <h2><span class="num">08</span>What I'd do next</h2>
+  <p>A proper grid-pattern flight with 70–80% overlap, ground control points placed and surveyed with a handheld GNSS, and a QGIS Georeferencer pass to bake the manually-measured offset into a proper transform. The pipeline itself is reusable — the <code>AGENTS.md</code> contracts are intentionally generic — so the next dataset would skip straight to ODM with proper inputs.</p>
+
+  <h2><span class="num">09</span>Links</h2>
+  <ul>
+    <li><a href="https://lceuranie.github.io/DroneImageProcessing/data/visualization/viewer.html" target="_blank" rel="noopener">Interactive 2D viewer</a> — basemaps, overlay controls, manual offset measurement.</li>
+    <li><a href="https://lceuranie.github.io/DroneImageProcessing/data/visualization/pointcloud.html" target="_blank" rel="noopener">3D point cloud viewer</a> — three.js, all 4.5 M points in-browser.</li>
+    <li><a href="https://github.com/lceuranie/DroneImageProcessing" target="_blank" rel="noopener">Source repository</a> — <code>AGENTS.md</code>, pipeline code, deployment.</li>
+  </ul>
+
+</article>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <span>© 2026 L. Chris Euranie · All rights reserved</span>
+    <span>Portfolio · rev. 2026.05</span>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
