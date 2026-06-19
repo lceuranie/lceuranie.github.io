@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ISU Ground Station &mdash; Hardware, Three Software Stacks, Live AO-73 Pass &middot; L. Chris Euranie</title>
+  <meta name="description" content="A two-week ISU Advanced Studies workshop building and re-implementing a UHF/VHF ground station end-to-end: hardware identification and RF measurements, three software stacks at escalating levels of abstraction, capped by a live AO-73 telemetry pass.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="index.html"><span class="brand-dot"></span>L. Chris Euranie</a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+    <nav class="nav" id="primary-nav" aria-label="Primary">
+      <a href="about.html">About</a>
+      <a href="index.html#projects" aria-current="page">Projects</a>
+      <a href="publications.html">Publications</a>
+      <a href="cv.html">CV</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="page-head">
+  <div class="wrap">
+    <p class="kicker">Project &middot; Ground Station &middot; RF Engineering &middot; Software</p>
+    <h1>From a rooftop antenna to a live AO-73 pass.</h1>
+    <p class="lead">A two-week ISU Advanced Studies workshop building and re-implementing the ISU ground station end-to-end. Nine hardware tasks on the real station &mdash; identification, configuration, RF measurements (SWR 1.5:1), link budget, FITSAT-1 CW decoding, plus five hardening additions. Then three software stacks at escalating levels of abstraction &mdash; a Flask + ESP32 prototype dashboard, a C# Visual Studio mission control designed around a Ground Station as a Service product brief, and a GNU Radio + RTL-SDR receive chain &mdash; capped by a live AO-73 telemetry pass.</p>
+
+    <dl class="proj-meta">
+      <dt>Date</dt><dd>May &ndash; June 2026</dd>
+      <dt>Format</dt><dd>ISU Advanced Studies workshop &middot; 2 weeks &middot; individual technical work, joint presentation</dd>
+      <dt>Role</dt><dd>Sole technical contributor &mdash; hardware, three software stacks, live pass</dd>
+      <dt>Hardware</dt><dd>IC-910H radio &middot; TNC &middot; RTL-SDR &middot; MFJ-1118 &middot; UHF/VHF Yagis &middot; AZ/EL rotators &middot; GPredict</dd>
+      <dt>Software</dt><dd>Flask + ESP32 prototype &middot; C# / WinForms / .NET 4.7.2 mission control &middot; GNU Radio + RTL-SDR pipeline</dd>
+      <dt>Live pass</dt><dd>AO-73 (FUNcube-1) telemetry decoded &mdash; June 2026</dd>
+      <dt>Status</dt><dd>Workshop completed &middot; software local (built on ISU-owned baselines)</dd>
+    </dl>
+  </div>
+</section>
+
+<article class="article wrap">
+
+  <h2><span class="num">01</span>Why this project</h2>
+  <p>Over two weeks at the International Space University, we operated the real ISU ground station from end to end &mdash; configure the hardware, measure the RF chain, track and decode satellite signals &mdash; then re-implemented its functions three times in software, each at a higher level of abstraction. The point was not to write one perfect ground station application. It was to traverse the full abstraction ladder: from a prototype RF link standing in for a satellite, through an operational radio with a tabbed mission-control UI, down to a software-defined receive chain that turns RF into bits in GNU Radio. Each level of the ladder makes a different trade-off between fidelity, control, and cost &mdash; and seeing all three on the same hardware in the same fortnight makes those trade-offs concrete.</p>
+
+  <p>The workshop frame was also explicitly commercial. Ground stations span two to three orders of magnitude in cost (~$50K for a hobby-grade UHF/VHF station to several million dollars for an instrumented, full-availability site) depending on band, gain, automation, and redundancy, and Ground Station as a Service is now a real product category with real customers. The C# mission control was designed against that brief: <em>what would a customer actually need from a mission-control front end</em>, sitting on top of a hardware comms layer that already works?</p>
+
+  <figure>
+    <img src="assets/images/projects/ground-station/gs_fig1_hardware.jpg" alt="Annotated photograph of the ISU ground station hardware. Rooftop side shows UHF/VHF Yagi antennas and the AZ/EL rotator; control-room side labels the IC-910H radio, TNC, RTL-SDR, MFJ-1118 power distribution, spectrum analyser, AZ/EL rotator controller, and webcam feed.">
+    <figcaption>Fig. 1 &mdash; ISU ground station hardware, end to end. Rooftop antennas and AZ/EL rotators feed the control room through coaxial runs; the PC is the hub, driving GPredict for tracking, GNU Radio for SDR, and CI-V serial links to the IC-910H radio and the TNC.</figcaption>
+  </figure>
+
+  <h2><span class="num">02</span>The real station &mdash; hardware</h2>
+
+  <p>The first nine workshop tasks were on the physical station: identify every component on the rooftop and in the control room, build the system block diagram, verify the wiring against an Interface Control Document (ICD) table, take RF measurements, and harden the configuration against the failure modes the previous cohort had documented.</p>
+
+  <h3>RF measurements &mdash; SWR and link budget</h3>
+  <p>The standing-wave ratio of the UHF transmit chain was measured at 2.5 W (33.98 dBm), giving an SWR of 1.5:1. Transmitted power received was 96%, with 4% acceptable losses. The link budget for the receive chain was worked through alongside the SWR measurement so the station's downlink margin could be quantified before any live pass was attempted.</p>
+
+  <h3>Verifying the station &mdash; FITSAT-1 CW decoding</h3>
+  <p>Before re-implementing anything in software, the station's receive chain had to be proven on a real satellite signal. NIWAKA FITSAT-1's CW (Morse) beacon was used as the reference downlink &mdash; predictable cadence, well-documented identifier sequence, decodable by ear and by the station's existing CW decoder. The successful decode closed the loop on the hardware tasks: antennas pointed correctly, rotators tracking, radio tuned, TNC framing, decoder reading.</p>
+
+  <h3>Hardening the operational procedures</h3>
+  <p>Five additions to the station's operating procedures, in response to recurring outage modes from the previous workshop cohort:</p>
+  <ul>
+    <li><strong>Rotator pointing fix.</strong> A persistent ~4&deg; pointing error was characterised and corrected in the rotator controller calibration, recovering the margin lost on short-elevation passes.</li>
+    <li><strong>USB port binding.</strong> The two rotator axes were bound to fixed serial paths (Az = <code>ttyUSB0</code>, El = <code>ttyUSB1</code>) so the headings cannot silently swap on reboot &mdash; an avoidable failure mode that had bricked previous passes.</li>
+    <li><strong>Cable safety and management.</strong> All cables labelled at both ends, including the DC cut-off, with cable management ties to prevent strain on the connectors and remove the ambiguity that turns a five-minute fault into a thirty-minute one.</li>
+    <li><strong>Automation.</strong> The previously separate scripts (flowchart launcher, Doppler bridge, antenna bridge, GPredict) were consolidated behind a single interface so an operator does not have to remember a startup sequence under pass-window pressure.</li>
+    <li><strong>Documentation.</strong> A short manual covering the most common outage modes and their fixes, written so a future cohort can recover from each without re-deriving the diagnosis.</li>
+  </ul>
+
+  <p>Each of these is small individually. Together they are the difference between a station that works when nothing goes wrong and a station that an operator can trust under time pressure &mdash; which is the actual functional requirement for a ground station that has to make AOS.</p>
+
+  <div class="stat-row">
+    <div class="stat"><span class="num">3</span><span class="lbl">Software stacks</span></div>
+    <div class="stat"><span class="num">9</span><span class="lbl">Hardware tasks</span></div>
+    <div class="stat"><span class="num">5</span><span class="lbl">Hardening additions</span></div>
+    <div class="stat"><span class="num">1</span><span class="lbl">Live AO-73 pass</span></div>
+  </div>
+
+  <h2><span class="num">03</span>Software 1 &mdash; Web-based prototype dashboard</h2>
+
+  <p>The first software stack is the lowest-fidelity rung of the ladder: a Flask + ESP32 prototype using an XBee RF module to stand in for a satellite link. The hardware side is a payload board carrying a BME280 environment sensor, an MPU6050 IMU, an ultrasonic distance sensor, and an air-particle sensor; the ground side is a Flask backend (<code>app.py</code>) served at <code>127.0.0.1:5000</code> with a live serial parser (<code>gs_serial.py</code>) reading framed payload telemetry over XBee.</p>
+
+  <p>I started from a basic working version provided by the workshop professor &mdash; a stripped-down Flask app that could read the XBee serial port and print packets to a page &mdash; and rebuilt the dashboard around it without touching the serial layer. The enhancements: a live camera feed pane, a four-byte uplink command console, an ISS ground-track map and an Az/El sky-track view, full sensor telemetry display, and an air-quality readout derived from the particle sensor. The result is closer in spirit to a CubeSat operations console than to a sensor demo, even though the RF link itself is short-range and terrestrial.</p>
+
+  <figure>
+    <img src="assets/images/projects/ground-station/gs_fig2_webdash.jpg" alt="Enhanced web-based ground station dashboard showing live camera feed, four-byte uplink command console, ISS ground track, Az/El sky-track, and full sensor telemetry including air-quality readout.">
+    <figcaption>Fig. 2 &mdash; Web-based prototype dashboard after enhancement. Live camera pane, uplink command console, ISS ground track + Az/El sky plot, full sensor telemetry, air-quality readout.</figcaption>
+  </figure>
+
+  <h2><span class="num">04</span>Software 2 &mdash; Visual Studio mission control (C#)</h2>
+
+  <p>The second stack is the operational rung &mdash; running on the real station hardware (IC-910H radio + TNC) against a real CW/FM downlink path. This is the piece I am most proud of, and the framing matters.</p>
+
+  <p>I started from a basic ISU-SAT1 application provided by the workshop professor &mdash; a single-form WinForms project (C#, .NET Framework 4.7.2) that could connect to the TNC, send 11-byte command frames, and receive a downlink terminal. The original was operational but spartan: one window, no tracking, no command library, no health view, no procedure support. The design rule I set for myself was strict: <strong>do not change anything that talks to the radio.</strong> Every method touching the serial ports, the CI-V interface, KISS framing, or AX.25 conversion was preserved byte-for-byte from the original, including the exact control names the method bodies depend on. The header in the source still reads &ldquo;HARDWARE &mdash; VERBATIM FROM Form1.cs&rdquo; over the copied code. The original entry point is kept as a single commented fallback line in <code>Program.cs</code>: if anything ever misbehaves at the station, switching two lines reverts to the precise software that was flying before.</p>
+
+  <p>Above that preserved layer, I designed a tabbed mission-control front end around a single product question: <em>what would a customer of a Ground Station as a Service actually need to see and do during a pass?</em> The answer became five tabs and a persistent header:</p>
+
+  <ul>
+    <li><strong>Communication</strong> &mdash; the original operations window, restyled. Connect TNC + radio, select CW/FM, compose and transmit the 11-byte command, watch the downlink terminal. Behaviour on the wire is byte-identical to the original.</li>
+    <li><strong>Tracking</strong> &mdash; live ground track on an embedded world map, polar sky plot, Doppler curve, next-pass and 24-hour pass table, downlink link budget, NOAA SWPC space-weather snapshot. TLEs editable inline or fetched by CATNR from Celestrak, with graceful offline degradation.</li>
+    <li><strong>Command Library</strong> &mdash; full command dictionary with subsystem filter and search; a composer that builds the exact 11-byte frame and loads it into the Communication tab; a live command register stamped with timestamp, direction, operator, and bytes.</li>
+    <li><strong>Satellite Health</strong> &mdash; subsystem status grid plus the 81-byte HK decoder (with verified battery-voltage calibration) and the CW beacon decoder (Type-1 power, Type-2 ADCS).</li>
+    <li><strong>Payload</strong> &mdash; one card per payload (MCAM, IMGCLS, S&amp;F, APRS, DLP, PINO) with quick-command buttons that route through the composer back into the Communication tab.</li>
+  </ul>
+
+  <p>A persistent header across all tabs carries operator sign-in, the link state light, UTC and local clocks, a downlink signal indicator, and the next-AOS countdown &mdash; the four things an operator needs glanceable at any moment during a pass window. A Digital Twin and a Procedure Checklist round out the operations envelope so a session has a defined path from setup through close-out.</p>
+
+  <p>The point of this design exercise was not novelty. It was to demonstrate that the engineering discipline of <em>preserve what works</em> and the product discipline of <em>design around the operator's actual job</em> are not in tension &mdash; they live in different layers of the application, and a clean separation between them lets each be done well.</p>
+
+  <figure>
+    <img src="assets/images/projects/ground-station/gs_fig3_missioncontrol.jpg" alt="C# mission control with five tabs (Communication, Tracking, Command Library, Satellite Health, Payload) and a persistent header showing operator sign-in, link state, UTC and local time, downlink signal indicator, and next-AOS countdown.">
+    <figcaption>Fig. 3 &mdash; C# mission-control front end built on the preserved hardware comms layer. Five tabs plus a persistent operations header. The Tracking, Command Library, Satellite Health, and Payload tabs were added on top of the original Communication window without changing one line of the hardware-talking code.</figcaption>
+  </figure>
+
+  <h2><span class="num">05</span>Software 3 &mdash; SDR + GNU Radio (and the AO-73 live pass)</h2>
+
+  <p>The third stack is the software-defined rung. Instead of using the IC-910H and the TNC as the receive chain, RF goes through an RTL-SDR dongle directly into a GNU Radio flowgraph that does demodulation, framing, and decoding in software. Same antenna, same downconversion, but everything from the IF down is replaced by signal-processing blocks.</p>
+
+  <p>Two pipelines were built. The first decodes BPSK at the rates used by AO-73's telemetry mode; the second decodes AFSK at packet-radio rates for satellites that beacon over AX.25. Both flowgraphs were assembled in the GNU Radio Companion against recorded passes before being committed to live use.</p>
+
+  <figure>
+    <img src="assets/images/projects/ground-station/gs_fig4_gnuradio.jpg" alt="GNU Radio Companion flowgraph for AO-73 BPSK decoding, showing RTL-SDR source, frequency translation, demodulation, clock recovery, and decoder blocks.">
+    <figcaption>Fig. 4 &mdash; GNU Radio Companion flowgraph for AO-73 BPSK decoding. RTL-SDR source on the left, demodulation and clock recovery in the middle, framed telemetry on the right. The AFSK variant follows the same skeleton with the modulation blocks swapped.</figcaption>
+  </figure>
+
+  <h3>Live AO-73 pass</h3>
+  <p>The closing demonstration of the workshop was a live AO-73 (FUNcube-1) pass, decoded end-to-end with the SDR pipeline on the real station hardware. AO-73 was chosen because its FUNcube telemetry format is well documented, its orbit gives reliable European passes, and it broadcasts continuously when illuminated &mdash; meaning the pass quality is bounded by the station, not the spacecraft. Mission control on one screen, decoded output streaming on the other, and the bytes coming out of the GNU Radio flowgraph aligned with the published FUNcube frame structure. That alignment is what closes the abstraction ladder: the hardware does what the block diagram says it does, the SDR does what the link budget says it should, and the bits at the end mean what the spacecraft says they mean.</p>
+
+  <figure>
+    <img src="assets/images/projects/ground-station/gs_fig5_ao73.jpg" alt="Live AO-73 pass showing mission control on the left with tracking and pass timeline, and decoded FUNcube telemetry frames streaming on the right.">
+    <figcaption>Fig. 5 &mdash; Live AO-73 pass. Mission control on the left, decoded FUNcube telemetry on the right. The closing demonstration of the workshop.</figcaption>
+  </figure>
+
+  <h2><span class="num">06</span>Business takeaway &mdash; Ground Station as a Service</h2>
+
+  <p>The workshop's commercial frame was Ground Station as a Service. Ground stations span two to three orders of magnitude in cost &mdash; from roughly $50K for a hobby-grade UHF/VHF setup to several million dollars for a large dish with full polarisation diversity, full automation, and certified availability. Most space-sector customers do not need to own one. They need scheduled access, calibrated equipment, qualified operators, and a tolerable failure rate.</p>
+
+  <p>The most interesting strategic lever in this market is not the individual station &mdash; it is the network. A federation of geographically distributed stations can predict and route around pass failure, hand off long passes between sites, and offer aggregate availability that no single station can match. The C# mission control was designed with this in mind: operator sign-in, link-state telemetry, command register, and Digital Twin are all features a station-as-a-service operator would surface to a customer, not features a single graduate student needs for one pass.</p>
+
+  <h2><span class="num">07</span>What I contributed</h2>
+
+  <p>The professor's rule for this workshop was that each student produced their own technical results independently, with groups of four consolidating only for the final presentation. I completed all nine hardware tasks on the real station &mdash; system identification, configuration, SWR measurement, link budget, FITSAT-1 CW decoding, plus the five hardening additions to the operational procedures. I enhanced both software stacks from baselines provided by the workshop professor, preserving the hardware comms layer in each case while extensively rebuilding the application layer above it. The C# mission control is the piece I am most proud of: I designed it around a Ground Station as a Service product brief and built out Tracking, Command Library, Digital Twin, Satellite Health, Payload, and Procedure Checklist on top of a Communication tab whose hardware-talking code is byte-for-byte the original. The third workflow &mdash; GNU Radio BPSK and AFSK pipelines on RTL-SDR &mdash; was the climax: I used it to decode a live AO-73 telemetry pass. For the workshop's joint presentation I was one of the presenters.</p>
+
+  <h2><span class="num">08</span>Why this is on a space-engineering portfolio</h2>
+
+  <p>Ground stations are the part of the space segment most people do not think about until a satellite goes silent. They are also where the engineering discipline of <em>do not break the link</em> meets the product discipline of <em>make the operator's job legible</em>. Two weeks on a real station &mdash; building, measuring, hardening, re-implementing three ways, and closing on a live pass &mdash; is the most compact way to internalise both at once. The instincts transfer directly to agency and prime ground-segment work: ICD discipline, calibration and verification before claim, preservation of qualified comms code under modernisation pressure, and design of operator interfaces around the actual cadence of a pass. The same instincts apply at scale.</p>
+
+  <div class="proj-foot">
+    <a href="index.html#projects">&larr; All projects</a>
+    <a href="project-titan.html">Next: Titan &rarr;</a>
+  </div>
+
+</article>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <span>&copy; 2026 L. Chris Euranie &middot; All rights reserved</span>
+    <span>Portfolio &middot; rev. 2026.06</span>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

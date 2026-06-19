@@ -12,10 +12,12 @@ about.html                          About / story / education
 publications.html                   Publications list
 404.html                            Error page
 
+project-ground-station.html        Featured: ISU Ground Station — hardware + 3 software stacks + AO-73 live pass
 project-titan.html                  Featured: TitanMBSE + Titan Swarm (combined)
 project-rwanda-eo.html              Featured: Rwanda EO/AI app
-project-terroir.html                Featured: Terroir Prediction Engine
+project-terroir.html                Terroir Prediction Engine
 project-eyesat-cubesat.html         Eyesat-1 CubeSat
+project-drone-photogrammetry.html   Drone photogrammetry (ISU car park)
 project-deep-space-comms.html       Deep Space Communication / IAC 2026
 project-space-defense.html          European Space Defense Administration
 project-orbital-mission-design.html Orbital mission design / STK

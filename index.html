@@ -64,6 +64,22 @@
   </div>
   <div class="tiles tiles--featured">
 
+    <a class="tile tile--featured" href="project-ground-station.html">
+      <div class="tile-thumb">
+        <img src="assets/images/home/home_ground-station.jpg" alt="Annotated photograph of the ISU ground station hardware showing rooftop antennas and control-room equipment.">
+      </div>
+      <div class="tile-body">
+        <p class="tile-meta">May–Jun 2026 · Ground Station · RF · Software</p>
+        <h3>Ground Station &mdash; Hardware + Three Software Stacks</h3>
+        <p>Two-week ISU Advanced Studies workshop: nine hardware tasks on the real station, three software re-implementations at escalating levels of abstraction (Flask + ESP32 prototype, C# mission control, GNU Radio SDR), capped by a live AO-73 telemetry pass.</p>
+        <div class="tile-tags">
+          <span class="tag tag--accent">RF / Comms</span>
+          <span class="tag">SDR</span>
+          <span class="tag tag--live">Live pass</span>
+        </div>
+      </div>
+    </a>
+
     <a class="tile tile--featured" href="project-titan.html">
       <div class="tile-thumb">
         <img src="assets/images/home/home_titan.png" alt="TitanMBSE overview screenshot">
@@ -96,22 +112,6 @@
       </div>
     </a>
 
-    <a class="tile tile--featured" href="project-terroir.html">
-      <div class="tile-thumb">
-        <img src="assets/images/home/home_terroir.png" alt="Terroir Prediction Engine climate-analogue map output">
-      </div>
-      <div class="tile-body">
-        <p class="tile-meta">2026 · Earth Observation · Climate</p>
-        <h3>Terroir Prediction Engine</h3>
-        <p>Live GEE app finding the 2050 climate analogues of fourteen iconic wine vintages. Hybrid ERA5-Land / TerraClimate / MODIS / Sentinel-2 stack, with PCA + k-means clustering and SVR downscaling.</p>
-        <div class="tile-tags">
-          <span class="tag tag--accent">AI/EO</span>
-          <span class="tag">Climate</span>
-          <span class="tag tag--live">Live app</span>
-        </div>
-      </div>
-    </a>
-
   </div>
 </section>
 
@@ -122,6 +122,21 @@
     <h2>All work</h2>
   </div>
   <div class="tiles">
+
+    <article class="tile tile--compact">
+      <a class="tile-thumb" href="project-terroir.html" aria-label="Terroir Prediction Engine">
+        <img src="assets/images/home/home_terroir.png" alt="Terroir Prediction Engine climate-analogue map output">
+      </a>
+      <div class="tile-body">
+        <p class="tile-meta">2026 · Earth Observation · Climate</p>
+        <h3><a href="project-terroir.html">Terroir Prediction Engine</a></h3>
+        <div class="tile-tags"><span class="tag tag--accent">AI/EO</span><span class="tag">Climate</span><span class="tag tag--live">Live app</span></div>
+        <details class="tile-details">
+          <summary>Details</summary>
+          <p>Live GEE app finding the 2050 climate analogues of fourteen iconic wine vintages. Hybrid ERA5-Land / TerraClimate / MODIS / Sentinel-2 stack, with PCA + k-means clustering and SVR downscaling.</p>
+        </details>
+      </div>
+    </article>
 
     <article class="tile tile--compact">
       <a class="tile-thumb" href="project-eyesat-cubesat.html" aria-label="Eyesat-1 — 1U CubeSat">
