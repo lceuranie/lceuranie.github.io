@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aletheia &mdash; Multi-source Decision Intelligence &middot; L. Chris Euranie</title>
+  <meta name="description" content="Aletheia: multi-source Earth Observation fused with an agentic LLM reasoning layer, reconciling what heavy industry discloses against what satellites, sensors and drones observe. Co-founding team of three; French SAS in incorporation; live prototype deployed.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="index.html"><span class="brand-dot"></span>L. Chris Euranie</a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+    <nav class="nav" id="primary-nav" aria-label="Primary">
+      <a href="about.html">About</a>
+      <a href="index.html#projects" aria-current="page">Projects</a>
+      <a href="publications.html">Publications</a>
+      <a href="cv.html">CV</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="page-head">
+  <div class="wrap">
+    <p class="kicker">Project &middot; Co-founder &middot; EO + AI &middot; Compliance intelligence</p>
+    <h1>What was reported versus what was observed.</h1>
+    <p class="lead">Aletheia is a multi-source decision-intelligence platform that fuses satellite, drone, sensor, IoT and vessel data with an agentic LLM reasoning layer &mdash; so heavy industry operators can be verified against what they disclose. First vertical: oil and gas. Started as a two-week ISU Advanced Studies workshop in June 2026; now a three-person co-founding company being incorporated as a French SAS, with a live prototype deployed and a first design partner in initial engagement.</p>
+
+    <dl class="proj-meta">
+      <dt>Date</dt><dd>June 2026 &rarr; present</dd>
+      <dt>Format</dt><dd>ISU Advanced Studies workshop &rarr; French SAS in incorporation</dd>
+      <dt>Role</dt><dd>Co-founder &mdash; scientific methodology and agent reasoning layer</dd>
+      <dt>Team</dt><dd>Ludivine Euranie &middot; David Guevara Razo &middot; Vinay Lakshman</dd>
+      <dt>Focus vertical</dt><dd>Oil &amp; gas &mdash; extensible to mining, steel &amp; cement, shipping, aviation</dd>
+      <dt>Data sources</dt><dd>Sentinel-2 MSI &middot; Sentinel-1 SAR (C-band, VV) &middot; TROPOMI (CH<sub>4</sub>, NO<sub>2</sub>, CO) &middot; VIIRS Nightfire &middot; ERA5 reanalysis &middot; Climate TRACE &middot; World Bank GGFR &middot; operator disclosures &middot; OGMP 2.0 filings</dd>
+      <dt>Tech stack</dt><dd>Google Earth Engine API &middot; Copernicus Climate Data Store &middot; Leaflet &middot; Google Gemini API &middot; agentic tool-interface layer</dd>
+      <dt>Status</dt><dd>Live prototype deployed &middot; French SAS in incorporation &middot; first design partner in initial engagement &middot; pursuing non-dilutive funding (government programmes, space agencies) and Paris incubator placement</dd>
+    </dl>
+
+    <div class="cta-row">
+      <a class="btn" href="https://mss26-satdat-pirru.web.app/" target="_blank" rel="noopener">Open the live prototype</a>
+    </div>
+  </div>
+</section>
+
+<article class="article wrap">
+
+  <h2><span class="num">01</span>Why this project</h2>
+  <p>Two trends have converged over the 2020&ndash;2026 period. On the regulatory side, the Global Methane Pledge (COP26, 2021), the EU Corporate Sustainability Reporting Directive (in force 2024), the US SEC climate-disclosure rule (2024), the EU Methane Regulation, and the Science Based Targets initiative have collectively raised heavy-industry environmental disclosure expectations to unprecedented granularity. On the observation side, satellite instruments for the same signals have matured to operational quality: TROPOMI for atmospheric methane (2017), EMIT for hyperspectral plume detection (2022), MethaneSAT for facility-scale methane (2024), and a Sentinel-1 SAR record now exceeding ten years of C-band operations.</p>
+
+  <p>The two trends together create a structural gap: operators must disclose at facility-year granularity, but independent verification capability using satellite-derived evidence has only recently become possible at scale. Aletheia is built to close that gap &mdash; as a trusted layer between what heavy industry reports and what satellites, sensors and drones actually observe.</p>
+
+  <p>Oil and gas is the right first vertical for three converging reasons. It produces uniquely rich multi-sensor signatures (combustion via flaring, atmospheric methane, refinery NO<sub>2</sub>, marine slicks). It faces the most acute regulatory clock &mdash; methane is the second-largest contributor to anthropogenic warming, and oil and gas is its largest controllable source. And it publishes the most detailed facility-level disclosures of any heavy industry, giving us a well-populated "reported" side of the comparison.</p>
+
+  <h2><span class="num">02</span>What Aletheia does &mdash; three verticals, one engine</h2>
+  <p>Aletheia is structured as a single fusion engine feeding three verticals that share architecture but present different dashboards, alerts, projected-vs-actual variance views, and disclosure-ready reports.</p>
+
+  <figure>
+    <img src="assets/images/projects/aletheia/aletheia_fig1_engine.jpg" alt="Aletheia system diagram showing inputs (satellite, drone, ground sensors, machine/IoT, vessel/AIS) feeding a three-level engine (fusion, connectors, analysis/decision) that outputs to a dashboard, alerts, projected-vs-actual variance, and auto-generated reports.">
+    <figcaption>Fig. 1 &mdash; The Aletheia engine. Any source plugs in via a Level-2 layer of AI-written connectors; the Level-1 fusion engine learns to trust each source per its physics and reliability profile; the Level-3 analysis-and-decision layer detects, predicts and recommends. Human-in-the-loop throughout; tasking and cueing schedule the next look (drone, sensor, next satellite pass) as observation only.</figcaption>
+  </figure>
+
+  <p><strong>Asset Security</strong> covers intrusion and encroachment detection, pipeline right-of-way monitoring, and infrastructure integrity. <strong>Operations Efficiency</strong> covers flaring tracking, combustion-efficiency inference, and idle-asset monitoring. <strong>Sustainability</strong> covers methane self-audit, emissions for regulatory disclosure, and auditable evidence packs that survive regulator or investor challenge.</p>
+
+  <figure>
+    <img src="assets/images/projects/aletheia/aletheia_fig2_verticals.jpg" alt="Three cards for the three Aletheia verticals: Asset Security (intrusion, right-of-way, infrastructure integrity), Operations Efficiency (flaring tracking, combustion efficiency, idle asset monitoring), and Sustainability (methane self-audit, emissions for disclosure, auditable evidence pack).">
+    <figcaption>Fig. 2 &mdash; Three verticals, one engine. The same fusion architecture serves three different teams inside a heavy-industry operator: the security team, the operations team, and the ESG / sustainability team.</figcaption>
+  </figure>
+
+  <h2><span class="num">03</span>The scientific methodology &mdash; from physical signal to compliance verdict</h2>
+  <p>The methodology I built for the sustainability vertical &mdash; also the reasoning backbone that supplies the other two &mdash; is a three-layer stack: reported-baseline ingestion, multi-sensor observation ingestion, and discrepancy computation with propagated uncertainty and confidence categorisation.</p>
+
+  <h3>Reported-baseline layer</h3>
+  <p>Company sustainability reports (PDF parsing), regulatory filings, Climate TRACE bulk data, and World Bank GGFR annual flaring statistics are ingested into a per-facility annual record: facility ID, operator, coordinates, asset type (upstream, refinery, FLNG, etc.), reported flaring volume in BCM/year, reported methane intensity or absolute emissions in tonnes/year, reported throughput or production, declared operational status, and OGMP 2.0 reporting level if disclosed. This becomes the "reported" side of every discrepancy calculation.</p>
+
+  <h3>Observation layer &mdash; six sensor streams, physics-anchored processing</h3>
+  <p>Each stream has its own processing chain, calibrated to its underlying physics rather than to a generic detector:</p>
+
+  <ul>
+    <li><strong>TROPOMI methane (Sentinel-5P, product S5P_L2__CH4____).</strong> Daily ingestion of Level-2 XCH<sub>4</sub>, quality-filtered on qa_value &ge; 0.5, with surface-albedo (NIR albedo &lt; 0.05 discarded) and cloud (fraction &lt; 0.3) filters. Rolling regional background (10&ndash;30 day median outside plumes), enhancement field &Delta;XCH<sub>4</sub> = observed &minus; background. Plume detection follows the CNN methodology of Schuit et al. (2023) and Maasakkers et al. Quantification via the Integrated Mass Enhancement method (Frankenberg et al. 2016; Varon et al. 2018): <em>Q</em> = <em>U</em> &times; IME / <em>L</em>, using ERA5 10 m wind at the plume location. Cross-Sectional Flux is the alternative for transit-style plumes. Annualisation includes detection-probability correction for cloudy-day loss.</li>
+    <li><strong>VIIRS Nightfire (flaring).</strong> Daily ingestion of VNF detection points, filtered on source temperature between 1200 K and 2500 K to isolate flares (typical 1500&ndash;1800 K) from biomass fires (~800 K) and lower-temperature industrial combustion. Spatial attribution via 250&ndash;500 m buffer around facility centroids from the reported-baseline layer. Volume estimation via the Elvidge correlation calibrated against GGFR regional coefficients. Uncertainty typically &plusmn;20&ndash;30% per facility-year from the peer-reviewed Nightfire validation literature.</li>
+    <li><strong>TROPOMI NO<sub>2</sub> (independent activity indicator).</strong> Facility-scale enhancement over a 10 km-radius background, quality-filtered on qa_value &gt; 0.75. Aggregated to weekly or monthly composites to reduce single-scene noise. Sustained NO<sub>2</sub> above baseline at facilities reporting reduced activity is flagged.</li>
+    <li><strong>TROPOMI CO (secondary activity cross-check).</strong> The CO/NO<sub>2</sub> ratio distinguishes combustion regimes &mdash; lean (high-temperature, typical refinery) versus rich (incomplete, upset condition).</li>
+    <li><strong>Sentinel-1 SAR C-band VV (oil slicks).</strong> Thermal-noise removal &rarr; radiometric calibration to &sigma;&#8304; &rarr; Refined-Lee speckle filter &rarr; Range-Doppler terrain correction &rarr; land mask. Wind-gated detection: ERA5-derived wind must be in the 2&ndash;12 m/s band (below, false positives from natural glassy patches; above, slicks disperse). Adaptive &sigma;&#8304; threshold for the MVP; CNN segmentation (trained on the Krestenitis et al. 2019 dataset) is the target for higher-fidelity detection.</li>
+    <li><strong>ERA5 reanalysis (ancillary).</strong> 10 m wind for methane plume quantification and SAR wind-gating.</li>
+  </ul>
+
+  <h3>Discrepancy layer &mdash; from observation to verdict</h3>
+  <p>For each facility &times; indicator &times; year, the discrepancy is <em>D<sub>i</sub></em> = (observed<sub><em>i</em></sub> &minus; reported<sub><em>i</em></sub>) / reported<sub><em>i</em></sub> &times; 100%, with a propagated uncertainty <em>&sigma;<sub>i</sub></em> combining sensor measurement uncertainty, attribution uncertainty in multi-source areas, temporal sampling effects, and reported-side disclosure granularity. Confidence categorisation is three-tier: high (|<em>D</em>| &gt; 3&sigma;), medium (&sigma; &lt; |<em>D</em>| &lt; 3&sigma;), low (|<em>D</em>| &lt; &sigma;). Per-facility aggregate is a weighted summary across indicators, with weights tuned to asset type &mdash; flaring weight high for upstream gas facilities, NO<sub>2</sub> weight high for refineries.</p>
+
+  <h3>Cross-indicator interpretation</h3>
+  <p>The flare &times; methane interpretation matrix reads directly from the physics: a lit flare with low methane means the site is operational and combusting efficiently; a lit flare with high methane means operational but combusting poorly; no flare and high methane means venting, leak, or unlit flare; no flare and no methane means the site appears genuinely inactive. NO<sub>2</sub> and CO cross-reconcile: NO<sub>2</sub> elevated with CO elevated confirms broad activity; NO<sub>2</sub> elevated with CO normal indicates lean high-temperature combustion typical of a well-tuned refinery; NO<sub>2</sub> normal with CO elevated flags incomplete combustion or upset. A SAR slick without an operator incident report is a candidate undisclosed release. All atmospheric indicators normal at a facility reporting high activity flags candidate over-reporting.</p>
+
+  <div class="stat-row">
+    <div class="stat"><span class="num">3</span><span class="lbl">Verticals</span></div>
+    <div class="stat"><span class="num">6</span><span class="lbl">Fused sensor streams</span></div>
+    <div class="stat"><span class="num">3&sigma;</span><span class="lbl">High-confidence tier</span></div>
+  </div>
+
+  <h2><span class="num">04</span>The agentic reasoning layer</h2>
+  <p>The user-facing interface is not a dashboard filter. It is a large-language-model agent (Google Gemini API) that sits between natural-language operator queries and the discrepancy records. The agent is system-prompt-anchored as a <em>compliance verification analyst</em> &mdash; familiar with oil-and-gas operations, OGMP 2.0 reporting levels, the GGFR methodology and its uncertainty regime, and the specific limitations of each satellite instrument in the observation layer. It is explicitly instructed to surface measurement uncertainty in every response and never to assert a discrepancy without supporting evidence.</p>
+
+  <p>The agent exposes four function-call tools onto the underlying data:</p>
+  <ul>
+    <li><code>lookup_facility(name)</code> &mdash; returns AOI bounding box, operator, and most-recent reported metrics.</li>
+    <li><code>fetch_indicator(facility, indicator, year)</code> &mdash; returns observed values with uncertainty and supporting scene metadata.</li>
+    <li><code>compute_discrepancy(facility, indicator, year)</code> &mdash; returns the gap analysis with confidence categorisation.</li>
+    <li><code>get_evidence(facility, indicator, date_range)</code> &mdash; returns supporting scene IDs, plume polygons, or detection points to back the verdict.</li>
+  </ul>
+
+  <p>A typical query flow &mdash; <em>"is the reported activity at [facility] consistent with satellite observation in 2024?"</em> &mdash; parses to a facility and year, calls <code>lookup_facility</code>, then <code>compute_discrepancy</code> for the relevant indicators (flaring and methane for an upstream site), then <code>get_evidence</code> for any flagged discrepancy, and composes a structured response with verdict, evidence summary, confidence category, and explicit caveats: cloud-cover reduction of TROPOMI coverage, VIIRS blindness to daytime-only flaring, wind-window exclusion of SAR scenes, and the propagated uncertainty in the final number.</p>
+
+  <p>The full reasoning trace &mdash; parsed query, tool calls, retrieved data, intermediate inferences &mdash; is logged for analyst inspection. This is not a nicety. In compliance contexts, the verdict may be challenged by the operator, the regulator, or a third-party auditor; the challenge is only defensible if the reasoning is reconstructible.</p>
+
+  <h2><span class="num">05</span>The live prototype</h2>
+  <p>A live prototype is deployed and operational on a Firebase-hosted URL (link at the top of this page). It runs a Leaflet basemap over a Sentinel-2 cloud-free composite, ingests the reported-baseline and observation-layer feeds described above, executes the discrepancy computation, and surfaces flagged facilities through the dashboard.</p>
+
+  <p>The first working demonstration &mdash; used at the workshop submission &mdash; runs Sentinel-2 time-series change detection over a real North American upstream site at 38 m/pixel scale, computing annual disturbed footprint from 2019 through 2025. The footprint ranged from 0.89 km<sup>2</sup> at its 2021 minimum to 1.30 km<sup>2</sup> at its 2023 maximum, a signal that now feeds the change-detection module of the Asset Security vertical and cross-references against the reported operational-status field of the baseline layer. The specific operator, coordinates, and site name are not published here because the operator has not been formally notified of public reference; the methodology and the result shape are what matter.</p>
+
+  <figure>
+    <img src="assets/images/projects/aletheia/aletheia_fig3_prototype.jpg" alt="Screenshot of the live Aletheia prototype: Leaflet basemap over Sentinel-2 composite, with facility markers, multi-sensor overlays, and a query panel connected to the agentic layer.">
+    <figcaption>Fig. 3 &mdash; Live prototype dashboard. Leaflet basemap on a Sentinel-2 composite; facility markers driven by the reported-baseline layer; multi-sensor overlays for TROPOMI methane enhancement, VIIRS Nightfire detections, and Sentinel-1 SAR change; agent panel accepting natural-language queries.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="assets/images/projects/aletheia/aletheia_fig4_footprint.jpg" alt="Annual disturbed-footprint chart 2019 to 2025 for the demonstration upstream site, showing footprint ranging from 0.89 km-squared minimum in 2021 to 1.30 km-squared maximum in 2023.">
+    <figcaption>Fig. 4 &mdash; Annual disturbed footprint 2019&ndash;2025 for the demonstration upstream site, from Sentinel-2 time-series change detection at 38 m/pixel. Minimum 0.89 km<sup>2</sup> (2021); maximum 1.30 km<sup>2</sup> (2023). Signal feeds the Asset Security change-detection module.</figcaption>
+  </figure>
+
+  <h2><span class="num">06</span>What I contributed</h2>
+  <p>Aletheia started as a two-week ISU Advanced Studies workshop in June 2026. It has since become a founding-stage company: French SAS in incorporation, three co-founders on equal terms, a live prototype platform, a first design partner in initial engagement, and non-dilutive funding under active pursuit through government programmes and space agencies alongside a Paris incubator placement.</p>
+
+  <p>Within the three-way founding split, I own the scientific methodology and the agent reasoning layer end-to-end. Specifically: the compliance-gap thesis and the choice of oil and gas as first vertical; the multi-sensor observation architecture &mdash; which streams, at what quality thresholds, with what physics-anchored processing chains; the flare &times; methane interpretation matrix and the wider cross-indicator reconciliation logic; the discrepancy computation framework with propagated uncertainty and three-tier confidence categorisation; and the full design of the LLM agentic layer &mdash; system-prompt anchoring, tool-interface specification, structured response format, and audit-logging requirements for verdicts that must survive a compliance challenge.</p>
+
+  <p>David Guevara Razo owns the software architecture and API-level data acquisition, including a multispectral deepfake-detection Vision Transformer that gates chip authenticity before any input reaches the agentic layer. Vinay Lakshman owns finance, strategy, and business development, including the design-partner engagement and the non-dilutive funding pursuit.</p>
+
+  <h2><span class="num">07</span>Where we are today</h2>
+  <ul>
+    <li><strong>Co-founding team of three</strong> established (May 2026), on equal terms, with roles mapped to build (David), delivery (Ludivine), and commercial (Vinay).</li>
+    <li><strong>French SAS</strong> in incorporation.</li>
+    <li><strong>Live prototype platform</strong> deployed and operational.</li>
+    <li><strong>First design partner</strong> in initial engagement &mdash; a major Indian chemical manufacturer whose chain will host the first live proof.</li>
+    <li><strong>Non-dilutive funding pursuit</strong> across French and European government programmes, national and international space agencies, and a Paris incubator placement.</li>
+    <li><strong>Pre-seed conversations</strong> opening, sequenced after the non-dilutive stack and the design-partner proof.</li>
+  </ul>
+
+  <h2><span class="num">08</span>Why this is on a space-engineering portfolio</h2>
+  <p>Aletheia sits at the intersection of three things: space-based sensing read at the physics level, agentic reasoning designed at the architecture level, and heavy-industry compliance chosen as a first vertical for defensible commercial reasons. The methodology is deliberately industry-agnostic: mining (open-pit expansion, tailings, dust, water draw), steel and cement (thermal signatures, dust, plant expansion), shipping (port activity, vessel emissions, sanctions-circumvention detection via SAR-plus-AIS reconciliation), and aviation (airport activity) all have satellite-observable signatures, compliance pressure, and public disclosures. Each new vertical is a detection module plugged into the same gap-detection and agentic layers.</p>
+
+  <p>The same instincts scale to any operator, agency, or downstream user who needs to reconcile what was reported against what was observed.</p>
+
+  <div class="proj-foot">
+    <a href="index.html#projects">&larr; All projects</a>
+    <a href="project-ground-station.html">Next: Ground Station &rarr;</a>
+  </div>
+
+</article>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-grid">
+    <span>&copy; 2026 L. Chris Euranie &middot; All rights reserved</span>
+    <span>Portfolio &middot; rev. 2026.07</span>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
