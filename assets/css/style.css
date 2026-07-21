@@ -635,6 +635,11 @@ button { font: inherit; cursor: pointer; }
   color: var(--ink);
 }
 
+/* Spacing for CTA row when it follows the meta block on project pages */
+.page-head .cta-row {
+  margin-top: 1.5rem;
+}
+
 /* Back-to-projects link at bottom of project pages */
 .proj-foot {
   margin-top: 3rem;
